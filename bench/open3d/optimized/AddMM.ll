@@ -18070,7 +18070,7 @@ define linkonce_odr void @_ZN3fmt3v106detail13format_dragonENS1_8basic_fpIoEEjiR
 
 47:                                               ; preds = %45
   %48 = icmp samesign ugt i64 %.0.i.i, 4611686018427387902
-  br i1 %48, label %.invoke800, label %.invoke
+  br i1 %48, label %.invoke794, label %.invoke
 
 _ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i:   ; preds = %43, %45
   %.026.i = phi i64 [ %39, %45 ], [ 48, %43 ]
@@ -18153,7 +18153,7 @@ _ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i:   ; preds = %43, %45
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %.invoke800, %.invoke, %_ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i656, %_ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i, %51, %63, %74, %77, %79, %84, %.loopexit471, %_ZN3fmt3v106detail6bigintmLIoEERS2_T_.exit, %162, %182, %185, %187, %58, %69, %_ZN3fmt3v1019basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit.thread.i, %_ZN3fmt3v1019basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit.thread.i148, %157, %193, %202
+.loopexit.split-lp:                               ; preds = %.invoke794, %.invoke, %_ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i655, %_ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i, %51, %63, %74, %77, %79, %84, %.loopexit471, %_ZN3fmt3v106detail6bigintmLIoEERS2_T_.exit, %162, %182, %185, %187, %58, %69, %_ZN3fmt3v1019basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit.thread.i, %_ZN3fmt3v1019basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit.thread.i148, %157, %193, %202
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -18417,21 +18417,21 @@ _ZN3fmt3v106detail6bigintmLIoEERS2_T_.exit:       ; preds = %_ZN3fmt3v106detail6
 
 174:                                              ; preds = %173
   %175 = icmp samesign ugt i64 %.0.i.i173, 47
-  br i1 %175, label %176, label %_ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i656
+  br i1 %175, label %176, label %_ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i655
 
 176:                                              ; preds = %174
   %177 = icmp samesign ugt i64 %.0.i.i173, 2305843009213693950
-  br i1 %177, label %178, label %_ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i656, !prof !84
+  br i1 %177, label %178, label %_ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i655, !prof !84
 
 178:                                              ; preds = %176
   %179 = icmp samesign ugt i64 %.0.i.i173, 4611686018427387902
-  br i1 %179, label %.invoke800, label %.invoke
+  br i1 %179, label %.invoke794, label %.invoke
 
-.invoke800:                                       ; preds = %47, %178
+.invoke794:                                       ; preds = %47, %178
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #30
           to label %.cont801 unwind label %.loopexit.split-lp
 
-.cont801:                                         ; preds = %.invoke800
+.cont795:                                         ; preds = %.invoke794
   unreachable
 
 .invoke:                                          ; preds = %47, %178
@@ -18441,19 +18441,19 @@ _ZN3fmt3v106detail6bigintmLIoEERS2_T_.exit:       ; preds = %_ZN3fmt3v106detail6
 .cont:                                            ; preds = %.invoke
   unreachable
 
-_ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i656: ; preds = %174, %176
-  %.026.i657 = phi i64 [ %170, %176 ], [ 48, %174 ]
-  %180 = shl nuw nsw i64 %.026.i657, 2
+_ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i655: ; preds = %174, %176
+  %.026.i656 = phi i64 [ %170, %176 ], [ 48, %174 ]
+  %180 = shl nuw nsw i64 %.026.i656, 2
   %181 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %180) #33
           to label %.noexc178 unwind label %.loopexit.split-lp
 
-.noexc178:                                        ; preds = %_ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i656
+.noexc178:                                        ; preds = %_ZNSt15__new_allocatorIjE8allocateEmPKv.exit.i655
   store ptr %181, ptr %10, align 8, !tbaa !335
-  store i64 %.026.i657, ptr %11, align 8, !tbaa !337
+  store i64 %.026.i656, ptr %11, align 8, !tbaa !337
   br label %182
 
 182:                                              ; preds = %.noexc178, %173
-  %183 = phi i64 [ 32, %173 ], [ %.026.i657, %.noexc178 ]
+  %183 = phi i64 [ 32, %173 ], [ %.026.i656, %.noexc178 ]
   %..i.i.i.i177 = call i64 @llvm.umin.i64(i64 %170, i64 %183)
   store i64 %..i.i.i.i177, ptr %12, align 8, !tbaa !346
   store i32 0, ptr %14, align 8, !tbaa !338
@@ -19175,12 +19175,12 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   br i1 %or.cond, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i269, %508, %476, %456, %.thread592
-  %indvars.iv.next575589599604.sink = phi i64 [ %indvars.iv.next575586, %.thread592 ], [ %indvars.iv.next575, %456 ], [ %indvars.iv.next575589599604, %476 ], [ %indvars.iv.next575589599604, %508 ], [ %indvars.iv.next575589599604, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i269 ]
-  %.sink845 = phi i8 [ %457, %.thread592 ], [ %453, %456 ], [ %465, %476 ], [ %465, %508 ], [ %465, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i269 ]
+  %.sink649 = phi i64 [ %indvars.iv.next575586, %.thread592 ], [ %indvars.iv.next575, %456 ], [ %indvars.iv.next575589599604, %476 ], [ %indvars.iv.next575589599604, %508 ], [ %indvars.iv.next575589599604, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i269 ]
+  %indvars.iv.next575589598.ph = phi i8 [ %457, %.thread592 ], [ %453, %456 ], [ %465, %476 ], [ %465, %508 ], [ %465, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i269 ]
   %or.cond.not591595.ph = phi i1 [ false, %.thread592 ], [ %452, %456 ], [ false, %476 ], [ false, %508 ], [ false, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i269 ]
-  %gep932 = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv.next575589599604.sink
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv.next575589599604.sink
   %510 = add i8 %.sink845, 49
-  store i8 %510, ptr %gep932, align 1, !tbaa !13
+  store i8 %510, ptr %gep, align 1, !tbaa !13
   br label %.thread
 
 .thread:                                          ; preds = %502, %.thread.sink.split, %.thread601, %508, %464

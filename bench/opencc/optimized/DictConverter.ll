@@ -3589,8 +3589,8 @@ _ZNSt6vectorIS_IPN5TCLAP3ArgESaIS2_EESaIS4_EEC2ERKS6_.exit: ; preds = %.noexc60
   %127 = load ptr, ptr %2, align 8, !tbaa !22
   %128 = getelementptr i8, ptr %127, i64 -24
   %129 = load i64, ptr %128, align 8
-  %gep243 = getelementptr i8, ptr %invariant.gep, i64 %129
-  %130 = load ptr, ptr %gep243, align 8, !tbaa !54
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %129
+  %130 = load ptr, ptr %gep, align 8, !tbaa !54
   %.not.i.i.i138 = icmp eq ptr %130, null
   br i1 %.not.i.i.i138, label %.invoke, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -4072,8 +4072,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %_Z
   %290 = load ptr, ptr %2, align 8, !tbaa !22
   %291 = getelementptr i8, ptr %290, i64 -24
   %292 = load i64, ptr %291, align 8
-  %gep245 = getelementptr i8, ptr %invariant.gep244, i64 %292
-  %293 = load ptr, ptr %gep245, align 8, !tbaa !54
+  %gep230 = getelementptr i8, ptr %invariant.gep244, i64 %292
+  %293 = load ptr, ptr %gep230, align 8, !tbaa !54
   %.not.i.i.i166 = icmp eq ptr %293, null
   br i1 %.not.i.i.i166, label %294, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i167
 

@@ -216,8 +216,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63._crit_edge: ; pre
   %54 = load ptr, ptr %27, align 8, !tbaa !33
   %55 = getelementptr i8, ptr %54, i64 -24
   %56 = load i64, ptr %55, align 8
-  %gep182 = getelementptr i8, ptr %invariant.gep181, i64 %56
-  %57 = load i64, ptr %gep182, align 8, !tbaa !47
+  %gep166 = getelementptr i8, ptr %invariant.gep181, i64 %56
+  %57 = load i64, ptr %gep166, align 8, !tbaa !47
   %.not.i = icmp eq i64 %57, 0
   br i1 %.not.i, label %60, label %58
 
@@ -267,8 +267,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit70: ; preds = %72, %70
   %77 = load ptr, ptr %27, align 8, !tbaa !33
   %78 = getelementptr i8, ptr %77, i64 -24
   %79 = load i64, ptr %78, align 8
-  %gep180 = getelementptr i8, ptr %invariant.gep, i64 %79
-  %80 = load i64, ptr %gep180, align 8, !tbaa !47
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %79
+  %80 = load i64, ptr %gep, align 8, !tbaa !47
   %.not.i71 = icmp eq i64 %80, 0
   br i1 %.not.i71, label %83, label %81
 
@@ -555,11 +555,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83: ; preds = %_ZStl
   %173 = load ptr, ptr %27, align 8, !tbaa !33
   %174 = getelementptr i8, ptr %173, i64 -24
   %175 = load i64, ptr %174, align 8
-  %gep = getelementptr i8, ptr %invariant.gep183, i64 %175
-  %176 = load i32, ptr %gep, align 8, !tbaa !35
+  %gep171 = getelementptr i8, ptr %invariant.gep183, i64 %175
+  %176 = load i32, ptr %gep171, align 8, !tbaa !35
   %177 = and i32 %176, -75
   %178 = or disjoint i32 %177, 8
-  store i32 %178, ptr %gep, align 4, !tbaa !45
+  store i32 %178, ptr %gep171, align 4, !tbaa !45
   %179 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.22, i64 noundef 9)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit133 unwind label %212
 

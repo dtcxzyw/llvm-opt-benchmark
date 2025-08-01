@@ -47359,7 +47359,7 @@ define hidden void @"_ZN9lsp_types14signature_help1_93_$LT$impl$u20$serde..ser..
   %7 = icmp eq i64 %6, -9223372036854775808
   br i1 %7, label %17, label %8
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -47400,11 +47400,11 @@ define hidden void @"_ZN9lsp_types14signature_help1_93_$LT$impl$u20$serde..ser..
 
 21:                                               ; preds = %25, %20
   %.sroa.08.0.idx12.i = phi i64 [ 0, %20 ], [ %.sroa.08.0.add.i, %25 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.sroa.08.0.idx12.i
+  %.sroa.08.0.ptr.i = getelementptr i8, ptr %invariant.gep, i64 %.sroa.08.0.idx12.i
   call void @llvm.experimental.noalias.scope.decl(metadata !10439)
   call void @llvm.experimental.noalias.scope.decl(metadata !10442)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3), !noalias !10445
-  %22 = load i32, ptr %gep, align 4, !alias.scope !10447, !noalias !10452, !noundef !5
+  %22 = load i32, ptr %.sroa.08.0.ptr.i, align 4, !alias.scope !10447, !noalias !10452, !noundef !5
   %23 = zext i32 %22 to i64
   store i64 -9223372036854775806, ptr %3, align 8, !noalias !10459
   store i64 0, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !noalias !10459
@@ -47452,7 +47452,7 @@ define hidden void @"_ZN9lsp_types14signature_help1_93_$LT$impl$u20$serde..ser..
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !10438
   br label %36
 
-36:                                               ; preds = %"_ZN5serde3ser5impls74_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$u5b$T$u3b$$u20$2$u5d$$GT$9serialize17ha048c4df19f47d8aE.llvm.4410324582955345377.exit", %8
+36:                                               ; preds = %"_ZN5serde3ser5impls74_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$u5b$T$u3b$$u20$2$u5d$$GT$9serialize17ha048c4df19f47d8aE.llvm.4410324582955345377.exit", %9
   ret void
 }
 

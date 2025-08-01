@@ -1376,16 +1376,16 @@ _ZNK5boost6random24uniform_int_distributionIiEclINS0_23mersenne_twister_engineIj
   %40 = load ptr, ptr %6, align 8
   %41 = getelementptr i8, ptr %40, i64 -24
   %42 = load i64, ptr %41, align 8
-  %gep39 = getelementptr i8, ptr %invariant.gep, i64 %42
-  %43 = load i32, ptr %gep39, align 8
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %42
+  %43 = load i32, ptr %gep, align 8
   %44 = and i32 %43, -75
   %45 = or disjoint i32 %44, 8
-  store i32 %45, ptr %gep39, align 4
+  store i32 %45, ptr %gep, align 4
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr i8, ptr %46, i64 -24
   %48 = load i64, ptr %47, align 8
-  %gep41 = getelementptr i8, ptr %invariant.gep40, i64 %48
-  store i64 2, ptr %gep41, align 8
+  %gep35 = getelementptr i8, ptr %invariant.gep40, i64 %48
+  store i64 2, ptr %gep35, align 8
   %49 = load ptr, ptr %6, align 8
   %50 = getelementptr i8, ptr %49, i64 -24
   %51 = load i64, ptr %50, align 8

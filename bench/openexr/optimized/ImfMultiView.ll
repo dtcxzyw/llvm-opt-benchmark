@@ -298,9 +298,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit24: ; preds = 
   %74 = sub i64 %72, %73
   %75 = ashr exact i64 %74, 5
   %76 = icmp eq i64 %.val13.fr, 0
-  br i1 %76, label %.lr.ph.i.us, label %.lr.ph.i
+  br i1 %76, label %.lr.ph.preheader.i.split.us, label %.lr.ph.i
 
-.lr.ph.i.us:                                      ; preds = %.lr.ph.preheader.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i.us
+.lr.ph.preheader.i.split.us:                      ; preds = %.lr.ph.preheader.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i.us
   %.088.i.us = phi i64 [ %79, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i.us ], [ 0, %.lr.ph.preheader.i ]
   %gep = getelementptr %"class.std::__cxx11::basic_string", ptr %.val14, i64 %.088.i.us, i32 1
   %77 = load i64, ptr %gep, align 8, !tbaa !16
@@ -1457,7 +1457,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
   %101 = sub i64 %99, %100
   %102 = ashr exact i64 %101, 5
   %103 = icmp eq i64 %.val45.fr, 0
-  br i1 %103, label %.lr.ph.i.us, label %.lr.ph.i
+  br i1 %103, label %.lr.ph.preheader.i.split.us, label %.lr.ph.i
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.preheader.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i.us
   %.088.i.us = phi i64 [ %106, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i.us ], [ 0, %.lr.ph.preheader.i ]

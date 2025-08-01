@@ -669,21 +669,21 @@ define hidden void @_ZN19OpenColorIO_v2_5dev9CDLOpDataC2ERKNS0_5StyleERKNS0_13Ch
 
 _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i.i: ; preds = %.noexc, %6
   %indvars.iv.i.i.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i.i.i, %.noexc ]
-  %gep16 = getelementptr [3 x double], ptr %invariant.gep, i64 0, i64 %indvars.iv.i.i.i
-  %13 = load double, ptr %gep16, align 8, !tbaa !35
-  invoke void @_ZN19OpenColorIO_v2_5dev20validateGreaterEqualEPKcdd(ptr noundef nonnull @.str.10, double noundef %13, double noundef 0.000000e+00)
+  %13 = getelementptr [3 x double], ptr %invariant.gep, i64 0, i64 %indvars.iv.i.i.i
+  %14 = load double, ptr %13, align 8, !tbaa !35
+  invoke void @_ZN19OpenColorIO_v2_5dev20validateGreaterEqualEPKcdd(ptr noundef nonnull @.str.10, double noundef %14, double noundef 0.000000e+00)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.i.preheader, label %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i.i, !llvm.loop !39
+  br i1 %exitcond.not.i.i.i, label %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.i, label %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i.i, !llvm.loop !39
 
-_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.i.preheader: ; preds = %.noexc
+_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.i: ; preds = %.noexc
   %invariant.gep17 = getelementptr i8, ptr %0, i64 224
   br label %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.i
 
-_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.i: ; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.i.preheader, %.noexc7
+_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.i:; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.i, %.noexc7
   %indvars.iv.i4.i.i = phi i64 [ %indvars.iv.next.i5.i.i, %.noexc7 ], [ 0, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.i.preheader ]
   %gep18 = getelementptr [3 x double], ptr %invariant.gep17, i64 0, i64 %indvars.iv.i4.i.i
   %14 = load double, ptr %gep18, align 8, !tbaa !35
@@ -720,8 +720,8 @@ _ZNK19OpenColorIO_v2_5dev9CDLOpData8validateEv.exit: ; preds = %_ZN19OpenColorIO
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit9, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp10, %.loopexit.split-lp.loopexit.split-lp ]
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev6OpDataE, i64 16), ptr %0, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @_ZN19OpenColorIO_v2_5dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %15) #23
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @_ZN19OpenColorIO_v2_5dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %17) #23
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -2555,22 +2555,22 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev9CDLOpData8validateEv(ptr noundef n
 
 _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i: ; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i, %1
   %indvars.iv.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i ]
-  %gep5 = getelementptr [3 x double], ptr %invariant.gep, i64 0, i64 %indvars.iv.i.i
-  %4 = load double, ptr %gep5, align 8, !tbaa !35
-  tail call void @_ZN19OpenColorIO_v2_5dev20validateGreaterEqualEPKcdd(ptr noundef nonnull @.str.10, double noundef %4, double noundef 0.000000e+00)
+  %5 = getelementptr [3 x double], ptr %invariant.gep, i64 0, i64 %indvars.iv.i.i
+  %6 = load double, ptr %5, align 8, !tbaa !35
+  tail call void @_ZN19OpenColorIO_v2_5dev20validateGreaterEqualEPKcdd(ptr noundef nonnull @.str.10, double noundef %6, double noundef 0.000000e+00)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.preheader, label %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i, !llvm.loop !39
 
 _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.preheader: ; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i
-  %invariant.gep6 = getelementptr i8, ptr %0, i64 224
+  %7 = getelementptr i8, ptr %0, i64 224
   br label %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i
 
 _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i: ; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.preheader, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i
   %indvars.iv.i4.i = phi i64 [ %indvars.iv.next.i5.i, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i ], [ 0, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.preheader ]
-  %gep7 = getelementptr [3 x double], ptr %invariant.gep6, i64 0, i64 %indvars.iv.i4.i
-  %5 = load double, ptr %gep7, align 8, !tbaa !35
-  tail call void @_ZN19OpenColorIO_v2_5dev19validateGreaterThanEPKcdd(ptr noundef nonnull @.str.11, double noundef %5, double noundef 0.000000e+00)
+  %8 = getelementptr [3 x double], ptr %7, i64 0, i64 %indvars.iv.i4.i
+  %9 = load double, ptr %8, align 8, !tbaa !35
+  tail call void @_ZN19OpenColorIO_v2_5dev19validateGreaterThanEPKcdd(ptr noundef nonnull @.str.11, double noundef %9, double noundef 0.000000e+00)
   %indvars.iv.next.i5.i = add nuw nsw i64 %indvars.iv.i4.i, 1
   %exitcond.not.i6.i = icmp eq i64 %indvars.iv.next.i5.i, 3
   br i1 %exitcond.not.i6.i, label %_ZN19OpenColorIO_v2_5dev14validateParamsERKNS_9CDLOpData13ChannelParamsES3_d.exit, label %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i, !llvm.loop !42

@@ -5660,9 +5660,9 @@ define hidden { ptr, i64 } @_ZN4itoa6Buffer6format17h38172d20cbccf9f5E(ptr noali
   %16 = load i16, ptr %14, align 1, !noalias !754
   store i16 %16, ptr %15, align 1, !alias.scope !754
   %17 = getelementptr inbounds nuw i8, ptr @anon.482ed1b30c21c136eed064537d11186c.74, i64 %12
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.02836.i
+  %gep.i = getelementptr i8, ptr %invariant.gep, i64 %.02836.i
   %18 = load i16, ptr %17, align 1, !noalias !754
-  store i16 %18, ptr %gep, align 1, !alias.scope !754
+  store i16 %18, ptr %gep.i, align 1, !alias.scope !754
   %19 = icmp ugt i64 %.137.i, 99999999
   br i1 %19, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !753
 

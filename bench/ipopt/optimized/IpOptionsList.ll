@@ -9329,13 +9329,13 @@ define noundef zeroext i1 @_ZN5Ipopt11OptionsList13readnexttokenERSiRNSt7__cxx11
   br i1 %.not3743, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %3
-  %sext72 = shl i32 %6, 24
-  %12 = ashr exact i32 %sext72, 24
+  %sext70 = shl i32 %6, 24
+  %12 = ashr exact i32 %sext70, 24
   %13 = tail call i32 @isspace(i32 noundef %12) #26
   %14 = icmp ne i32 %13, 0
-  %15 = icmp eq i32 %sext72, 587202560
+  %15 = icmp eq i32 %sext70, 587202560
   %16 = or i1 %15, %14
-  br i1 %16, label %.lr.ph73, label %.critedge.thread
+  br i1 %16, label %.lr.ph71, label %.critedge.thread
 
 .lr.ph:                                           ; preds = %25
   %sext = shl i32 %26, 24
@@ -9344,17 +9344,17 @@ define noundef zeroext i1 @_ZN5Ipopt11OptionsList13readnexttokenERSiRNSt7__cxx11
   %19 = icmp ne i32 %18, 0
   %20 = icmp eq i32 %sext, 587202560
   %21 = or i1 %20, %19
-  br i1 %21, label %.lr.ph73, label %.critedge.thread, !llvm.loop !107
+  br i1 %21, label %.lr.ph71, label %.critedge.thread, !llvm.loop !107
 
-.lr.ph73:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph71:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %22 = phi i1 [ %20, %.lr.ph ], [ %15, %.lr.ph.preheader ]
   br i1 %22, label %23, label %25
 
-23:                                               ; preds = %.lr.ph73
+23:                                               ; preds = %.lr.ph71
   %24 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi6ignoreEli(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 10000000, i32 noundef 10)
   br label %25
 
-25:                                               ; preds = %23, %.lr.ph73
+25:                                               ; preds = %23, %.lr.ph71
   %26 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %27 = load ptr, ptr %1, align 8, !tbaa !9
   %28 = getelementptr i8, ptr %27, i64 -24
@@ -9457,8 +9457,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
 68:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit
   %69 = getelementptr i8, ptr %.pre61, i64 -24
   %70 = load i64, ptr %69, align 8
-  %gep84 = getelementptr i8, ptr %invariant.gep83, i64 %70
-  %71 = load i32, ptr %gep84, align 8, !tbaa !98
+  %gep48 = getelementptr i8, ptr %invariant.gep83, i64 %70
+  %71 = load i32, ptr %gep48, align 8, !tbaa !98
   %72 = and i32 %71, 2
   %.not40 = icmp eq i32 %72, 0
   br i1 %.not40, label %73, label %75

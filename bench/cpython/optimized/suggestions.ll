@@ -172,14 +172,14 @@ define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly ca
   %20 = icmp ne i64 %.095.lcssa, 0
   %21 = icmp ne i64 %.0108.lcssa, 0
   %or.cond4135 = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond4135, label %.lr.ph138.preheader, label %.critedge6
+  br i1 %or.cond4135, label %.lr.ph138, label %.critedge6
 
-.lr.ph138.preheader:                              ; preds = %.critedge
+.lr.ph138:                                        ; preds = %.critedge
   %invariant.gep = getelementptr i8, ptr %.089.lcssa, i64 -1
   %invariant.gep168 = getelementptr i8, ptr %.0106.lcssa, i64 -1
   br label %.lr.ph138
 
-.lr.ph138:                                        ; preds = %.lr.ph138.preheader, %25
+.lr.ph138:; preds = %.lr.ph138, %25
   %.196137 = phi i64 [ %26, %25 ], [ %.095.lcssa, %.lr.ph138.preheader ]
   %.1109136 = phi i64 [ %27, %25 ], [ %.0108.lcssa, %.lr.ph138.preheader ]
   %gep167 = getelementptr i8, ptr %invariant.gep, i64 %.196137

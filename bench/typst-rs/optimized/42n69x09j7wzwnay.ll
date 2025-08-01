@@ -557,12 +557,12 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$typst..foundations..content
   %15 = and i64 %14, -80
   %16 = getelementptr i8, ptr %0, i64 %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  %17 = add i64 %12, -1
-  %18 = and i64 %17, -16
-  %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = getelementptr i8, ptr %19, i64 96
-  %21 = load ptr, ptr %1, align 8, !invariant.load !4, !alias.scope !127, !nonnull !4
-  tail call void %21(ptr noundef nonnull align 1 %20), !noalias !127
+  %18 = add i64 %12, -1
+  %19 = and i64 %18, -16
+  %20 = getelementptr i8, ptr %16, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 96
+  %22 = load ptr, ptr %1, align 8, !invariant.load !4, !alias.scope !127, !nonnull !4
+  tail call void %21(ptr noundef nonnull align 1 %21), !noalias !127
   ret void
 }
 

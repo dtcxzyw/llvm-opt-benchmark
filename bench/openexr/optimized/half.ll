@@ -149,8 +149,8 @@ define void @_Z9printBitsRSoN9Imath_3_24halfE(ptr noundef nonnull align 8 derefe
   %11 = load ptr, ptr %0, align 8, !tbaa !14
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
-  %gep17 = getelementptr i8, ptr %invariant.gep, i64 %13
-  %14 = load i64, ptr %gep17, align 8, !tbaa !16
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %13
+  %14 = load i64, ptr %gep, align 8, !tbaa !16
   %.not.i = icmp eq i64 %14, 0
   br i1 %.not.i, label %17, label %15
 
@@ -175,8 +175,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %15, %17
   %20 = load ptr, ptr %0, align 8, !tbaa !14
   %21 = getelementptr i8, ptr %20, i64 -24
   %22 = load i64, ptr %21, align 8
-  %gep19 = getelementptr i8, ptr %invariant.gep18, i64 %22
-  %23 = load i64, ptr %gep19, align 8, !tbaa !16
+  %gep12 = getelementptr i8, ptr %invariant.gep18, i64 %22
+  %23 = load i64, ptr %gep12, align 8, !tbaa !16
   %.not.i8 = icmp eq i64 %23, 0
   br i1 %.not.i8, label %26, label %24
 
@@ -221,8 +221,8 @@ define void @_Z9printBitsRSof(ptr noundef nonnull align 8 dereferenceable(8) %0,
   %11 = load ptr, ptr %0, align 8, !tbaa !14
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
-  %gep17 = getelementptr i8, ptr %invariant.gep, i64 %13
-  %14 = load i64, ptr %gep17, align 8, !tbaa !16
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %13
+  %14 = load i64, ptr %gep, align 8, !tbaa !16
   %.not.i = icmp eq i64 %14, 0
   br i1 %.not.i, label %17, label %15
 
@@ -246,8 +246,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %15, %17
   %21 = load ptr, ptr %0, align 8, !tbaa !14
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = load i64, ptr %22, align 8
-  %gep19 = getelementptr i8, ptr %invariant.gep18, i64 %23
-  %24 = load i64, ptr %gep19, align 8, !tbaa !16
+  %gep12 = getelementptr i8, ptr %invariant.gep18, i64 %23
+  %24 = load i64, ptr %gep12, align 8, !tbaa !16
   %.not.i8 = icmp eq i64 %24, 0
   br i1 %.not.i8, label %27, label %25
 

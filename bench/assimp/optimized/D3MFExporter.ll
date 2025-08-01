@@ -4531,8 +4531,8 @@ define hidden void @_ZN6Assimp4D3MF12D3MFExporter12writeObjectsEv(ptr noundef no
   %29 = load ptr, ptr %10, align 8
   %30 = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %30, align 8
-  %gep36 = getelementptr i8, ptr %invariant.gep, i64 %31
-  %32 = load ptr, ptr %gep36, align 8
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %31
+  %32 = load ptr, ptr %gep, align 8
   %.not.i.i.i14 = icmp eq ptr %32, null
   br i1 %.not.i.i.i14, label %33, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -4640,8 +4640,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %51, %_ZNSt6vectorIj
   %77 = load ptr, ptr %10, align 8
   %78 = getelementptr i8, ptr %77, i64 -24
   %79 = load i64, ptr %78, align 8
-  %gep38 = getelementptr i8, ptr %invariant.gep37, i64 %79
-  %80 = load ptr, ptr %gep38, align 8
+  %gep27 = getelementptr i8, ptr %invariant.gep37, i64 %79
+  %80 = load ptr, ptr %gep27, align 8
   %.not.i.i.i15 = icmp eq ptr %80, null
   br i1 %.not.i.i.i15, label %81, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i16
 

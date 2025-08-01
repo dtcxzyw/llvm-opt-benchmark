@@ -2018,8 +2018,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hacbbf0f12d8756e9E.exit.thread.
   %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.011.0.i, i64 16383)
   br label %"_ZN6quiche19Connection$LT$F$GT$25max_send_udp_payload_size17hfa8add7a8b5b687bE.exit"
 
-.sink.split:                                      ; preds = %86, %89
-  %.sroa.5.0.ph = phi i64 [ %93, %89 ], [ undef, %86 ]
+.sink.split:                                      ; preds = %87, %90
+  %.sroa.5.0.ph = phi i64 [ %94, %89 ], [ undef, %86 ]
   %.sroa.0.0.ph = phi i64 [ %.sroa.0.1, %89 ], [ 0, %86 ]
   call void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17h38ae87c0006482bbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -2037,7 +2037,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hacbbf0f12d8756e9E.exit.thread.
           cleanup
   br label %75
 
-.loopexit.split-lp:                               ; preds = %83, %63, %66, %"_ZN6quiche19Connection$LT$F$GT$25max_send_udp_payload_size17hfa8add7a8b5b687bE.exit", %82
+.loopexit.split-lp:                               ; preds = %84, %63, %66, %"_ZN6quiche19Connection$LT$F$GT$25max_send_udp_payload_size17hfa8add7a8b5b687bE.exit", %83
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %75
@@ -2045,7 +2045,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hacbbf0f12d8756e9E.exit.thread.
 75:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17h38ae87c0006482bbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #25
-          to label %96 unwind label %94
+          to label %96 unwind label %95
 
 "_ZN6quiche19Connection$LT$F$GT$25max_send_udp_payload_size17hfa8add7a8b5b687bE.exit": ; preds = %71, %.noexc17, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hacbbf0f12d8756e9E.exit.thread.i
   %.sroa.0.0.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %71 ], [ 1200, %.noexc17 ], [ 1200, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hacbbf0f12d8756e9E.exit.thread.i ]
@@ -2057,42 +2057,42 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hacbbf0f12d8756e9E.exit.thread.
           to label %.noexc19 unwind label %.loopexit.split-lp
 
 .noexc19:                                         ; preds = %"_ZN6quiche19Connection$LT$F$GT$25max_send_udp_payload_size17hfa8add7a8b5b687bE.exit"
-  %81 = icmp ult i64 %80, 3
-  br i1 %81, label %83, label %82
+  %82 = icmp ult i64 %80, 3
+  br i1 %82, label %84, label %83
 
-82:                                               ; preds = %.noexc19
+83:                                               ; preds = %.noexc19
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %80, i64 noundef 3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18713408902420a565912fd74e212ff2.57) #23
           to label %.noexc20 unwind label %.loopexit.split-lp
 
-.noexc20:                                         ; preds = %82
+.noexc20:                                         ; preds = %83
   unreachable
 
-83:                                               ; preds = %.noexc19
-  %84 = getelementptr inbounds nuw { { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, i64, i64, i64, { [2 x i32], i32, [1 x i32] } }, { { ptr, [1 x i64] }, i64, { {} }, {} }, i64, i64, i8, [7 x i8] }, { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64, i64 }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr, i64, i8, i8, i8, i8, [4 x i8] }, { i64, [118 x i64] }, { i64, [114 x i64] }, { i64, [114 x i64] }, { i64, [114 x i64] } }, ptr %0, i64 %80, i32 1, i32 1, i64 17
-  %85 = invoke { i64, i64 } @_ZN6quiche6packet13CryptoContext15crypto_overhead17h639915f4b747aea7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(4080) %84)
+84:                                               ; preds = %.noexc19
+  %85 = getelementptr inbounds nuw { { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, i64, i64, i64, { [2 x i32], i32, [1 x i32] } }, { { ptr, [1 x i64] }, i64, { {} }, {} }, i64, i64, i8, [7 x i8] }, { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64, i64 }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr, i64, i8, i8, i8, i8, [4 x i8] }, { i64, [118 x i64] }, { i64, [114 x i64] }, { i64, [114 x i64] }, { i64, [114 x i64] } }, ptr %0, i64 %80, i32 1, i32 1, i64 17
+  %86 = invoke { i64, i64 } @_ZN6quiche6packet13CryptoContext15crypto_overhead17h639915f4b747aea7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(4080) %85)
           to label %86 unwind label %.loopexit.split-lp
 
-86:                                               ; preds = %83
-  %87 = extractvalue { i64, i64 } %85, 0
-  %88 = trunc nuw i64 %87 to i1
-  br i1 %88, label %89, label %.sink.split
+87:                                               ; preds = %84
+  %88 = extractvalue { i64, i64 } %86, 0
+  %89 = trunc nuw i64 %88 to i1
+  br i1 %89, label %90, label %.sink.split
 
-89:                                               ; preds = %86
-  %90 = extractvalue { i64, i64 } %85, 1
-  %91 = call i64 @llvm.usub.sat.i64(i64 %79, i64 %90)
-  %.sroa.0.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %91, i64 %10)
-  %92 = icmp samesign ugt i64 %.sroa.0.0.sroa.speculated.i, 2
-  %93 = add nsw i64 %.sroa.0.0.sroa.speculated.i, -3
-  %.sroa.0.1 = zext i1 %92 to i64
+90:                                               ; preds = %87
+  %91 = extractvalue { i64, i64 } %86, 1
+  %92 = call i64 @llvm.usub.sat.i64(i64 %79, i64 %91)
+  %.sroa.0.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %92, i64 %10)
+  %93 = icmp samesign ugt i64 %.sroa.0.0.sroa.speculated.i, 2
+  %94 = add nsw i64 %.sroa.0.0.sroa.speculated.i, -3
+  %.sroa.0.1 = zext i1 %93 to i64
   br label %.sink.split
 
-94:                                               ; preds = %75
-  %95 = landingpad { ptr, i32 }
+95:                                               ; preds = %75
+  %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #24
   unreachable
 
-96:                                               ; preds = %75
+97:                                               ; preds = %75
   resume { ptr, i32 } %lpad.phi
 }
 

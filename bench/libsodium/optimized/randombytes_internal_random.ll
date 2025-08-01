@@ -31,7 +31,7 @@ define internal i32 @randombytes_internal_random() #1 {
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %5, label %35
+  br i1 %4, label %5, label %36
 
 5:                                                ; preds = %0
   %6 = load i32, ptr %1, align 8
@@ -79,34 +79,34 @@ randombytes_internal_random_xorhwrand.exit:       ; preds = %randombytes_interna
   br label %27
 
 27:                                               ; preds = %27, %randombytes_internal_random_xorhwrand.exit
-  %.05.i = phi i64 [ 0, %randombytes_internal_random_xorhwrand.exit ], [ %32, %27 ]
+  %.05.i = phi i64 [ 0, %randombytes_internal_random_xorhwrand.exit ], [ %33, %27 ]
   %28 = getelementptr i8, ptr %26, i64 %.05.i
   %29 = load i8, ptr %28, align 1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.05.i
-  %30 = load i8, ptr %gep, align 1
-  %31 = xor i8 %30, %29
-  store i8 %31, ptr %gep, align 1
-  %32 = add nuw nsw i64 %.05.i, 1
-  %exitcond.not.i = icmp eq i64 %32, 32
+  %30 = getelementptr i8, ptr %invariant.gep, i64 %.05.i
+  %31 = load i8, ptr %30, align 1
+  %32 = xor i8 %31, %29
+  store i8 %32, ptr %30, align 1
+  %33 = add nuw nsw i64 %.05.i, 1
+  %exitcond.not.i = icmp eq i64 %33, 32
   br i1 %exitcond.not.i, label %randombytes_internal_random_xorkey.exit, label %27, !llvm.loop !4
 
 randombytes_internal_random_xorkey.exit:          ; preds = %27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %26, i8 noundef 0, i64 noundef 32, i1 noundef false) #7
-  %33 = load i64, ptr %14, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %14, align 8
+  %34 = load i64, ptr %14, align 8
+  %35 = add i64 %34, 1
+  store i64 %35, ptr %14, align 8
   %.pre1 = load i64, ptr %2, align 8
-  br label %35
+  br label %36
 
-35:                                               ; preds = %randombytes_internal_random_xorkey.exit, %0
-  %36 = phi i64 [ %.pre1, %randombytes_internal_random_xorkey.exit ], [ %3, %0 ]
-  %37 = add i64 %36, -4
-  store i64 %37, ptr %2, align 8
-  %38 = getelementptr [512 x i8], ptr %1, i64 0, i64 %37
-  %39 = getelementptr i8, ptr %38, i64 48
-  %40 = load i32, ptr %39, align 1
-  store i32 0, ptr %39, align 1
-  ret i32 %40
+36:                                               ; preds = %randombytes_internal_random_xorkey.exit, %0
+  %37 = phi i64 [ %.pre1, %randombytes_internal_random_xorkey.exit ], [ %3, %0 ]
+  %38 = add i64 %37, -4
+  store i64 %38, ptr %2, align 8
+  %39 = getelementptr [512 x i8], ptr %1, i64 0, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 48
+  %41 = load i32, ptr %40, align 1
+  store i32 0, ptr %40, align 1
+  ret i32 %41
 }
 
 ; Function Attrs: nounwind ssp uwtable

@@ -2382,8 +2382,8 @@ define void @qasm_recordNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg)
   %31 = sub nsw i32 1024, %.0222
   %32 = sext i32 %31 to i64
   %.str.82..str.83 = select i1 %18, ptr @.str.82, ptr @.str.83
-  %.str.82.sink331 = select i1 %or.cond, ptr @.str.81, ptr %.str.82..str.83
-  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %32, ptr noundef nonnull %.str.82.sink331) #15
+  %.str.82.sink329 = select i1 %or.cond, ptr @.str.81, ptr %.str.82..str.83
+  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %32, ptr noundef nonnull %.str.82.sink329) #15
   %.1 = add nsw i32 %33, %.0222
   %34 = icmp slt i32 %3, 25
   br i1 %34, label %.preheader, label %75
@@ -2397,9 +2397,9 @@ define void @qasm_recordNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg)
   %37 = add nsw i32 %3, -1
   %38 = zext nneg i32 %37 to i64
   %wide.trip.count311 = zext nneg i32 %3 to i64
-  br i1 %19, label %.lr.ph273.split.us.preheader, label %.lr.ph273.split
+  br i1 %19, label %.lr.ph273.split.us, label %.lr.ph273.split
 
-.lr.ph273.split.us.preheader:                     ; preds = %.lr.ph273
+.lr.ph273.split.us:                               ; preds = %.lr.ph273
   %invariant.gep363 = getelementptr i8, ptr %6, i64 16
   br label %.lr.ph273.split.us
 
@@ -2410,8 +2410,8 @@ define void @qasm_recordNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg)
   %40 = getelementptr inbounds i8, ptr %12, i64 %39
   %41 = sub nsw i32 1024, %.2270.us
   %42 = sext i32 %41 to i64
-  %gep = getelementptr double, ptr %invariant.gep363, i64 %indvars.iv308
-  %43 = load double, ptr %gep, align 8, !tbaa !24
+  %gep.us275 = getelementptr double, ptr %invariant.gep363, i64 %indvars.iv308
+  %43 = load double, ptr %gep.us275, align 8, !tbaa !24
   %44 = fcmp olt double %43, 0.000000e+00
   %45 = select i1 %44, ptr @.str.84, ptr @.str.85
   %46 = getelementptr inbounds nuw [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv308
@@ -2630,10 +2630,10 @@ getPhaseFuncSymbol.exit233:                       ; preds = %.lr.ph266, %getPhas
   %.10 = phi i32 [ %167, %161 ], [ 13, %157 ]
   %.off = add nsw i32 %5, -9
   %switch = icmp ult i32 %.off, 3
-  %or.cond333 = or i1 %160, %switch
-  br i1 %or.cond333, label %.sink.split328, label %176
+  %or.cond331 = or i1 %160, %switch
+  br i1 %or.cond331, label %.sink.split326, label %176
 
-.sink.split328:                                   ; preds = %168
+.sink.split326:                                   ; preds = %168
   %169 = add nsw i32 %5, -9
   %brmerge = icmp ult i32 %169, 3
   %.str.81.mux = select i1 %or.cond27, ptr @.str.81, ptr @.str.82
@@ -2646,7 +2646,7 @@ getPhaseFuncSymbol.exit233:                       ; preds = %.lr.ph266, %getPhas
   %175 = add nsw i32 %174, %.10
   br label %176
 
-176:                                              ; preds = %168, %.sink.split328
+176:                                              ; preds = %168, %.sink.split326
   %.11 = phi i32 [ %175, %.sink.split328 ], [ %.10, %168 ]
   %177 = icmp slt i32 %3, 25
   br i1 %177, label %.preheader254, label %253
@@ -2673,8 +2673,8 @@ getPhaseFuncSymbol.exit233:                       ; preds = %.lr.ph266, %getPhas
   %184 = sub nsw i32 1024, %.12256.us
   %185 = sext i32 %184 to i64
   %186 = lshr exact i64 %indvars.iv292, 1
-  %gep362 = getelementptr double, ptr %invariant.gep, i64 %186
-  %187 = load double, ptr %gep362, align 8, !tbaa !24
+  %gep.us = getelementptr double, ptr %invariant.gep, i64 %186
+  %187 = load double, ptr %gep.us, align 8, !tbaa !24
   %188 = fcmp olt double %187, 0.000000e+00
   %189 = select i1 %188, ptr @.str.94, ptr @.str.95
   %190 = or disjoint i64 %indvars.iv292, 1

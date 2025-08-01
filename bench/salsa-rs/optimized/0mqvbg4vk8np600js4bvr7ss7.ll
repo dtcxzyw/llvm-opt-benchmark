@@ -568,7 +568,7 @@ define hidden noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15Dependenc
   %11 = load ptr, ptr %0, align 8, !nonnull !6
   br i1 %7, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %3
+.split.us:; preds = %3
   store i64 %1, ptr %4, align 8
   br label %select.unfold
 
@@ -582,9 +582,9 @@ define hidden noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15Dependenc
   %.sroa.01.15.vec.insert.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %15
 
-15:                                               ; preds = %32, %.split
-  %.sroa.9.0.i.i.i = phi i64 [ 0, %.split ], [ %33, %32 ]
-  %.pn.i.i = phi i64 [ %12, %.split ], [ %34, %32 ]
+15:                                               ; preds = %31, %.split
+  %.sroa.9.0.i.i.i = phi i64 [ 0, %.split ], [ %32, %32 ]
+  %.pn.i.i = phi i64 [ %12, %.split ], [ %33, %32 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i, %10
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.01.0.i.i.i
   %.sroa.0.0.copyload.i5.i.i = load <16 x i8>, ptr %16, align 1, !noalias !82
@@ -600,33 +600,33 @@ define hidden noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15Dependenc
   %21 = add i64 %.sroa.01.0.i.i.i, %20
   %22 = and i64 %21, %10
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr { i64, { i64, ptr } }, ptr %11, i64 %23
+  %gep.i.i = getelementptr { i64, { i64, ptr } }, ptr %11, i64 %23
   %gep19.i.i = getelementptr i8, ptr %24, i64 -24
   %25 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h89c7f51f041015eaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %gep19.i.i), !noalias !87
   br i1 %25, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hdf010e2d3b282501E.exit.i", label %29, !prof !90
 
-._crit_edge.i.i:                                  ; preds = %29, %15
+._crit_edge.i.i:; preds = %29, %15
   %26 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i, splat (i8 -1)
   %27 = bitcast <16 x i1> %26 to i16
   %28 = icmp eq i16 %27, 0
   br i1 %28, label %32, label %select.unfold, !prof !4
 
-29:                                               ; preds = %.lr.ph.i.i
+29:; preds = %.lr.ph.i.i
   %30 = add i16 %.sroa.06.0.i12.i.i, -1
   %31 = and i16 %30, %.sroa.06.0.i12.i.i
   %.not.i.not.i.i = icmp eq i16 %31, 0
   br i1 %.not.i.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !91
 
-32:                                               ; preds = %._crit_edge.i.i
-  %33 = add i64 %.sroa.9.0.i.i.i, 16
-  %34 = add i64 %.sroa.01.0.i.i.i, %33
+31:                                               ; preds = %._crit_edge.i.i
+  %32 = add i64 %.sroa.9.0.i.i.i, 16
+  %33 = add i64 %.sroa.01.0.i.i.i, %32
   br label %15, !llvm.loop !92
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hdf010e2d3b282501E.exit.i": ; preds = %.lr.ph.i.i
-  %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %select.unfold, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4603cea926058de7E.exit"
+"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4603cea926058de7E.exit": ; preds = %.lr.ph.i.i
+  %.not.i = icmp eq ptr %gep.i.i, null
+  br i1 %.not.i, label %select.unfold, label %select.unfold.loopexit
 
-"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4603cea926058de7E.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hdf010e2d3b282501E.exit.i"
+select.unfold.loopexit:                           ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hdf010e2d3b282501E.exit.i"
   %35 = getelementptr inbounds i8, ptr %24, i64 -16
   %36 = load i64, ptr %35, align 8, !range !93, !noundef !6
   %37 = icmp eq i64 %36, %2

@@ -14753,8 +14753,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %16, %18
   %24 = load ptr, ptr %1, align 8, !tbaa !26
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
-  %gep44 = getelementptr i8, ptr %invariant.gep, i64 %26
-  %27 = load i64, ptr %gep44, align 8, !tbaa !191
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %26
+  %27 = load i64, ptr %gep, align 8, !tbaa !191
   %.not.i17 = icmp eq i64 %27, 0
   br i1 %.not.i17, label %30, label %28
 
@@ -14777,8 +14777,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19: ; preds = %28, %30
   %34 = load ptr, ptr %1, align 8, !tbaa !26
   %35 = getelementptr i8, ptr %34, i64 -24
   %36 = load i64, ptr %35, align 8
-  %gep46 = getelementptr i8, ptr %invariant.gep45, i64 %36
-  %37 = load i64, ptr %gep46, align 8, !tbaa !191
+  %gep38 = getelementptr i8, ptr %invariant.gep45, i64 %36
+  %37 = load i64, ptr %gep38, align 8, !tbaa !191
   %.not.i20 = icmp eq i64 %37, 0
   br i1 %.not.i20, label %40, label %38
 

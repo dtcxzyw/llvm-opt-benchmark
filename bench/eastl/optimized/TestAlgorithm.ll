@@ -25360,9 +25360,9 @@ entry:
   %childPosition.0.in25.i = shl nuw nsw i64 %position, 1
   %childPosition.026.i = add nuw nsw i64 %childPosition.0.in25.i, 2
   %cmp27.i = icmp slt i64 %childPosition.026.i, %heapSize
-  br i1 %cmp27.i, label %for.body.i.preheader, label %for.end.i
+  br i1 %cmp27.i, label %for.body.i, label %for.end.i
 
-for.body.i.preheader:                             ; preds = %entry
+for.body.i:                                       ; preds = %entry
   %invariant.gep = getelementptr i8, ptr %first, i64 8
   br label %for.body.i
 
@@ -25371,9 +25371,9 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %childPosition.0.in29.i = phi i64 [ %childPosition.0.in.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.0.in25.i, %for.body.i.preheader ]
   %position.addr.028.i = phi i64 [ %spec.select.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %position, %for.body.i.preheader ]
   %add.ptr.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.030.i
-  %gep = getelementptr %"class.eastl::unique_ptr", ptr %invariant.gep, i64 %childPosition.0.in29.i
+  %gep.i = getelementptr %"class.eastl::unique_ptr", ptr %invariant.gep, i64 %childPosition.0.in29.i
   %add.ptr.val.i = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr1.val.i = load ptr, ptr %gep, align 8
+  %add.ptr1.val.i = load ptr, ptr %gep.i, align 8
   %add.ptr.val.val.i = load i32, ptr %add.ptr.val.i, align 4
   %add.ptr1.val.val.i = load i32, ptr %add.ptr1.val.i, align 4
   %cmp.i.i = icmp slt i32 %add.ptr.val.val.i, %add.ptr1.val.val.i
@@ -25679,20 +25679,20 @@ entry:
   %childPosition.0.in25.i = shl nuw nsw i64 %position, 1
   %childPosition.026.i = add nuw nsw i64 %childPosition.0.in25.i, 2
   %cmp27.i = icmp slt i64 %childPosition.026.i, %heapSize
-  br i1 %cmp27.i, label %for.body.i.preheader, label %for.end.i
+  br i1 %cmp27.i, label %for.body.i, label %for.end.i
 
 for.body.i.preheader:                             ; preds = %entry
   %invariant.gep = getelementptr i8, ptr %first, i64 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i
+for.body.i:                                       ; preds = %for.body.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i
   %childPosition.030.i = phi i64 [ %childPosition.0.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.026.i, %for.body.i.preheader ]
   %childPosition.0.in29.i = phi i64 [ %childPosition.0.in.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.0.in25.i, %for.body.i.preheader ]
   %position.addr.028.i = phi i64 [ %spec.select.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %position, %for.body.i.preheader ]
   %add.ptr.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.030.i
-  %gep = getelementptr %"class.eastl::unique_ptr", ptr %invariant.gep, i64 %childPosition.0.in29.i
+  %gep.i = getelementptr %"class.eastl::unique_ptr", ptr %invariant.gep, i64 %childPosition.0.in29.i
   %add.ptr.val.i = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr1.val.i = load ptr, ptr %gep, align 8
+  %add.ptr1.val.i = load ptr, ptr %gep.i, align 8
   %add.ptr.val.val.i = load i32, ptr %add.ptr.val.i, align 4
   %add.ptr1.val.val.i = load i32, ptr %add.ptr1.val.i, align 4
   %cmp.i.i = icmp slt i32 %add.ptr.val.val.i, %add.ptr1.val.val.i

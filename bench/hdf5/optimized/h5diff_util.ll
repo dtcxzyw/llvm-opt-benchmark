@@ -483,9 +483,9 @@ define ptr @diff_basename(ptr noundef readonly captures(address_is_null, ret: ad
 3:                                                ; preds = %1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
   %.not18 = icmp eq i64 %4, 0
-  br i1 %.not18, label %.critedge2, label %.lr.ph.preheader
+  br i1 %.not18, label %.critedge2, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %3
+.lr.ph:                                           ; preds = %3
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %.lr.ph
 
@@ -507,8 +507,8 @@ define ptr @diff_basename(ptr noundef readonly captures(address_is_null, ret: ad
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %10
   %.125 = phi i64 [ %11, %10 ], [ %.019, %.lr.ph26.preheader ]
-  %gep43 = getelementptr i8, ptr %invariant.gep42, i64 %.125
-  %9 = load i8, ptr %gep43, align 1, !tbaa !10
+  %gep23 = getelementptr i8, ptr %invariant.gep42, i64 %.125
+  %9 = load i8, ptr %gep23, align 1, !tbaa !10
   %.not17 = icmp eq i8 %9, 47
   br i1 %.not17, label %.critedge2, label %10
 

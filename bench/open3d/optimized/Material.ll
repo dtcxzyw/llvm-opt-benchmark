@@ -4126,8 +4126,8 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %43 = load ptr, ptr %11, align 8, !tbaa !65
   %44 = getelementptr i8, ptr %43, i64 -24
   %45 = load i64, ptr %44, align 8
-  %gep116 = getelementptr i8, ptr %invariant.gep, i64 %45
-  %46 = load i64, ptr %gep116, align 8, !tbaa !146
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %45
+  %46 = load i64, ptr %gep, align 8, !tbaa !146
   %.not.i30 = icmp eq i64 %46, 0
   br i1 %.not.i30, label %49, label %47
 
@@ -4210,8 +4210,8 @@ _ZNSolsEf.exit:                                   ; preds = %_ZStlsISt11char_tra
   %78 = load ptr, ptr %11, align 8, !tbaa !65
   %79 = getelementptr i8, ptr %78, i64 -24
   %80 = load i64, ptr %79, align 8
-  %gep118 = getelementptr i8, ptr %invariant.gep117, i64 %80
-  %81 = load i64, ptr %gep118, align 8, !tbaa !146
+  %gep97 = getelementptr i8, ptr %invariant.gep117, i64 %80
+  %81 = load i64, ptr %gep97, align 8, !tbaa !146
   %.not.i45 = icmp eq i64 %81, 0
   br i1 %.not.i45, label %84, label %82
 
@@ -4341,8 +4341,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %137 = load ptr, ptr %11, align 8, !tbaa !65
   %138 = getelementptr i8, ptr %137, i64 -24
   %139 = load i64, ptr %138, align 8
-  %gep = getelementptr i8, ptr %invariant.gep119, i64 %139
-  %140 = load i64, ptr %gep, align 8, !tbaa !146
+  %gep105 = getelementptr i8, ptr %invariant.gep119, i64 %139
+  %140 = load i64, ptr %gep105, align 8, !tbaa !146
   %.not.i59 = icmp eq i64 %140, 0
   br i1 %.not.i59, label %143, label %141
 

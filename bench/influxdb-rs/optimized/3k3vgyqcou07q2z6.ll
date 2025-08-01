@@ -2537,17 +2537,17 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h04f38ee2be7a7c
   %7 = add nuw i64 %.0.i4, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !299)
   %.idx = shl nsw i64 %.0.i4, 4
-  %gep17 = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !305)
-  %8 = load ptr, ptr %gep17, align 8, !alias.scope !308, !nonnull !5, !noundef !5
+  %8 = load ptr, ptr %gep, align 8, !alias.scope !308, !nonnull !5, !noundef !5
   %9 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !308
   %10 = icmp eq i64 %9, 1
   br i1 %10, label %11, label %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17h73d88f013b698eddE.exit2"
 
 11:                                               ; preds = %.lr.ph
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h303c1574aa098163E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %gep17)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h303c1574aa098163E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %gep)
           to label %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17h73d88f013b698eddE.exit2" unwind label %13
 
 "_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17h73d88f013b698eddE.exit2": ; preds = %11, %.lr.ph
@@ -2569,17 +2569,17 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h04f38ee2be7a7c
   %16 = add i64 %.1.i7, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !309)
   %.idx3 = shl nsw i64 %.1.i7, 4
-  %gep19 = getelementptr i8, ptr %invariant.gep18, i64 %.idx3
+  %gep6 = getelementptr i8, ptr %invariant.gep18, i64 %.idx3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !312)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !315)
-  %17 = load ptr, ptr %gep19, align 8, !alias.scope !318, !nonnull !5, !noundef !5
+  %17 = load ptr, ptr %gep6, align 8, !alias.scope !318, !nonnull !5, !noundef !5
   %18 = atomicrmw sub ptr %17, i64 1 release, align 8, !noalias !318
   %19 = icmp eq i64 %18, 1
   br i1 %19, label %20, label %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17h73d88f013b698eddE.exit"
 
 20:                                               ; preds = %.lr.ph8
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h303c1574aa098163E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %gep19)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h303c1574aa098163E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %gep6)
           to label %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17h73d88f013b698eddE.exit" unwind label %22
 
 "_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17h73d88f013b698eddE.exit": ; preds = %20, %.lr.ph8

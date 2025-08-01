@@ -5049,8 +5049,8 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit:                  ; preds = %22, %_ZNKSt9basic_i
   %71 = load ptr, ptr %3, align 8, !tbaa !3
   %72 = getelementptr i8, ptr %71, i64 -24
   %73 = load i64, ptr %72, align 8
-  %gep = getelementptr i8, ptr %invariant.gep73, i64 %73
-  %74 = load i64, ptr %gep, align 8, !tbaa !170
+  %gep57 = getelementptr i8, ptr %invariant.gep73, i64 %73
+  %74 = load i64, ptr %gep57, align 8, !tbaa !170
   %.not.i34 = icmp eq i64 %74, 0
   br i1 %.not.i34, label %77, label %75
 
@@ -5070,13 +5070,13 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit:                  ; preds = %22, %_ZNKSt9basic_i
   %81 = load ptr, ptr %3, align 8, !tbaa !3
   %82 = getelementptr i8, ptr %81, i64 -24
   %83 = load i64, ptr %82, align 8
-  %gep70 = getelementptr i8, ptr %invariant.gep, i64 %83
-  store i64 2, ptr %gep70, align 8, !tbaa !170
+  %gep53 = getelementptr i8, ptr %invariant.gep, i64 %83
+  store i64 2, ptr %gep53, align 8, !tbaa !170
   br i1 %.not21, label %.invoke, label %84
 
 84:                                               ; preds = %.lr.ph
-  %gep72 = getelementptr i8, ptr %invariant.gep71, i64 %79
-  %85 = load i8, ptr %gep72, align 1, !tbaa !82
+  %gep51 = getelementptr i8, ptr %invariant.gep71, i64 %79
+  %85 = load i8, ptr %gep51, align 1, !tbaa !82
   %86 = zext i8 %85 to i64
   br label %.invoke
 

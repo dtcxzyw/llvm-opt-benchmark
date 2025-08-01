@@ -1722,9 +1722,9 @@ _ZN4core3ops8function5FnMut8call_mut17h7865bcd7792e40a6E.exit.preheader.i: ; pre
 
 .preheader.i:                                     ; preds = %49
   %.not.i = icmp eq i64 %43, 2
-  br i1 %.not.i, label %.thread, label %.lr.ph.i
+  br i1 %.not.i, label %.thread, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %59
+.lr.ph.preheader.i:                               ; preds = %.preheader.i, %59
   %.val33.i = phi i64 [ %.val31.i, %59 ], [ %.val35.i, %.preheader.i ]
   %.17.i = phi i64 [ %60, %59 ], [ 2, %.preheader.i ]
   %54 = getelementptr inbounds { i64, i64 }, ptr %44, i64 %.17.i
@@ -2455,7 +2455,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h466c677a07f4c654E.exit: ; preds
   br i1 %50, label %.preheader.i, label %.preheader1.i
 
 .preheader1.i:                                    ; preds = %.noexc45
-  br i1 %.not11.i, label %.thread85, label %.lr.ph.i
+  br i1 %.not11.i, label %.thread85, label %.lr.ph.preheader.i
 
 .thread85:                                        ; preds = %.preheader1.i
   %51 = add i64 %.0155, 2
@@ -2468,7 +2468,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h466c677a07f4c654E.exit: ; preds
   %52 = add i64 %.0155, 2
   br label %91
 
-.lr.ph.i:                                         ; preds = %.preheader1.i, %56
+.lr.ph7.preheader.i:                              ; preds = %.preheader1.i, %56
   %.13.i = phi i64 [ %57, %56 ], [ 2, %.preheader1.i ]
   %53 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, [9 x i64] }, { i8, [31 x i8] }, { i32, i16, i16 }, { ptr } }, ptr %45, i64 %.13.i
   %gep.i = getelementptr i8, ptr %53, i64 -152

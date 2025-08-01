@@ -13897,9 +13897,9 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64: ; preds =
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 67
   store ptr %127, ptr %6, align 8, !tbaa !227
   %128 = icmp ult i64 %.0, 256
-  br i1 %128, label %._crit_edge.i.i, label %.lr.ph.i.i.preheader
+  br i1 %128, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i.preheader:                             ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64
+.lr.ph.i.i:                                       ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64
   %invariant.gep144 = getelementptr i8, ptr %5, i64 -1
   br label %.lr.ph.i.i
 
@@ -13914,8 +13914,8 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64: ; preds =
   store i8 %132, ptr %133, align 1, !tbaa !222
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 1
   %135 = load i8, ptr %134, align 1, !tbaa !222
-  %gep145 = getelementptr i8, ptr %invariant.gep144, i64 %.024.i.i
-  store i8 %135, ptr %gep145, align 1, !tbaa !222
+  %gep.i.i = getelementptr i8, ptr %invariant.gep144, i64 %.024.i.i
+  store i8 %135, ptr %gep.i.i, align 1, !tbaa !222
   %136 = lshr i64 %.02223.i.i, 8
   %137 = icmp ult i64 %.02223.i.i, 65536
   br i1 %137, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !555
@@ -13985,8 +13985,8 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit65: ; preds =
   store i8 %165, ptr %166, align 1, !tbaa !222
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 1
   %168 = load i8, ptr %167, align 1, !tbaa !222
-  %gep143 = getelementptr i8, ptr %invariant.gep, i64 %.024.i.i68
-  store i8 %168, ptr %gep143, align 1, !tbaa !222
+  %gep.i.i70 = getelementptr i8, ptr %invariant.gep, i64 %.024.i.i68
+  store i8 %168, ptr %gep.i.i70, align 1, !tbaa !222
   %169 = lshr i64 %.02223.i.i69, 8
   %170 = icmp ult i64 %.02223.i.i69, 65536
   br i1 %170, label %._crit_edge.i.i71, label %.lr.ph.i.i67, !llvm.loop !555

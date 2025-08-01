@@ -756,14 +756,14 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit: ; preds = %_ZN5Eigen8i
   %37 = load double, ptr %10, align 8, !tbaa !32
   %38 = fmul double %37, %33
   %.idx = shl i64 %36, 4
-  %39 = getelementptr i8, ptr %30, i64 %.idx
-  store double %38, ptr %39, align 8, !tbaa !21
-  %40 = trunc nuw nsw i64 %indvars.iv to i32
-  %41 = uitofp nneg i32 %40 to double
-  %42 = load double, ptr %10, align 8, !tbaa !32
-  %43 = fmul double %42, %41
+  %40 = getelementptr i8, ptr %30, i64 %.idx
+  store double %38, ptr %40, align 8, !tbaa !21
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
+  %42 = uitofp nneg i32 %41 to double
+  %43 = load double, ptr %10, align 8, !tbaa !32
+  %44 = fmul double %43, %42
   %gep.us = getelementptr i8, ptr %39, i64 8
-  store double %43, ptr %gep.us, align 8, !tbaa !21
+  store double %44, ptr %gep.us, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %34, !llvm.loop !35

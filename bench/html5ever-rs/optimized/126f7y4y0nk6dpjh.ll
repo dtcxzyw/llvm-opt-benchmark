@@ -667,7 +667,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h1ae935e5a73ef618E.exit: ; preds
   br i1 %50, label %.preheader.i, label %.preheader1.i
 
 .preheader1.i:                                    ; preds = %.noexc45
-  br i1 %.not11.i, label %.thread85, label %.lr.ph.i
+  br i1 %.not11.i, label %.thread85, label %.lr.ph7.preheader.i
 
 .thread85:                                        ; preds = %.preheader1.i
   %51 = add i64 %.0155, 2
@@ -680,7 +680,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h1ae935e5a73ef618E.exit: ; preds
   %52 = add i64 %.0155, 2
   br label %87
 
-.lr.ph.i:                                         ; preds = %.preheader1.i, %55
+.lr.ph7.preheader.i:                              ; preds = %.preheader1.i, %55
   %.13.i = phi i64 [ %56, %55 ], [ 2, %.preheader1.i ]
   %53 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %46, i64 %.13.i
   %gep.i = getelementptr i8, ptr %53, i64 -40

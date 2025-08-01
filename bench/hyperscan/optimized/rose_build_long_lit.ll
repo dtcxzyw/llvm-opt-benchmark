@@ -12208,26 +12208,26 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit: ; preds = %34, %3
   %42 = getelementptr i8, ptr %40, i64 %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %1, i64 %2, i1 false)
   %.not.i.i6 = icmp ult i64 %31, 4294967296
-  br i1 %.not.i.i6, label %_ZN3ue210verify_u32ImEEjT_.exit, label %43
+  br i1 %.not.i.i6, label %_ZN3ue210verify_u32ImEEjT_.exit, label %45
 
-43:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
-  %44 = tail call ptr @__cxa_allocate_exception(i64 48) #31
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %44)
-          to label %45 unwind label %46
+45:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
+  %46 = tail call ptr @__cxa_allocate_exception(i64 48) #31
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %46)
+          to label %45 unwind label %48
 
-45:                                               ; preds = %43
-  tail call void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #33
+47:                                               ; preds = %45
+  tail call void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #33
   unreachable
 
-46:                                               ; preds = %43
-  %47 = landingpad { ptr, i32 }
+48:                                               ; preds = %45
+  %49 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %44) #31
-  resume { ptr, i32 } %47
+  tail call void @__cxa_free_exception(ptr nonnull %46) #31
+  resume { ptr, i32 } %49
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
-  %48 = trunc nuw i64 %31 to i32
-  ret i32 %48
+  %50 = trunc nuw i64 %31 to i32
+  ret i32 %50
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -147,13 +147,13 @@ for.body.i.preheader:                             ; preds = %if.then.i
 for.body.i:                                       ; preds = %for.body.i.preheader, %if.then5.i
   %pos.010.i = phi i32 [ %dec.i, %if.then5.i ], [ %conv1.i, %for.body.i.preheader ]
   %0 = zext nneg i32 %pos.010.i to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %0
-  %1 = load i8, ptr %gep, align 1
+  %gep.i = getelementptr i8, ptr %invariant.gep, i64 %0
+  %1 = load i8, ptr %gep.i, align 1
   %cmp4.not.i = icmp eq i8 %1, 47
   br i1 %cmp4.not.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  store i8 0, ptr %gep, align 1
+  store i8 0, ptr %gep.i, align 1
   %dec.i = add nsw i32 %pos.010.i, -1
   %cmp2.i = icmp sgt i32 %pos.010.i, 1
   br i1 %cmp2.i, label %for.body.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit, !llvm.loop !5
@@ -244,13 +244,13 @@ for.body.i.preheader:                             ; preds = %if.then.i
 for.body.i:                                       ; preds = %for.body.i.preheader, %if.then5.i
   %pos.010.i = phi i32 [ %dec.i, %if.then5.i ], [ %conv1.i, %for.body.i.preheader ]
   %0 = zext nneg i32 %pos.010.i to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %0
-  %1 = load i8, ptr %gep, align 1
+  %gep.i = getelementptr i8, ptr %invariant.gep, i64 %0
+  %1 = load i8, ptr %gep.i, align 1
   %cmp4.not.i = icmp eq i8 %1, 47
   br i1 %cmp4.not.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  store i8 0, ptr %gep, align 1
+  store i8 0, ptr %gep.i, align 1
   %dec.i = add nsw i32 %pos.010.i, -1
   %cmp2.i = icmp sgt i32 %pos.010.i, 1
   br i1 %cmp2.i, label %for.body.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit, !llvm.loop !5

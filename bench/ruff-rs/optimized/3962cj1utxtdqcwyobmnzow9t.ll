@@ -2053,9 +2053,9 @@ define hidden void @_ZN14ruff_formatter14format_element18normalize_newlines17h87
   br i1 %.not.not.not.i.not.not.i.not.not.not.i.not.i, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hee1072d96075f6d2E.exit.loopexit", label %60
 
 60:                                               ; preds = %59
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx.i.i
+  %.ptr.i.i = getelementptr i8, ptr %invariant.gep, i64 %.idx.i.i
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 4
-  %.val4.i.i.i.i = load i32, ptr %gep, align 4, !range !297, !alias.scope !298, !noalias !303, !noundef !3
+  %.val4.i.i.i.i = load i32, ptr %.ptr.i.i, align 4, !range !297, !alias.scope !298, !noalias !303, !noundef !3
   %61 = icmp eq i32 %.val4.i.i.i.i, %.sroa.4.0.i.ph.i.i
   br i1 %61, label %62, label %59, !llvm.loop !307
 
@@ -8190,20 +8190,20 @@ _ZN21ruff_python_formatter8comments6format20strip_comment_prefix17h2e2c2de330183
   br i1 %.not.not.not.i.not.not.i.not.not.not.i.not.i.not.not.i.not, label %83, label %80
 
 80:                                               ; preds = %79
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx.i.i.i
+  %.ptr.i.i.i = getelementptr i8, ptr %invariant.gep, i64 %.idx.i.i.i
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 4
-  %.val4.i.i.i.i.i = load i32, ptr %gep, align 4, !range !297, !alias.scope !1083, !noalias !1088, !noundef !3
+  %.val4.i.i.i.i.i = load i32, ptr %.ptr.i.i.i, align 4, !range !297, !alias.scope !1083, !noalias !1088, !noundef !3
   %81 = icmp eq i32 %.val4.i.i.i.i.i, %.sroa.4.0.i.ph.i.i.i
   br i1 %81, label %85, label %79, !llvm.loop !307
 
 82:                                               ; preds = %85, %39, %32
-  %.sink93 = phi ptr [ %27, %85 ], [ @anon.93b0b4dae9c7f65659addb40567bf4a2.398, %39 ], [ %.sroa.625.0.copyload, %32 ]
-  %.sink92 = phi i64 [ %28, %85 ], [ 1, %39 ], [ %.sroa.726.0.copyload, %32 ]
+  %.sink92 = phi ptr [ %27, %85 ], [ @anon.93b0b4dae9c7f65659addb40567bf4a2.398, %39 ], [ %.sroa.625.0.copyload, %32 ]
+  %.sink91 = phi i64 [ %28, %85 ], [ 1, %39 ], [ %.sroa.726.0.copyload, %32 ]
   %.sink = phi i64 [ 0, %85 ], [ 0, %39 ], [ 1, %32 ]
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink93, ptr %.sroa.417.0..sroa_idx, align 8
+  store ptr %.sink92, ptr %.sroa.417.0..sroa_idx, align 8
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sink92, ptr %.sroa.518.0..sroa_idx, align 8
+  store i64 %.sink91, ptr %.sroa.518.0..sroa_idx, align 8
   store i64 %.sink, ptr %0, align 8
   br label %167
 

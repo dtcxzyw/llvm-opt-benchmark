@@ -754,8 +754,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50.i: ; preds = %_
   %163 = load ptr, ptr %109, align 8, !tbaa !138
   %164 = getelementptr i8, ptr %163, i64 -24
   %165 = load i64, ptr %164, align 8
-  %gep20 = getelementptr i8, ptr %invariant.gep, i64 %165
-  %166 = load i64, ptr %gep20, align 8, !tbaa !140
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %165
+  %166 = load i64, ptr %gep.i, align 8, !tbaa !140
   %.not.i.i.i = icmp eq i64 %166, 0
   br i1 %.not.i.i.i, label %169, label %167
 
@@ -850,8 +850,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit35.i.i: ; preds = %194
   %201 = load ptr, ptr %109, align 8, !tbaa !138
   %202 = getelementptr i8, ptr %201, i64 -24
   %203 = load i64, ptr %202, align 8
-  %gep22 = getelementptr i8, ptr %invariant.gep21, i64 %203
-  %204 = load i64, ptr %gep22, align 8, !tbaa !140
+  %gep454.i = getelementptr i8, ptr %invariant.gep21, i64 %203
+  %204 = load i64, ptr %gep454.i, align 8, !tbaa !140
   %.not.i36.i.i = icmp eq i64 %204, 0
   br i1 %.not.i36.i.i, label %207, label %205
 
@@ -1411,8 +1411,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23.i.i: ; preds = 
   %389 = load ptr, ptr %109, align 8, !tbaa !138
   %390 = getelementptr i8, ptr %389, i64 -24
   %391 = load i64, ptr %390, align 8
-  %gep = getelementptr i8, ptr %invariant.gep23, i64 %391
-  %392 = load i64, ptr %gep, align 8, !tbaa !140
+  %gep456.i = getelementptr i8, ptr %invariant.gep23, i64 %391
+  %392 = load i64, ptr %gep456.i, align 8, !tbaa !140
   %.not.i.i75.i = icmp eq i64 %392, 0
   br i1 %.not.i.i75.i, label %395, label %393
 
@@ -1437,8 +1437,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i76.i: ; preds = %395
   %399 = load ptr, ptr %109, align 8, !tbaa !138
   %400 = getelementptr i8, ptr %399, i64 -24
   %401 = load i64, ptr %400, align 8
-  %gep25 = getelementptr i8, ptr %invariant.gep24, i64 %401
-  %402 = load i64, ptr %gep25, align 8, !tbaa !140
+  %gep458.i = getelementptr i8, ptr %invariant.gep24, i64 %401
+  %402 = load i64, ptr %gep458.i, align 8, !tbaa !140
   %.not.i24.i.i = icmp eq i64 %402, 0
   br i1 %.not.i24.i.i, label %405, label %403
 
@@ -1751,8 +1751,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i97.i: ; preds = 
   %504 = load ptr, ptr %109, align 8, !tbaa !138
   %505 = getelementptr i8, ptr %504, i64 -24
   %506 = load i64, ptr %505, align 8
-  %gep27 = getelementptr i8, ptr %invariant.gep26, i64 %506
-  %507 = load i64, ptr %gep27, align 8, !tbaa !140
+  %gep460.i = getelementptr i8, ptr %invariant.gep26, i64 %506
+  %507 = load i64, ptr %gep460.i, align 8, !tbaa !140
   %.not.i.i108.i = icmp eq i64 %507, 0
   br i1 %.not.i.i108.i, label %510, label %508
 
@@ -3424,7 +3424,7 @@ define dso_local noundef zeroext i1 @_ZN11flatbuffers6python4grpc12GenerateStubE
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 25
-  %invariant.gep = getelementptr i8, ptr %34, i64 32
+  %invariant.gep.i = getelementptr i8, ptr %34, i64 32
   br label %111
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZN11flatbuffers6python4grpc12_GLOBAL__N_113StubGenerator8GenerateERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEPKNS_10ServiceDefEPNS0_7ImportsE.exit.i
@@ -4363,8 +4363,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i.i: ; preds =
   %418 = load ptr, ptr %52, align 8, !tbaa !138
   %419 = getelementptr i8, ptr %418, i64 -24
   %420 = load i64, ptr %419, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %420
-  %421 = load i64, ptr %gep, align 8, !tbaa !140
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %420
+  %421 = load i64, ptr %gep.i, align 8, !tbaa !140
   %.not.i193.i.i = icmp eq i64 %421, 0
   br i1 %.not.i193.i.i, label %424, label %422
 

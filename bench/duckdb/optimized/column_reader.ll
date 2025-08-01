@@ -1679,9 +1679,9 @@ define void @_ZN6duckdb12ColumnReaderC2ERNS_13ParquetReaderERKNS_19ParquetColumn
   %46 = landingpad { ptr, i32 }
           cleanup
   %47 = icmp eq i64 %.idx, 448
-  br i1 %47, label %.loopexit, label %.preheader.preheader
+  br i1 %47, label %.loopexit, label %.preheader
 
-.preheader.preheader:                             ; preds = %45
+.preheader:                                       ; preds = %45
   %invariant.gep = getelementptr i8, ptr %0, i64 16
   br label %.preheader
 

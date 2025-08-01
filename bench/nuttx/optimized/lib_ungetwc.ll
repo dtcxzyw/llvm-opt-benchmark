@@ -53,7 +53,7 @@ define noundef i32 @ungetwc(i32 noundef %0, ptr noundef captures(address_is_null
   %4 = icmp eq ptr %1, null
   %5 = icmp eq i32 %0, -1
   %or.cond = or i1 %5, %4
-  br i1 %or.cond, label %28, label %6
+  br i1 %or.cond, label %27, label %6
 
 6:                                                ; preds = %2
   tail call void @flockfile(ptr noundef nonnull %1)
@@ -93,9 +93,9 @@ ungetwc_unlocked.exit:                            ; preds = %6, %11, %14, %20
   %.0.i = phi i32 [ %0, %20 ], [ -1, %6 ], [ -1, %11 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @funlockfile(ptr noundef nonnull %1)
-  br label %28
+  br label %27
 
-28:                                               ; preds = %2, %ungetwc_unlocked.exit
+27:                                               ; preds = %2, %ungetwc_unlocked.exit
   %.0 = phi i32 [ %.0.i, %ungetwc_unlocked.exit ], [ -1, %2 ]
   ret i32 %.0
 }

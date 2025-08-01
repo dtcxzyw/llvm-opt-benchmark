@@ -615,8 +615,8 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   %21 = uitofp nneg i32 %20 to float
   %22 = fmul reassoc nsz arcp float %21, 2.000000e+00
   %23 = fmul reassoc nsz arcp float %22, %9
-  %gep85 = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
-  store float %23, ptr %gep85, align 4, !tbaa !3
+  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  store float %23, ptr %gep, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader37, label %19, !llvm.loop !26
@@ -629,8 +629,8 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   %28 = add i32 %27, 2
   %29 = sitofp i32 %28 to float
   %30 = fmul reassoc nsz arcp float %29, %18
-  %gep87 = getelementptr float, ptr %invariant.gep86, i64 %indvars.iv61
-  store float %30, ptr %gep87, align 4, !tbaa !3
+  %gep43 = getelementptr float, ptr %invariant.gep86, i64 %indvars.iv61
+  store float %30, ptr %gep43, align 4, !tbaa !3
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
   br i1 %exitcond65.not, label %.loopexit, label %24, !llvm.loop !27
@@ -656,8 +656,8 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   %38 = uitofp nneg i32 %37 to float
   %39 = fmul reassoc nsz arcp float %38, 2.000000e+00
   %40 = fmul reassoc nsz arcp float %39, %14
-  %gep = getelementptr float, ptr %invariant.gep88, i64 %indvars.iv66
-  store float %40, ptr %gep, align 4, !tbaa !3
+  %gep48 = getelementptr float, ptr %invariant.gep88, i64 %indvars.iv66
+  store float %40, ptr %gep48, align 4, !tbaa !3
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
   br i1 %exitcond70.not, label %.preheader, label %36, !llvm.loop !28
@@ -670,8 +670,8 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   %45 = add i32 %44, 2
   %46 = sitofp i32 %45 to float
   %47 = fmul reassoc nsz arcp float %46, %35
-  %gep90 = getelementptr float, ptr %invariant.gep89, i64 %indvars.iv71
-  store float %47, ptr %gep90, align 4, !tbaa !3
+  %gep54 = getelementptr float, ptr %invariant.gep89, i64 %indvars.iv71
+  store float %47, ptr %gep54, align 4, !tbaa !3
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
   br i1 %exitcond75.not, label %.loopexit, label %41, !llvm.loop !29

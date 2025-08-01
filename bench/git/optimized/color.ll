@@ -151,7 +151,7 @@ define dso_local range(i32 -1, 1) i32 @color_parse_mem(ptr noundef %0, i32 nound
   br i1 %26, label %.lr.ph255.preheader, label %.critedge4
 
 .lr.ph255.preheader:                              ; preds = %.critedge2
-  %27 = getelementptr i8, ptr %.193274, i64 %24
+  %scevgep307 = getelementptr i8, ptr %.193274, i64 %24
   %28 = zext nneg i32 %.2104.lcssa to i64
   %29 = getelementptr i8, ptr %27, i64 %28
   br label %.lr.ph255

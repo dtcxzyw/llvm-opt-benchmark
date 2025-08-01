@@ -448,7 +448,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8, !nonnull !15, !noundef !15
   %11 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h7ceae7a3cee8aaddE.llvm.7332213574936156402"()
-          to label %.noexc unwind label %36
+          to label %.noexc unwind label %37
 
 .noexc:                                           ; preds = %9
   %12 = icmp eq ptr %11, null
@@ -456,7 +456,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
 
 13:                                               ; preds = %.noexc
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 320) #19
-          to label %.noexc12 unwind label %36
+          to label %.noexc12 unwind label %37
 
 .noexc12:                                         ; preds = %13
   unreachable
@@ -501,20 +501,20 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   store i64 %33, ptr %31, align 8
   br label %22
 
-34:                                               ; preds = %36
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %37
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #21
   unreachable
 
-36:                                               ; preds = %13, %9
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %13, %9
+  %38 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..ValueLabelAssignments$GT$17h63309f78d4962a4cE"(ptr noalias noundef align 8 dereferenceable(24) %1) #22
-          to label %38 unwind label %34
+          to label %38 unwind label %35
 
-38:                                               ; preds = %36
-  resume { ptr, i32 } %37
+39:                                               ; preds = %37
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -123,17 +123,17 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !alias.scope !54, !noalias !57, !noundef !29
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8, !alias.scope !54, !noalias !57, !noundef !29
   %.promoted.i.i = load i64, ptr %0, align 8, !alias.scope !54, !noalias !57
-  %.not.i8.i.i = icmp eq i64 %4, %.promoted.i.i
-  br i1 %.not.i8.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2f962ee7be3c8b9eE.llvm.17336248082475965192.exit", label %.lr.ph.i.i.preheader
+  %.not.i8.i.i = icmp eq i64 %5, %.promoted.i.i
+  br i1 %.not.i8.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2f962ee7be3c8b9eE.llvm.17336248082475965192.exit", label %.lr.ph.i.i
 
-.lr.ph.i.i.preheader:                             ; preds = %2
+.lr.ph.i.i:                                       ; preds = %2
   %invariant.gep = getelementptr i8, ptr %0, i64 16
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+.lr.ph.i.i:; preds = %.lr.ph.i.i, %.lr.ph.i.i
   %5 = phi i64 [ %6, %.lr.ph.i.i ], [ %.promoted.i.i, %.lr.ph.i.i.preheader ]
   %6 = add nuw nsw i64 %5, 1
   %7 = icmp ult i64 %5, 3
@@ -1732,17 +1732,17 @@ define hidden void @"_ZN70_$LT$serde..de..impls..StringVisitor$u20$as$u20$serde.
 define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2f962ee7be3c8b9eE.llvm.17336248082475965192"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !432)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !435)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !alias.scope !437, !noalias !440, !noundef !29
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8, !alias.scope !437, !noalias !440, !noundef !29
   %.promoted.i = load i64, ptr %0, align 8, !alias.scope !437, !noalias !440
-  %.not.i8.i = icmp eq i64 %4, %.promoted.i
-  br i1 %.not.i8.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4b09a189574d8616E.llvm.17336248082475965192.exit, label %.lr.ph.i.preheader
+  %.not.i8.i = icmp eq i64 %5, %.promoted.i
+  br i1 %.not.i8.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4b09a189574d8616E.llvm.17336248082475965192.exit, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %2
+.lr.ph.i:                                         ; preds = %2
   %invariant.gep = getelementptr i8, ptr %0, i64 16
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+.lr.ph.i:; preds = %.lr.ph.i, %.lr.ph.i
   %5 = phi i64 [ %6, %.lr.ph.i ], [ %.promoted.i, %.lr.ph.i.preheader ]
   %6 = add nuw nsw i64 %5, 1
   store i64 %6, ptr %0, align 8, !alias.scope !437, !noalias !440

@@ -1244,7 +1244,7 @@ define hidden void @_ZN7nanogui10RenderPass12set_viewportERKNS_5ArrayIiLm2EEES4_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %33
+  br i1 %10, label %11, label %35
 
 11:                                               ; preds = %3
   %12 = trunc i64 %7 to i32
@@ -1281,7 +1281,7 @@ _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit:           ; preds = %26
   %invariant.gep = getelementptr i8, ptr %0, i64 96
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+.preheader:; preds = %.preheader.preheader, %.preheader
   %.not8.i4 = phi i1 [ false, %.preheader ], [ true, %.preheader.preheader ]
   %.07.i5 = phi i64 [ 1, %.preheader ], [ 0, %.preheader.preheader ]
   %29 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %.07.i5
@@ -1293,17 +1293,17 @@ _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit:           ; preds = %26
   br i1 %or.cond.i7, label %.preheader, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit8, !llvm.loop !14
 
 _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit8:          ; preds = %.preheader
-  br i1 %.not.i6, label %32, label %.critedge
+  br i1 %.not.i6, label %34, label %.critedge
 
-32:                                               ; preds = %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit8
+34:                                               ; preds = %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit8
   tail call void @glDisable(i32 noundef 3089)
-  br label %33
+  br label %35
 
 .critedge:                                        ; preds = %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit8
   tail call void @glEnable(i32 noundef 3089)
-  br label %33
+  br label %35
 
-33:                                               ; preds = %32, %.critedge, %3
+35:                                               ; preds = %34, %.critedge, %3
   ret void
 }
 

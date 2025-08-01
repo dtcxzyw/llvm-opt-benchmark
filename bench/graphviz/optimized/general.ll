@@ -358,8 +358,8 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %12
 
 44:                                               ; preds = %._crit_edge, %44
   %indvars.iv35 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next36, %44 ]
-  %.idx40 = shl i64 %indvars.iv35, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx40
+  %gep.idx = shl i64 %indvars.iv35, 4
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %gep.idx
   %45 = load double, ptr %gep, align 8, !tbaa !14
   %46 = fptosi double %45 to i32
   %47 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv35

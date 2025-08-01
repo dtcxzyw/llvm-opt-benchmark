@@ -3881,33 +3881,33 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal31match
   %8 = load i32, ptr %1, align 8
   %9 = lshr i32 %8, 24
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
-  %12 = lshr i32 %8, 19
-  %13 = and i32 %12, 1
-  %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
-  %16 = zext i32 %6 to i64
-  br label %17
+  %gep = getelementptr inbounds nuw i8, ptr %1, i64 %10
+  %11 = lshr i32 %8, 19
+  %12 = and i32 %11, 1
+  %13 = zext nneg i32 %12 to i64
+  %14 = getelementptr inbounds nuw ptr, ptr %gep, i64 %13
+  %15 = zext i32 %6 to i64
+  br label %16
 
-17:                                               ; preds = %.preheader, %18
-  %indvars.iv = phi i64 [ %16, %.preheader ], [ %19, %18 ]
+16:                                               ; preds = %.preheader, %17
+  %indvars.iv = phi i64 [ %15, %.preheader ], [ %18, %18 ]
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %.split.loop.exit11, label %18
+  br i1 %.not, label %.split.loop.exit11, label %17
 
-18:                                               ; preds = %17
-  %19 = add nsw i64 %indvars.iv, -1
-  %gep13 = getelementptr ptr, ptr %15, i64 %indvars.iv
-  %20 = load ptr, ptr %gep13, align 8, !tbaa !110
+17:                                               ; preds = %16
+  %18 = add nsw i64 %indvars.iv, -1
+  %19 = getelementptr ptr, ptr %14, i64 %indvars.iv
+  %20 = load ptr, ptr %19, align 8, !tbaa !110
   %21 = load i16, ptr %20, align 8
   %22 = and i16 %21, 511
   %23 = icmp eq i16 %22, 113
-  br i1 %23, label %17, label %.split.loop.exit, !llvm.loop !240
+  br i1 %23, label %16, label %.split.loop.exit, !llvm.loop !240
 
-.split.loop.exit:                                 ; preds = %18
+.split.loop.exit:                                 ; preds = %17
   %24 = trunc nuw i64 %indvars.iv to i32
   br label %.split.loop.exit11
 
-.split.loop.exit11:                               ; preds = %17, %.split.loop.exit, %4
+.split.loop.exit11:                               ; preds = %16, %.split.loop.exit, %4
   %.0.lcssa.sink = phi i32 [ %6, %4 ], [ %24, %.split.loop.exit ], [ 0, %17 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !221

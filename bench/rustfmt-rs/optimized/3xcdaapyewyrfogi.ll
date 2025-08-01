@@ -1411,9 +1411,9 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_u3217hc59
   %19 = load i16, ptr %17, align 1, !noalias !242
   store i16 %19, ptr %18, align 1, !alias.scope !242
   %20 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %15
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.02838.i
+  %gep.i = getelementptr i8, ptr %invariant.gep, i64 %.02838.i
   %21 = load i16, ptr %20, align 1, !noalias !242
-  store i16 %21, ptr %gep, align 1, !alias.scope !242
+  store i16 %21, ptr %gep.i, align 1, !alias.scope !242
   %22 = icmp ugt i32 %.139.i, 99999999
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !245
 
@@ -6854,9 +6854,9 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls55_$LT$impl$u20$s
   %19 = load i16, ptr %17, align 1, !noalias !1435
   store i16 %19, ptr %18, align 1, !alias.scope !1432, !noalias !1431
   %20 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %15
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.02838.i.i.i
+  %gep.i.i.i = getelementptr i8, ptr %invariant.gep, i64 %.02838.i.i.i
   %21 = load i16, ptr %20, align 1, !noalias !1435
-  store i16 %21, ptr %gep, align 1, !alias.scope !1432, !noalias !1431
+  store i16 %21, ptr %gep.i.i.i, align 1, !alias.scope !1432, !noalias !1431
   %22 = icmp ugt i32 %.139.i.i.i, 99999999
   br i1 %22, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !245
 
@@ -8178,9 +8178,9 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
   %33 = load i16, ptr %31, align 1, !noalias !1807
   store i16 %33, ptr %32, align 1, !alias.scope !1804, !noalias !1803
   %34 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %29
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.02838.i.i.i.i
+  %gep.i.i.i.i = getelementptr i8, ptr %invariant.gep, i64 %.02838.i.i.i.i
   %35 = load i16, ptr %34, align 1, !noalias !1807
-  store i16 %35, ptr %gep, align 1, !alias.scope !1804, !noalias !1803
+  store i16 %35, ptr %gep.i.i.i.i, align 1, !alias.scope !1804, !noalias !1803
   %36 = icmp ugt i32 %.139.i.i.i.i, 99999999
   br i1 %36, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !245
 
@@ -13399,9 +13399,9 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
   %18 = load i16, ptr %16, align 1, !noalias !2405
   store i16 %18, ptr %17, align 1, !alias.scope !2402, !noalias !2399
   %19 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %14
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.02838.i.i
+  %gep.i.i = getelementptr i8, ptr %invariant.gep, i64 %.02838.i.i
   %20 = load i16, ptr %19, align 1, !noalias !2405
-  store i16 %20, ptr %gep, align 1, !alias.scope !2402, !noalias !2399
+  store i16 %20, ptr %gep.i.i, align 1, !alias.scope !2402, !noalias !2399
   %21 = icmp ugt i32 %.139.i.i, 99999999
   br i1 %21, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !245
 

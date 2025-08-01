@@ -735,9 +735,9 @@ _ZN4core3ops8function5FnMut8call_mut17h5b7786a8b9a6a191E.exit.preheader.i: ; pre
 
 .preheader.i:                                     ; preds = %54
   %.not.i = icmp eq i64 %48, 2
-  br i1 %.not.i, label %.thread, label %.lr.ph.i
+  br i1 %.not.i, label %.thread, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %64
+.lr.ph.preheader.i:                               ; preds = %.preheader.i, %64
   %.val33.i = phi i64 [ %.val31.i, %64 ], [ %.val35.i, %.preheader.i ]
   %.16.i = phi i64 [ %65, %64 ], [ 2, %.preheader.i ]
   %59 = getelementptr inbounds { i64, i64 }, ptr %49, i64 %.16.i
@@ -3214,15 +3214,15 @@ _ZN4core3ptr19swap_nonoverlapping17h477761ca7d38017bE.exit: ; preds = %115
   %172 = add i64 %.0.i.i.i8, -16
   %173 = and i64 %172, %65
   store i8 %171, ptr %169, align 1
-  %gep59 = getelementptr i8, ptr %invariant.gep, i64 %173
-  store i8 %171, ptr %gep59, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %173
+  store i8 %171, ptr %gep, align 1
   %174 = load ptr, ptr %0, align 8, !alias.scope !410, !noalias !411, !nonnull !4, !noundef !4
   %.neg.i.i = mul i64 %100, -24
   %175 = getelementptr i8, ptr %174, i64 %.neg.i.i
   %176 = getelementptr i8, ptr %175, i64 -24
   %.neg27.i.i = mul i64 %.0.i.i.i8, -24
-  %gep61 = getelementptr i8, ptr %invariant.gep60, i64 %.neg27.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %gep61, ptr noundef nonnull align 1 dereferenceable(24) %176, i64 24, i1 false)
+  %gep102 = getelementptr i8, ptr %invariant.gep60, i64 %.neg27.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %gep102, ptr noundef nonnull align 1 dereferenceable(24) %176, i64 24, i1 false)
   %.not = icmp eq i64 %101, 0
   br i1 %.not, label %.thread71.loopexit, label %.preheader, !llvm.loop !432
 

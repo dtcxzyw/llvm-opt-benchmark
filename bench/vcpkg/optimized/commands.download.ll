@@ -861,9 +861,9 @@ _ZN5vcpkg4Util4Sets8containsISt3setINS_13StringLiteralESt4lessIvESaIS4_EES4_EEbR
   %269 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %270 = load i64, ptr %269, align 8, !noalias !38
   %271 = icmp eq i64 %270, 128
-  br i1 %271, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.thread.i
+  br i1 %271, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.thread.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %267, %307
+.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %267, %307
   %.047.i.i.i.i.i.i.i = phi i64 [ %308, %307 ], [ 32, %267 ]
   %.02946.i.i.i.i.i.idx.i.i = phi i64 [ %.02946.i.i.i.i.i.add17.i.i, %307 ], [ 0, %267 ]
   %.02946.i.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %268, i64 %.02946.i.i.i.i.i.idx.i.i

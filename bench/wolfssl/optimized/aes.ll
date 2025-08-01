@@ -392,9 +392,9 @@ ForceZero.exit.i.i:                               ; preds = %.lr.ph.i141.i.i, %.
   %228 = load i32, ptr %14, align 16, !tbaa !10
   %229 = shl i32 %228, 2
   %.not.i35.i = icmp eq i32 %229, 0
-  br i1 %.not.i35.i, label %._crit_edge.i.i, label %.lr.ph.i37.i
+  br i1 %.not.i35.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i36.i
 
-.lr.ph.i37.i:                                     ; preds = %227, %.lr.ph.i37.i
+.lr.ph.preheader.i36.i:                           ; preds = %227, %.lr.ph.i37.i
   %indvars.iv192.i.i = phi i64 [ %indvars.iv.next193.i.i, %.lr.ph.i37.i ], [ 0, %227 ]
   %.0174.i.i = phi i32 [ %250, %.lr.ph.i37.i ], [ %229, %227 ]
   %230 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv192.i.i
@@ -4527,8 +4527,8 @@ xorbuf.exit:                                      ; preds = %xorbuf.exit.prehead
   %63 = zext i16 %62 to i64
   %64 = xor i64 %55, %63
   %.idx = shl nuw nsw i64 %51, 4
-  %gep254 = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %65 = load i64, ptr %gep254, align 8, !tbaa !25
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %65 = load i64, ptr %gep, align 8, !tbaa !25
   %66 = lshr i64 %65, 56
   %67 = lshr i64 %46, 60
   %.masked.i = and i64 %66, 15
@@ -4611,7 +4611,7 @@ GMULT.exit:                                       ; preds = %xorbuf.exit
 
 xorbuf.exit65:                                    ; preds = %.lr.ph.i.i59
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %invariant.gep255 = getelementptr i8, ptr %0, i64 24
+  %invariant.gep168 = getelementptr i8, ptr %0, i64 24
   br label %119
 
 119:                                              ; preds = %119, %xorbuf.exit65
@@ -4648,8 +4648,8 @@ xorbuf.exit65:                                    ; preds = %.lr.ph.i.i59
   %147 = zext i16 %146 to i64
   %148 = xor i64 %139, %147
   %.idx150 = shl nuw nsw i64 %135, 4
-  %gep256 = getelementptr i8, ptr %invariant.gep255, i64 %.idx150
-  %149 = load i64, ptr %gep256, align 8, !tbaa !25
+  %gep169 = getelementptr i8, ptr %invariant.gep168, i64 %.idx150
+  %149 = load i64, ptr %gep169, align 8, !tbaa !25
   %150 = lshr i64 %149, 56
   %151 = lshr i64 %130, 60
   %.masked.i69 = and i64 %150, 15
@@ -4793,8 +4793,8 @@ xorbuf.exit91:                                    ; preds = %xorbuf.exit91.prehe
   %245 = zext i16 %244 to i64
   %246 = xor i64 %237, %245
   %.idx151 = shl nuw nsw i64 %233, 4
-  %gep = getelementptr i8, ptr %invariant.gep257, i64 %.idx151
-  %247 = load i64, ptr %gep, align 8, !tbaa !25
+  %gep171 = getelementptr i8, ptr %invariant.gep257, i64 %.idx151
+  %247 = load i64, ptr %gep171, align 8, !tbaa !25
   %248 = lshr i64 %247, 56
   %249 = lshr i64 %228, 60
   %.masked.i95 = and i64 %248, 15
@@ -4877,7 +4877,7 @@ GMULT.exit97:                                     ; preds = %xorbuf.exit91
 
 xorbuf.exit117:                                   ; preds = %.lr.ph.i.i111
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %invariant.gep258 = getelementptr i8, ptr %0, i64 24
+  %invariant.gep179 = getelementptr i8, ptr %0, i64 24
   br label %301
 
 301:                                              ; preds = %301, %xorbuf.exit117
@@ -4914,8 +4914,8 @@ xorbuf.exit117:                                   ; preds = %.lr.ph.i.i111
   %329 = zext i16 %328 to i64
   %330 = xor i64 %321, %329
   %.idx152 = shl nuw nsw i64 %317, 4
-  %gep259 = getelementptr i8, ptr %invariant.gep258, i64 %.idx152
-  %331 = load i64, ptr %gep259, align 8, !tbaa !25
+  %gep180 = getelementptr i8, ptr %invariant.gep179, i64 %.idx152
+  %331 = load i64, ptr %gep180, align 8, !tbaa !25
   %332 = lshr i64 %331, 56
   %333 = lshr i64 %312, 60
   %.masked.i121 = and i64 %332, 15
@@ -5040,7 +5040,7 @@ GMULT.exit123:                                    ; preds = %301
 
 xorbuf.exit143:                                   ; preds = %.lr.ph.i.i137
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %invariant.gep260 = getelementptr i8, ptr %0, i64 24
+  %invariant.gep181 = getelementptr i8, ptr %0, i64 24
   br label %419
 
 419:                                              ; preds = %419, %xorbuf.exit143
@@ -5077,8 +5077,8 @@ xorbuf.exit143:                                   ; preds = %.lr.ph.i.i137
   %447 = zext i16 %446 to i64
   %448 = xor i64 %439, %447
   %.idx153 = shl nuw nsw i64 %435, 4
-  %gep261 = getelementptr i8, ptr %invariant.gep260, i64 %.idx153
-  %449 = load i64, ptr %gep261, align 8, !tbaa !25
+  %gep182 = getelementptr i8, ptr %invariant.gep181, i64 %.idx153
+  %449 = load i64, ptr %gep182, align 8, !tbaa !25
   %450 = lshr i64 %449, 56
   %451 = lshr i64 %430, 60
   %.masked.i147 = and i64 %450, 15

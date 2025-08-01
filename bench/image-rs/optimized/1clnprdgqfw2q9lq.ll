@@ -36242,8 +36242,8 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
   %40 = add i64 %.sroa.0.021.i.i.us, %39
   %41 = and i64 %40, %.val4.i
   %42 = sub nsw i64 0, %41
-  %gep45 = getelementptr { { i16, i16 }, [2 x i16], { i64, [8 x i8], i8, [7 x i8] } }, ptr %invariant.gep, i64 %42
-  %.val4.i.i.us.us = load i16, ptr %gep45, align 2, !range !5756, !alias.scope !6926, !noalias !6931, !noundef !4
+  %gep = getelementptr { { i16, i16 }, [2 x i16], { i64, [8 x i8], i8, [7 x i8] } }, ptr %invariant.gep, i64 %42
+  %.val4.i.i.us.us = load i16, ptr %gep, align 2, !range !5756, !alias.scope !6926, !noalias !6931, !noundef !4
   %43 = icmp eq i16 %.fr21, %.val4.i.i.us.us
   br i1 %43, label %.split.us, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h5c9f91bad1dc9e91E.exit.backedge.i.us.us"
 

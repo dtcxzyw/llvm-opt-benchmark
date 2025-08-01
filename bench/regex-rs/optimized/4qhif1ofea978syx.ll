@@ -966,18 +966,18 @@ define noundef zeroext i1 @"_ZN62_$LT$regex_syntax..debug..Byte$u20$as$u20$core.
 
 46:                                               ; preds = %.lr.ph
   %47 = add nuw nsw i64 %.01934, 1
-  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 0, i64 %indvars.iv
-  %48 = load i8, ptr %gep, align 1, !range !152, !alias.scope !140, !noalias !141, !noundef !4
-  %49 = icmp samesign ugt i64 %.01934, 1
-  %50 = add nsw i8 %48, -97
-  %51 = icmp ult i8 %50, 6
-  %or.cond3 = and i1 %49, %51
-  %52 = add nsw i8 %48, -32
-  %spec.select = select i1 %or.cond3, i8 %52, i8 %48
-  %53 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.01934
-  store i8 %spec.select, ptr %53, align 1
-  %54 = icmp samesign ult i64 %indvars.iv.next, %28
-  br i1 %54, label %.lr.ph, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6eec90936175538dE.exit", !llvm.loop !153
+  %48 = getelementptr [4 x i8], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %49 = load i8, ptr %48, align 1, !range !152, !alias.scope !140, !noalias !141, !noundef !4
+  %50 = icmp samesign ugt i64 %.01934, 1
+  %51 = add nsw i8 %49, -97
+  %52 = icmp ult i8 %51, 6
+  %or.cond3 = and i1 %50, %52
+  %53 = add nsw i8 %49, -32
+  %spec.select = select i1 %or.cond3, i8 %53, i8 %49
+  %54 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.01934
+  store i8 %spec.select, ptr %54, align 1
+  %55 = icmp samesign ult i64 %indvars.iv.next, %28
+  br i1 %55, label %.lr.ph, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6eec90936175538dE.exit", !llvm.loop !153
 }
 
 ; Function Attrs: nonlazybind uwtable

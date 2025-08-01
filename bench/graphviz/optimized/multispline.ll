@@ -287,14 +287,14 @@ gv_calloc.exit102:                                ; preds = %.thread.i101, %76
 
 .lr.ph147.preheader:                              ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %1 to i64
-  %invariant.gep211 = getelementptr i8, ptr %92, i64 4
+  %invariant.gep190 = getelementptr i8, ptr %92, i64 4
   br label %.lr.ph147
 
 100:                                              ; preds = %gv_calloc.exit102, %100
   %.083137199 = phi i32 [ 1, %gv_calloc.exit102 ], [ %101, %100 ]
   %indvars.iv198 = phi i64 [ 0, %gv_calloc.exit102 ], [ %indvars.iv.next, %100 ]
-  %gep210 = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv198
-  store i32 %.083137199, ptr %gep210, align 4, !tbaa !43
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv198
+  store i32 %.083137199, ptr %gep, align 4, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv198, 2
   %101 = add nuw nsw i32 %.083137199, 1
   %102 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv.next
@@ -345,8 +345,8 @@ gv_calloc.exit102:                                ; preds = %.thread.i101, %76
   %116 = add nsw i64 %indvars.iv161, 1
   %117 = trunc nsw i64 %116 to i32
   %.085144.sink = select i1 %115, i32 %117, i32 %.085144
-  %gep = getelementptr i32, ptr %invariant.gep211, i64 %indvars.iv163
-  store i32 %.085144.sink, ptr %gep, align 4, !tbaa !43
+  %gep191 = getelementptr i32, ptr %invariant.gep190, i64 %indvars.iv163
+  store i32 %.085144.sink, ptr %gep191, align 4, !tbaa !43
   %indvars.iv.next164 = add nsw i64 %indvars.iv163, 2
   %118 = getelementptr inbounds %struct.pointf_s, ptr %83, i64 %indvars.iv161
   %119 = load ptr, ptr %105, align 8, !tbaa !37
@@ -1277,10 +1277,10 @@ PQupdate.exit.i:                                  ; preds = %._crit_edge.loopexi
   br label %.sink.split
 
 .sink.split:                                      ; preds = %PQinsert.exit83.thread.i, %PQupdate.exit.i
-  %.sink211 = phi ptr [ %105, %PQupdate.exit.i ], [ %95, %PQinsert.exit83.thread.i ]
+  %.sink207 = phi ptr [ %105, %PQupdate.exit.i ], [ %95, %PQinsert.exit83.thread.i ]
   %.0.i71.i.sink = phi i32 [ %.0.i71.i, %PQupdate.exit.i ], [ %.0.lcssa.i.i75.i, %PQinsert.exit83.thread.i ]
   %.sroa.5.3.ph = phi i32 [ %.sroa.5.2, %PQupdate.exit.i ], [ %215, %PQinsert.exit83.thread.i ]
-  %273 = getelementptr inbounds i32, ptr %.sink211, i64 %198
+  %273 = getelementptr inbounds i32, ptr %.sink207, i64 %198
   store i32 %.0.i71.i.sink, ptr %273, align 4, !tbaa !43
   br label %274
 
@@ -2574,8 +2574,8 @@ gv_calloc.exit165.i:                              ; preds = %868, %.thread.i164.
   %.0127213.i = phi i64 [ %889, %.lr.ph.i96 ], [ 1, %880 ]
   %890 = load ptr, ptr %7, align 8, !tbaa !37
   %891 = getelementptr inbounds nuw %struct.pointf_s, ptr %890, i64 %.0127213.i
-  %gep281 = getelementptr ptr, ptr %invariant.gep, i64 %.0127213.i
-  %892 = load ptr, ptr %gep281, align 8, !tbaa !71
+  %gep.i = getelementptr ptr, ptr %invariant.gep, i64 %.0127213.i
+  %892 = load ptr, ptr %gep.i, align 8, !tbaa !71
   %893 = getelementptr inbounds nuw %struct.pointf_s, ptr %892, i64 %indvars.iv.i92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %891, ptr noundef nonnull align 8 dereferenceable(16) %893, i64 16, i1 false), !tbaa.struct !45
   %894 = add nuw i64 %889, 1
@@ -2594,8 +2594,8 @@ gv_calloc.exit165.i:                              ; preds = %868, %.thread.i164.
   %900 = load ptr, ptr %7, align 8, !tbaa !37
   %901 = sub i64 %716, %.0126216.i
   %902 = getelementptr inbounds nuw %struct.pointf_s, ptr %900, i64 %901
-  %gep283 = getelementptr ptr, ptr %invariant.gep282, i64 %.0126216.i
-  %903 = load ptr, ptr %gep283, align 8, !tbaa !71
+  %gep215.i = getelementptr ptr, ptr %invariant.gep282, i64 %.0126216.i
+  %903 = load ptr, ptr %gep215.i, align 8, !tbaa !71
   %904 = getelementptr inbounds nuw %struct.pointf_s, ptr %903, i64 %indvars.iv.i92
   %905 = getelementptr inbounds nuw i8, ptr %904, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %902, ptr noundef nonnull align 8 dereferenceable(16) %905, i64 16, i1 false), !tbaa.struct !45
@@ -2732,9 +2732,9 @@ gv_calloc.exit170.thread.i:                       ; preds = %925
   br i1 %exitcond257.not.i, label %.loopexit.i, label %880, !llvm.loop !147
 
 .loopexit.sink.split.i:                           ; preds = %957, %909, %.loopexit191.i
-  %.sink290.i = phi ptr [ %920, %909 ], [ %968, %957 ], [ %861, %.loopexit191.i ]
+  %.sink288.i = phi ptr [ %920, %909 ], [ %968, %957 ], [ %861, %.loopexit191.i ]
   %.sink.i = phi ptr [ %916, %909 ], [ %964, %957 ], [ %857, %.loopexit191.i ]
-  %983 = getelementptr inbounds nuw i8, ptr %.sink290.i, i64 56
+  %983 = getelementptr inbounds nuw i8, ptr %.sink288.i, i64 56
   %984 = load ptr, ptr %983, align 8, !tbaa !73
   %985 = call ptr @agnameof(ptr noundef %984) #18
   call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.5, ptr noundef %.sink.i, ptr noundef %985) #18
@@ -2767,9 +2767,9 @@ gv_calloc.exit170.thread.i:                       ; preds = %925
   br label %genroute.exit
 
 genroute.exit:                                    ; preds = %704, %.thread183.i
-  %.sink291.i = phi ptr [ %675, %704 ], [ %993, %.thread183.i ]
+  %.sink289.i = phi ptr [ %675, %704 ], [ %993, %.thread183.i ]
   %.1.i90 = phi i32 [ 0, %704 ], [ %.0134187.i, %.thread183.i ]
-  call void @free(ptr noundef %.sink291.i) #18
+  call void @free(ptr noundef %.sink289.i) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18

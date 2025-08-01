@@ -24038,8 +24038,8 @@ _ZNSt3__1lsB8ne210000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_c.exit89
   %120 = load ptr, ptr %44, align 8, !tbaa !70
   %121 = getelementptr i8, ptr %120, i64 -24
   %122 = load i64, ptr %121, align 8
-  %gep = getelementptr i8, ptr %invariant.gep550, i64 %122
-  %123 = load ptr, ptr %gep, align 8, !tbaa !641
+  %gep511 = getelementptr i8, ptr %invariant.gep550, i64 %122
+  %123 = load ptr, ptr %gep511, align 8, !tbaa !641
   %124 = load ptr, ptr %0, align 8, !tbaa !70
   %125 = getelementptr i8, ptr %124, i64 -24
   %126 = load i64, ptr %125, align 8
@@ -24052,8 +24052,8 @@ _ZNSt3__1lsB8ne210000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_c.exit89
   %130 = load ptr, ptr %44, align 8, !tbaa !70
   %131 = getelementptr i8, ptr %130, i64 -24
   %132 = load i64, ptr %131, align 8
-  %gep549 = getelementptr i8, ptr %invariant.gep548, i64 %132
-  %133 = load ptr, ptr %gep549, align 8, !tbaa !641
+  %gep507 = getelementptr i8, ptr %invariant.gep548, i64 %132
+  %133 = load ptr, ptr %gep507, align 8, !tbaa !641
   %134 = load ptr, ptr %0, align 8, !tbaa !70
   %135 = getelementptr i8, ptr %134, i64 -24
   %136 = load i64, ptr %135, align 8
@@ -24581,8 +24581,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit196: ; p
   %288 = load ptr, ptr %44, align 8, !tbaa !70
   %289 = getelementptr i8, ptr %288, i64 -24
   %290 = load i64, ptr %289, align 8
-  %gep547 = getelementptr i8, ptr %invariant.gep, i64 %290
-  %291 = load ptr, ptr %gep547, align 8, !tbaa !641
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %290
+  %291 = load ptr, ptr %gep, align 8, !tbaa !641
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZNSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEEaSB8ne210000Ec.exit.i.i.i.i
@@ -24641,8 +24641,8 @@ _ZNSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEEaSB8ne210000Ec.exit.i.i.i.i
   %313 = load ptr, ptr %44, align 8, !tbaa !70
   %314 = getelementptr i8, ptr %313, i64 -24
   %315 = load i64, ptr %314, align 8
-  %gep552 = getelementptr i8, ptr %invariant.gep551, i64 %315
-  %316 = load ptr, ptr %gep552, align 8, !tbaa !641
+  %gep513 = getelementptr i8, ptr %invariant.gep551, i64 %315
+  %316 = load ptr, ptr %gep513, align 8, !tbaa !641
   %317 = load ptr, ptr %0, align 8, !tbaa !70
   %318 = getelementptr i8, ptr %317, i64 -24
   %319 = load i64, ptr %318, align 8

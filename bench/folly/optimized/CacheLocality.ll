@@ -373,7 +373,7 @@ define void @_ZN5folly13CacheLocality19readFromProcCpuinfoEv(ptr dead_on_unwind 
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %invariant.gep = getelementptr i8, ptr %4, i64 240
-  %invariant.gep29 = getelementptr i8, ptr %4, i64 32
+  %invariant.gep26 = getelementptr i8, ptr %4, i64 32
   br label %30
 
 30:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
@@ -387,8 +387,8 @@ define void @_ZN5folly13CacheLocality19readFromProcCpuinfoEv(ptr dead_on_unwind 
   br i1 %37, label %38, label %.critedge
 
 38:                                               ; preds = %30
-  %gep28 = getelementptr i8, ptr %invariant.gep, i64 %31
-  %39 = load ptr, ptr %gep28, align 8, !tbaa !39
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %31
+  %39 = load ptr, ptr %gep, align 8, !tbaa !39
   %.not.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i, label %40, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -579,8 +579,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   %96 = load ptr, ptr %4, align 8, !tbaa !22
   %97 = getelementptr i8, ptr %96, i64 -24
   %98 = load i64, ptr %97, align 8
-  %gep = getelementptr i8, ptr %invariant.gep29, i64 %98
-  %99 = load i32, ptr %gep, align 8, !tbaa !24
+  %gep27 = getelementptr i8, ptr %invariant.gep26, i64 %98
+  %99 = load i32, ptr %gep27, align 8, !tbaa !24
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %30, label %.critedge, !llvm.loop !62
 

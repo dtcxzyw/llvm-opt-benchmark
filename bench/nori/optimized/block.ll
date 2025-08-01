@@ -1472,9 +1472,9 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail10formatImplERSoPKcPKNS0_
   %20 = tail call noundef signext i8 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv(ptr noundef nonnull align 8 dereferenceable(264) %13)
   store i32 0, ptr %5, align 4
   %21 = icmp sgt i32 %3, 0
-  br i1 %21, label %.preheader52.preheader, label %.preheader.preheader
+  br i1 %21, label %.preheader52, label %.preheader.preheader
 
-.preheader52.preheader:                           ; preds = %4
+.preheader52:                                     ; preds = %4
   %invariant.gep = getelementptr i8, ptr %8, i64 24
   br label %.preheader52
 
@@ -1767,10 +1767,10 @@ define linkonce_odr hidden noundef ptr @_ZN10tinyformat6detail21streamStateFromF
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr i8, ptr %35, i64 -24
   %37 = load i64, ptr %36, align 8
-  %gep290 = getelementptr i8, ptr %invariant.gep289, i64 %37
-  %38 = load i32, ptr %gep290, align 8
+  %gep143 = getelementptr i8, ptr %invariant.gep289, i64 %37
+  %38 = load i32, ptr %gep143, align 8
   %39 = or i32 %38, 1536
-  store i32 %39, ptr %gep290, align 4
+  store i32 %39, ptr %gep143, align 4
   br label %.backedge
 
 40:                                               ; preds = %32
@@ -1789,11 +1789,11 @@ define linkonce_odr hidden noundef ptr @_ZN10tinyformat6detail21streamStateFromF
   %50 = load ptr, ptr %0, align 8
   %51 = getelementptr i8, ptr %50, i64 -24
   %52 = load i64, ptr %51, align 8
-  %gep288 = getelementptr i8, ptr %invariant.gep287, i64 %52
-  %53 = load i32, ptr %gep288, align 8
+  %gep141 = getelementptr i8, ptr %invariant.gep287, i64 %52
+  %53 = load i32, ptr %gep141, align 8
   %54 = and i32 %53, -177
   %55 = or disjoint i32 %54, 16
-  store i32 %55, ptr %gep288, align 4
+  store i32 %55, ptr %gep141, align 4
   br label %.backedge
 
 56:                                               ; preds = %32
@@ -1805,19 +1805,19 @@ define linkonce_odr hidden noundef ptr @_ZN10tinyformat6detail21streamStateFromF
   %62 = load ptr, ptr %0, align 8
   %63 = getelementptr i8, ptr %62, i64 -24
   %64 = load i64, ptr %63, align 8
-  %gep = getelementptr i8, ptr %invariant.gep286, i64 %64
-  %65 = load i32, ptr %gep, align 8
+  %gep139 = getelementptr i8, ptr %invariant.gep286, i64 %64
+  %65 = load i32, ptr %gep139, align 8
   %66 = and i32 %65, -177
   %67 = or disjoint i32 %66, 32
-  store i32 %67, ptr %gep, align 4
+  store i32 %67, ptr %gep139, align 4
   br label %.backedge
 
 68:                                               ; preds = %32
   %69 = load ptr, ptr %0, align 8
   %70 = getelementptr i8, ptr %69, i64 -24
   %71 = load i64, ptr %70, align 8
-  %gep285 = getelementptr i8, ptr %invariant.gep, i64 %71
-  %72 = load i32, ptr %gep285, align 8
+  %gep137 = getelementptr i8, ptr %invariant.gep, i64 %71
+  %72 = load i32, ptr %gep137, align 8
   %73 = and i32 %72, 2048
   %.not75 = icmp eq i32 %73, 0
   br i1 %.not75, label %74, label %.backedge
@@ -1833,10 +1833,10 @@ define linkonce_odr hidden noundef ptr @_ZN10tinyformat6detail21streamStateFromF
   %76 = load ptr, ptr %0, align 8
   %77 = getelementptr i8, ptr %76, i64 -24
   %78 = load i64, ptr %77, align 8
-  %gep292 = getelementptr i8, ptr %invariant.gep291, i64 %78
-  %79 = load i32, ptr %gep292, align 8
+  %gep = getelementptr i8, ptr %invariant.gep291, i64 %78
+  %79 = load i32, ptr %gep, align 8
   %80 = or i32 %79, 2048
-  store i32 %80, ptr %gep292, align 4
+  store i32 %80, ptr %gep, align 4
   store i8 0, ptr %1, align 1
   br label %.outer, !llvm.loop !68
 
@@ -2021,10 +2021,10 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
     i8 106, label %.critedge
     i8 122, label %.critedge
     i8 116, label %.critedge
-    i8 117, label %.loopexit208
-    i8 100, label %.loopexit208
-    i8 105, label %.loopexit208
-    i8 111, label %.loopexit233
+    i8 117, label %.loopexit200
+    i8 100, label %.loopexit200
+    i8 105, label %.loopexit200
+    i8 111, label %.loopexit225
     i8 88, label %183
     i8 120, label %.loopexit
     i8 112, label %.loopexit
@@ -2165,14 +2165,14 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   store i32 %269, ptr %267, align 4
   br label %.thread105
 
-.loopexit208:                                     ; preds = %180, %180, %180
+.loopexit200:                                     ; preds = %180, %180, %180
   br label %.loopexit
 
-.loopexit233:                                     ; preds = %180
+.loopexit225:                                     ; preds = %180
   br label %.loopexit
 
-.loopexit:                                        ; preds = %183, %180, %180, %.loopexit233, %.loopexit208
-  %.sink204 = phi i32 [ 2, %.loopexit208 ], [ 64, %.loopexit233 ], [ 8, %180 ], [ 8, %180 ], [ 8, %183 ]
+.loopexit:                                        ; preds = %183, %180, %180, %.loopexit225, %.loopexit200
+  %.sink196 = phi i32 [ 2, %.loopexit208 ], [ 64, %.loopexit233 ], [ 8, %180 ], [ 8, %180 ], [ 8, %183 ]
   %270 = load ptr, ptr %0, align 8
   %271 = getelementptr i8, ptr %270, i64 -24
   %272 = load i64, ptr %271, align 8
@@ -2180,7 +2180,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
   %275 = load i32, ptr %274, align 8
   %276 = and i32 %275, -75
-  %277 = or disjoint i32 %276, %.sink204
+  %277 = or disjoint i32 %276, %.sink196
   store i32 %277, ptr %274, align 4
   %or.cond3 = or i1 %.167, %137
   br i1 %or.cond3, label %.thread105, label %278

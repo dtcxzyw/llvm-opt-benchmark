@@ -387,38 +387,38 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %5 = load i64, ptr %4, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.promoted = load i64, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.promoted30 = load i64, ptr %3, align 8
-  br label %6
+  br label %7
 
-6:                                                ; preds = %20, %2
-  %7 = phi i64 [ %21, %20 ], [ %.promoted30, %2 ]
+7:                                                ; preds = %20, %2
+  %8 = phi i64 [ %21, %20 ], [ %.promoted30, %2 ]
   %.sroa.5.sroa.4.0.copyload29 = phi i64 [ %27, %20 ], [ %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.promoted, %2 ]
   %.val928 = phi i64 [ %.sroa.6.117, %20 ], [ %.sroa.5.0..sroa_idx.promoted, %2 ]
   %storemerge.i.i.i.i26 = phi i64 [ 1, %20 ], [ %.promoted, %2 ]
   %.not = icmp eq i64 %storemerge.i.i.i.i26, 2
-  br i1 %.not, label %8, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit"
+  br i1 %.not, label %9, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit"
 
-8:                                                ; preds = %6
-  %.not.i.i = icmp eq i64 %5, %7
+9:                                                ; preds = %7
+  %.not.i.i = icmp eq i64 %5, %8
   br i1 %.not.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread19", label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread"
 
-"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread": ; preds = %8
-  %9 = add nuw nsw i64 %7, 1
-  store i64 %9, ptr %3, align 8, !alias.scope !95, !noalias !100
-  %10 = icmp ult i64 %7, 4
-  tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw { [2 x i64] }, ptr %3, i64 %7
+"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread": ; preds = %9
+  %10 = add nuw nsw i64 %8, 1
+  store i64 %10, ptr %3, align 8, !alias.scope !95, !noalias !100
+  %11 = icmp ult i64 %8, 4
+  tail call void @llvm.assume(i1 %11)
+  %12 = getelementptr inbounds nuw { [2 x i64] }, ptr %3, i64 %8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !95, !noalias !100, !noundef !13
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %15 = load i64, ptr %14, align 8, !alias.scope !95, !noalias !100, !noundef !13
   br label %17
 
-"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit": ; preds = %6
+"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit": ; preds = %7
   %16 = trunc nuw i64 %storemerge.i.i.i.i26 to i1
   br i1 %16, label %17, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread19"
 
 17:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread"
-  %18 = phi i64 [ %9, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread" ], [ %7, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit" ]
+  %18 = phi i64 [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread" ], [ %8, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit" ]
   %.sroa.9.118 = phi i64 [ %15, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread" ], [ %.sroa.5.sroa.4.0.copyload29, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit" ]
   %.sroa.6.117 = phi i64 [ %13, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread" ], [ %.val928, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
@@ -426,11 +426,11 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %.not.i.i.i.i.not = icmp eq i64 %5, %18
   br i1 %.not.i.i.i.i.not, label %28, label %20
 
-"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread19": ; preds = %8, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit"
+"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread19": ; preds = %9, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit"
   store i64 2, ptr %1, align 8
   br label %19
 
-19:                                               ; preds = %31, %28, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread19"
+19:                                               ; preds = %30, %28, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread19"
   %.sink = phi i64 [ 1, %31 ], [ 1, %28 ], [ 0, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h995c2aa3550c185bE.exit.thread19" ]
   store i64 %.sink, ptr %0, align 8
   ret void
@@ -450,20 +450,20 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %.not23 = icmp eq i64 %.sroa.6.117, %25
   br i1 %.not23, label %6, label %31, !llvm.loop !119
 
-28:                                               ; preds = %17
+28: ; preds = %17
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i64 %.sroa.6.117, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.9.118, ptr %30, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.9.118, ptr %29, align 8
   br label %19
 
-31:                                               ; preds = %20
+30:                                               ; preds = %20
   store i64 1, ptr %1, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.6.117, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.9.118, ptr %33, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.6.117, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.9.118, ptr %32, align 8
   br label %19
 }
 

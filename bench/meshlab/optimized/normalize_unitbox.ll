@@ -88,13 +88,13 @@ define void @_Z17normalize_unitboxRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEE(pt
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %22 = load <2 x double>, ptr %21, align 16
   %23 = icmp samesign ugt i64 %12, 7
-  br i1 %23, label %.lr.ph.i.i.i.i.preheader, label %._crit_edge.i.i.i.i
+  br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %20
+.lr.ph.i.i.i.i:                                   ; preds = %20
   %invariant.gep = getelementptr i8, ptr %8, i64 48
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
+.lr.ph.i.i.i.i:; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i
   %.05475.i.i.i.i = phi i64 [ %.054.i.i.i.i, %.lr.ph.i.i.i.i ], [ 4, %.lr.ph.i.i.i.i.preheader ]
   %.054.in74.i.i.i.i = phi i64 [ %.05475.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.preheader ]
   %storemerge73.i.i.i.i = phi <2 x double> [ %28, %.lr.ph.i.i.i.i ], [ %22, %.lr.ph.i.i.i.i.preheader ]
@@ -102,8 +102,8 @@ define void @_Z17normalize_unitboxRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEE(pt
   %24 = getelementptr inbounds nuw double, ptr %8, i64 %.05475.i.i.i.i
   %25 = load <2 x double>, ptr %24, align 16
   %26 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17072.i.i.i.i, <2 x double> %25) #13, !srcloc !14
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.054.in74.i.i.i.i
-  %27 = load <2 x double>, ptr %gep, align 16
+  %gep.i.i.i.i = getelementptr double, ptr %invariant.gep, i64 %.054.in74.i.i.i.i
+  %27 = load <2 x double>, ptr %gep.i.i.i.i, align 16
   %28 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %storemerge73.i.i.i.i, <2 x double> %27) #13, !srcloc !14
   %.054.i.i.i.i = add nuw nsw i64 %.05475.i.i.i.i, 4
   %29 = icmp slt i64 %.054.i.i.i.i, %14
@@ -425,8 +425,8 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   %45 = getelementptr inbounds double, ptr %23, i64 %.05480.i.i.i.i.i.i.i.i
   %46 = load <2 x double>, ptr %45, align 1
   %47 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17477.i.i.i.i.i.i.i.i, <2 x double> %46) #13, !srcloc !27
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.054.in79.i.i.i.i.i.i.i.i
-  %48 = load <2 x double>, ptr %gep, align 1
+  %gep.i.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep, i64 %.054.in79.i.i.i.i.i.i.i.i
+  %48 = load <2 x double>, ptr %gep.i.i.i.i.i.i.i.i, align 1
   %49 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %storemerge78.i.i.i.i.i.i.i.i, <2 x double> %48) #13, !srcloc !27
   %.054.i.i.i.i.i.i.i.i = add nsw i64 %.05480.i.i.i.i.i.i.i.i, 4
   %50 = icmp slt i64 %.054.i.i.i.i.i.i.i.i, %35

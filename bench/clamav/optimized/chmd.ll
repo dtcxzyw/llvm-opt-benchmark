@@ -1440,7 +1440,7 @@ read_encint.exit.i:                               ; preds = %247, %244
 260:                                              ; preds = %255
   %261 = and i64 %.014.i.i, 4294967295
   %262 = getelementptr i8, ptr %.3304.i, i64 %261
-  %scevgep373.i = getelementptr i8, ptr %262, i64 9
+  %scevgep372.i = getelementptr i8, ptr %262, i64 9
   br label %263
 
 263:                                              ; preds = %266, %260
@@ -1949,7 +1949,7 @@ define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.1
 
 46:                                               ; preds = %39
   %47 = add nsw i32 %41, -1
-  %invariant.gep = getelementptr i8, ptr %0, i64 9
+  %scevgep = getelementptr i8, ptr %0, i64 9
   br label %48
 
 48:                                               ; preds = %88, %46
@@ -1974,7 +1974,7 @@ define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.1
   %60 = add nuw nsw i32 %59, %.
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 %61
-  %gep111 = getelementptr i8, ptr %invariant.gep, i64 %61
+  %scevgep57 = getelementptr i8, ptr %scevgep, i64 %61
   br label %63
 
 63:                                               ; preds = %66, %58
@@ -2000,7 +2000,7 @@ define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.1
   br i1 %.not.i, label %read_encint.exit, label %63, !llvm.loop !77
 
 read_encint.exit:                                 ; preds = %63, %66
-  %.113 = phi ptr [ %gep111, %63 ], [ %67, %66 ]
+  %.113 = phi ptr [ %scevgep57, %63 ], [ %67, %66 ]
   %.014.i = phi i64 [ %.01319.i, %63 ], [ %72, %66 ]
   %73 = trunc i64 %.014.i to i32
   %74 = ptrtoint ptr %.113 to i64

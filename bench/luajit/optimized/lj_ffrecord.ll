@@ -3335,13 +3335,13 @@ define internal void @recff_debug_getmetatable(ptr noundef %0, ptr noundef reado
   %8 = load i64, ptr %7, align 8, !tbaa !4
   switch i32 %6, label %10 [
     i32 184549376, label %23
-    i32 201326592, label %9
+    i32 201326592, label %7
   ]
 
-9:                                                ; preds = %2
+7:                                                ; preds = %2
   br label %23
 
-10:                                               ; preds = %2
+8:                                                ; preds = %2
   %11 = ashr i64 %8, 47
   %12 = icmp ult i64 %11, -13
   %13 = sub nsw i64 21, %11
@@ -3352,19 +3352,19 @@ define internal void @recff_debug_getmetatable(ptr noundef %0, ptr noundef reado
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %20, label %17
 
-17:                                               ; preds = %10
+17:                                               ; preds = %8
   %18 = inttoptr i64 %16 to ptr
   %19 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 11) #9
   %.pre = load ptr, ptr %3, align 8, !tbaa !37
   br label %20
 
-20:                                               ; preds = %10, %17
+20:                                               ; preds = %8, %17
   %21 = phi ptr [ %.pre, %17 ], [ %4, %10 ]
   %22 = phi i32 [ %19, %17 ], [ 32767, %10 ]
   store i32 %22, ptr %21, align 4, !tbaa !39
-  br label %43
+  br label %45
 
-23:                                               ; preds = %2, %9
+23:                                               ; preds = %2, %7
   %.sink = phi i16 [ 11, %9 ], [ 5, %2 ]
   %24 = and i64 %8, 140737488355327
   %25 = inttoptr i64 %24 to ptr
@@ -3395,7 +3395,7 @@ define internal void @recff_debug_getmetatable(ptr noundef %0, ptr noundef reado
   store i32 %41, ptr %42, align 4, !tbaa !39
   br label %43
 
-43:                                               ; preds = %23, %20
+45:                                               ; preds = %23, %20
   ret void
 }
 

@@ -696,7 +696,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 
 .lr.ph:                                           ; preds = %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$14prepare_resize17h0668aad5c537136eE.exit"
   %69 = load ptr, ptr %0, align 8, !alias.scope !91, !nonnull !4, !noundef !4
-  %invariant.gep136 = getelementptr i8, ptr %69, i64 -8
+  %invariant.gep74 = getelementptr i8, ptr %69, i64 -8
   %invariant.gep138 = getelementptr i8, ptr %63, i64 16
   br label %77
 
@@ -766,8 +766,8 @@ _ZN4core3ptr19swap_nonoverlapping17h8ec7aa22e4931921E.exit: ; preds = %.preheade
 
 94:                                               ; preds = %77
   %95 = sub nsw i64 0, %.sroa.011.0.i.i73
-  %gep137 = getelementptr i64, ptr %invariant.gep136, i64 %95
-  %.val5.i = load i64, ptr %gep137, align 8, !noalias !112, !noundef !4
+  %gep75 = getelementptr i64, ptr %invariant.gep74, i64 %95
+  %.val5.i = load i64, ptr %gep75, align 8, !noalias !112, !noundef !4
   %96 = icmp ult i64 %.val5.i, %3
   br i1 %96, label %98, label %97, !prof !116
 
@@ -830,8 +830,8 @@ _ZN4core3ptr19swap_nonoverlapping17h8ec7aa22e4931921E.exit: ; preds = %.preheade
   %125 = add i64 %.0.i.i, -16
   %126 = and i64 %125, %64
   store i8 %124, ptr %122, align 1
-  %gep139 = getelementptr i8, ptr %invariant.gep138, i64 %126
-  store i8 %124, ptr %gep139, align 1
+  %gep72 = getelementptr i8, ptr %invariant.gep138, i64 %126
+  store i8 %124, ptr %gep72, align 1
   %127 = shl i64 %.sroa.011.0.i.i73, 3
   %128 = sub nuw nsw i64 -8, %127
   %129 = getelementptr inbounds i8, ptr %69, i64 %128
@@ -872,8 +872,8 @@ common.resume:                                    ; preds = %148, %70
   %spec.select66.i = tail call i64 @llvm.umin.i64(i64 %20, i64 16)
   %140 = getelementptr inbounds i8, ptr %.val.i10, i64 %spec.select.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %140, ptr nonnull align 1 %.val.i10, i64 %spec.select66.i, i1 false), !noalias !127
-  %invariant.gep131 = getelementptr i8, ptr %.val.i10, i64 -8
-  %invariant.gep = getelementptr i8, ptr %.val.i10, i64 16
+  %invariant.gep65 = getelementptr i8, ptr %.val.i10, i64 -8
+  %invariant.gep67 = getelementptr i8, ptr %.val.i10, i64 16
   %invariant.gep133 = getelementptr i8, ptr %.val.i10, i64 16
   %invariant.gep134 = getelementptr i8, ptr %.val.i10, i64 16
   br label %152
@@ -913,13 +913,13 @@ common.resume:                                    ; preds = %148, %70
   %158 = sub nuw nsw i64 -8, %157
   %159 = getelementptr inbounds i8, ptr %.val.i10, i64 %158
   %160 = sub nsw i64 0, %.sroa.02.023.i
-  %gep132 = getelementptr i64, ptr %invariant.gep131, i64 %160
-  %.val5.i17.i = load i64, ptr %gep132, align 8, !noalias !142, !noundef !4
+  %gep66 = getelementptr i64, ptr %invariant.gep65, i64 %160
+  %.val5.i17.i = load i64, ptr %gep66, align 8, !noalias !142, !noundef !4
   %161 = icmp ult i64 %.val5.i17.i, %3
   br i1 %161, label %.lr.ph.i, label %._crit_edge.i, !prof !146
 
 _ZN4core3ptr19swap_nonoverlapping17hb35a552560e57948E.exit.loopexit.i: ; preds = %.preheader.i
-  %.val5.i.i = load i64, ptr %gep132, align 8, !noalias !147, !noundef !4
+  %.val5.i.i = load i64, ptr %gep66, align 8, !noalias !147, !noundef !4
   %162 = icmp ult i64 %.val5.i.i, %3
   br i1 %162, label %.lr.ph.i, label %._crit_edge.i, !prof !149, !llvm.loop !150
 
@@ -996,8 +996,8 @@ _ZN4core3ptr19swap_nonoverlapping17hb35a552560e57948E.exit.loopexit.i: ; preds =
   %197 = add i64 %.0.i.i24, -16
   %198 = and i64 %197, %18
   store i8 %196, ptr %193, align 1
-  %gep130 = getelementptr i8, ptr %invariant.gep, i64 %198
-  store i8 %196, ptr %gep130, align 1
+  %gep = getelementptr i8, ptr %invariant.gep67, i64 %198
+  store i8 %196, ptr %gep, align 1
   %199 = icmp eq i8 %194, -1
   br i1 %199, label %205, label %.preheader.i
 
@@ -1017,8 +1017,8 @@ _ZN4core3ptr19swap_nonoverlapping17hb35a552560e57948E.exit.loopexit.i: ; preds =
   %206 = add i64 %.sroa.02.023.i, -16
   %207 = and i64 %206, %18
   store i8 -1, ptr %154, align 1
-  %gep = getelementptr i8, ptr %invariant.gep133, i64 %207
-  store i8 -1, ptr %gep, align 1
+  %gep68 = getelementptr i8, ptr %invariant.gep133, i64 %207
+  store i8 -1, ptr %gep68, align 1
   %208 = load i64, ptr %159, align 1
   store i64 %208, ptr %187, align 1
   br label %209
@@ -1033,8 +1033,8 @@ _ZN4core3ptr19swap_nonoverlapping17hb35a552560e57948E.exit.loopexit.i: ; preds =
   %212 = add i64 %.sroa.02.023.i, -16
   %213 = and i64 %212, %18
   store i8 %211, ptr %154, align 1
-  %gep135 = getelementptr i8, ptr %invariant.gep134, i64 %213
-  store i8 %211, ptr %gep135, align 1
+  %gep70 = getelementptr i8, ptr %invariant.gep134, i64 %213
+  store i8 %211, ptr %gep70, align 1
   br label %209
 
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$15rehash_in_place17h15ad34688f435122E.exit": ; preds = %209, %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$15rehash_in_place17h15ad34688f435122E.exit.thread"

@@ -2221,7 +2221,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
 
 6:                                                ; preds = %2
   store i8 11, ptr %0, align 8
-  br label %11
+  br label %12
 
 7:                                                ; preds = %2
   %8 = add nuw nsw i64 %5, 1
@@ -2232,7 +2232,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   br label %11
 
-11:                                               ; preds = %7, %6
+12:                                               ; preds = %7, %6
   ret void
 }
 

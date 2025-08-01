@@ -8107,9 +8107,9 @@ define internal fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$i
   %15 = load i16, ptr %13, align 1, !noalias !1008
   store i16 %15, ptr %14, align 1, !alias.scope !1008
   %16 = getelementptr inbounds nuw i8, ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.35, i64 %11
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.02836.i.i.i
+  %gep.i.i.i = getelementptr i8, ptr %invariant.gep, i64 %.02836.i.i.i
   %17 = load i16, ptr %16, align 1, !noalias !1008
-  store i16 %17, ptr %gep, align 1, !alias.scope !1008
+  store i16 %17, ptr %gep.i.i.i, align 1, !alias.scope !1008
   %18 = icmp ugt i64 %.137.i.i.i, 99999999
   br i1 %18, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !1011
 
