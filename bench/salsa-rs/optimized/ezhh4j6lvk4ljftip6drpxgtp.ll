@@ -570,26 +570,26 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %6 = icmp ne i64 %.sroa.78.0.copyload, %5
   %7 = icmp ult i64 %.sroa.47.0.copyload, 59
   %or.cond22 = select i1 %6, i1 %7, i1 false
-  br i1 %or.cond22, label %.lr.ph.i.i.i.i.preheader, label %.loopexit
+  br i1 %or.cond22, label %.lr.ph.i.i.i.i.lr.ph, label %.loopexit
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %2, %23
+.lr.ph.i.i.i.i.lr.ph:                             ; preds = %2, %23
   %.sroa.4.026 = phi i64 [ %.sroa.4.1, %23 ], [ %.sroa.47.0.copyload, %2 ]
   %.sroa.7.025 = phi i64 [ %.sroa.7.1, %23 ], [ %.sroa.5.0.copyload, %2 ]
   %.sroa.9.024 = phi i64 [ %17, %23 ], [ %.sroa.6.0.copyload, %2 ]
   %.sroa.12.023 = phi i64 [ %24, %23 ], [ %.sroa.78.0.copyload, %2 ]
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %21
-  %.sroa.9.1 = phi i64 [ 0, %21 ], [ %.sroa.9.024, %.lr.ph.i.i.i.i.preheader ]
-  %.sroa.7.1 = phi i64 [ %22, %21 ], [ %.sroa.7.025, %.lr.ph.i.i.i.i.preheader ]
-  %.sroa.4.1 = phi i64 [ %12, %21 ], [ %.sroa.4.026, %.lr.ph.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.lr.ph, %21
+  %.sroa.4.026 = phi i64 [ 0, %21 ], [ %.sroa.9.024, %.lr.ph.i.i.i.i.preheader ]
+  %.sroa.7.025 = phi i64 [ %22, %21 ], [ %.sroa.7.025, %.lr.ph.i.i.i.i.preheader ]
+  %.sroa.9.024 = phi i64 [ %12, %21 ], [ %.sroa.4.026, %.lr.ph.i.i.i.i.preheader ]
   %8 = getelementptr inbounds nuw { { ptr } }, ptr %.sroa.06.0.copyload, i64 %.sroa.4.1
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load atomic ptr, ptr %9 acquire, align 8, !noalias !38
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit.i.i.i.i, label %.preheader.i.i.i.i
 
-.loopexit.i.i.i.i:                                ; preds = %.preheader.i.i.i.i, %.lr.ph.i.i.i.i
+.loopexit.i.i.i.i:; preds = %.preheader.i.i.i.i, %.lr.ph.i.i.i.i
   %12 = add i64 %.sroa.4.1, 1
   %13 = icmp ult i64 %12, 59
   br i1 %13, label %21, label %.loopexit
@@ -607,23 +607,23 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.preheader.i.i.i.i, label %23
 
-21:                                               ; preds = %.loopexit.i.i.i.i
-  %22 = shl nuw i64 64, %.sroa.4.1
+21:; preds = %.loopexit.i.i.i.i
+  %22 = shl nuw i64 64, %.sroa.9.024
   br label %.lr.ph.i.i.i.i
 
-23:                                               ; preds = %15
-  %24 = add i64 %.sroa.12.023, 1
+24:                                               ; preds = %15
+  %25 = add i64 %.sroa.12.023, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %16, ptr %3, align 8
-  %25 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h70bbfb3afd8c1d1cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.e48134694fe1a4dc81b6c761c8143c86.18)
+  %26 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h70bbfb3afd8c1d1cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.e48134694fe1a4dc81b6c761c8143c86.18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %26 = load atomic i64, ptr %4 acquire, align 8, !noalias !38
-  %27 = icmp ne i64 %24, %26
-  %28 = icmp ult i64 %.sroa.4.1, 59
-  %or.cond = and i1 %27, %28
-  br i1 %or.cond, label %.lr.ph.i.i.i.i.preheader, label %.loopexit
+  %27 = load atomic i64, ptr %4 acquire, align 8, !noalias !38
+  %28 = icmp ne i64 %25, %27
+  %29 = icmp ult i64 %.sroa.4.1, 59
+  %or.cond = and i1 %28, %29
+  br i1 %or.cond, label %.lr.ph.i.i.i.i.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %23, %.loopexit.i.i.i.i, %2
+.loopexit:                                        ; preds = %24, %.loopexit.i.i.i.i, %2
   ret ptr %0
 }
 

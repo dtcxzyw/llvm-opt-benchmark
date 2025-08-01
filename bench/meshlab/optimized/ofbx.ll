@@ -8724,9 +8724,9 @@ _ZNK4ofbx8DataVieweqEPKc.exit.thread378.i:        ; preds = %.lr.ph.i201.i, %.lr
 _ZNSt6vectorIiSaIiEED2Ev.exit222.i:               ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i160.i, %519, %.loopexit421.i, %._crit_edge457.i
   %520 = call fastcc noundef ptr @_ZN4ofbxL9findChildERKNS_7ElementEPKc(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.3.0.copyload, ptr noundef nonnull @.str.75)
   %.not116474.i = icmp eq ptr %520, null
-  br i1 %.not116474.i, label %._crit_edge479.i, label %.critedge.i225
+  br i1 %.not116474.i, label %._crit_edge479.i, label %.lr.ph478.i
 
-.critedge.i225:                                   ; preds = %.critedge.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit222.i
+.lr.ph478.i:                                      ; preds = %.critedge.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit222.i
   %.093477.i = phi ptr [ %520, %_ZNSt6vectorIiSaIiEED2Ev.exit222.i ], [ %1087, %.critedge.i.i.i ]
   %.0476.i = phi i32 [ undef, %_ZNSt6vectorIiSaIiEED2Ev.exit222.i ], [ %.1.i, %.critedge.i.i.i ]
   %521 = getelementptr inbounds nuw i8, ptr %.093477.i, i64 48
@@ -8734,36 +8734,36 @@ _ZNSt6vectorIiSaIiEED2Ev.exit222.i:               ; preds = %_ZNK4ofbx8DataViewe
   %.not121.i = icmp eq ptr %522, null
   br i1 %.not121.i, label %_ZNK4ofbx8DataView5toIntEv.exit.thread.i, label %523
 
-523:                                              ; preds = %.critedge.i225
+523:; preds = %.lr.ph478.i
   %524 = load ptr, ptr %522, align 8
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 32
   %526 = load ptr, ptr %525, align 8
-  invoke void %526(ptr dead_on_unwind nonnull writable sret(%"struct.ofbx::DataView") align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %522)
+  524::DataView") align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %522)
           to label %527 unwind label %.loopexit409.i
 
-527:                                              ; preds = %523
+527:  ; preds = %523
   %528 = load i8, ptr %162, align 8
   %529 = trunc i8 %528 to i1
   %530 = load ptr, ptr %13, align 8
-  br i1 %529, label %531, label %533
+  br i1 %529, label %531, label %534
 
-531:                                              ; preds = %527
-  %532 = load i32, ptr %530, align 4
+531:; preds = %527
+  %531 = load i32, ptr %530, align 4
   br label %_ZNK4ofbx8DataView5toIntEv.exit.i
 
-533:                                              ; preds = %527
-  %534 = call i32 @atoi(ptr noundef %530) #31
+534:                                              ; preds = %527
+  %535 = call i32 @atoi(ptr noundef %530) #31
   br label %_ZNK4ofbx8DataView5toIntEv.exit.i
 
-_ZNK4ofbx8DataView5toIntEv.exit.i:                ; preds = %533, %531
-  %535 = phi i32 [ %532, %531 ], [ %534, %533 ]
-  %or.cond7.i = icmp ult i32 %535, 4
+_ZNK4ofbx8DataView5toIntEv.exit.i:                ; preds = %534, %531
+  %536 = phi i32 [ %532, %531 ], [ %535, %533 ]
+  %or.cond7.i = icmp ult i32 %536, 4
   br i1 %or.cond7.i, label %_ZNK4ofbx8DataView5toIntEv.exit.thread.i, label %1084
 
 _ZNK4ofbx8DataView5toIntEv.exit.thread.i:         ; preds = %_ZNK4ofbx8DataView5toIntEv.exit.i, %.critedge.i225
-  %536 = phi i32 [ %535, %_ZNK4ofbx8DataView5toIntEv.exit.i ], [ 0, %.critedge.i225 ]
-  %537 = zext nneg i32 %536 to i64
-  %538 = getelementptr [4 x %"class.std::vector.85"], ptr %246, i64 0, i64 %537
+  %537 = phi i32 [ %536, %_ZNK4ofbx8DataView5toIntEv.exit.i ], [ 0, %.critedge.i225 ]
+  %538 = zext nneg i32 %537 to i64
+  %539 = getelementptr [4 x %"class.std::vector.85"], ptr %246, i64 0, i64 %538
   %539 = getelementptr i8, ptr %538, i64 224
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
@@ -9675,7 +9675,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit248.i:               ; preds = %853, %.body.i
   %870 = sub i64 %868, %869
   %871 = ashr exact i64 %870, 2
   %872 = select i1 %863, i64 %867, i64 %871
-  %873 = getelementptr i8, ptr %538, i64 232
+  %873 = getelementptr i8, ptr %539, i64 232
   %874 = load ptr, ptr %873, align 8
   %875 = load ptr, ptr %539, align 8
   %876 = ptrtoint ptr %874 to i64
@@ -9948,7 +9948,7 @@ _ZN4ofbxL5splatINS_4Vec2EEEvPSt6vectorIT_SaIS3_EENS_12GeometryImpl17VertexDataMa
   br i1 %1005, label %_ZN4ofbxL5remapINS_4Vec2EEEvPSt6vectorIT_SaIS3_EERKS2_IiSaIiEE.exit.i, label %1006
 
 1006:                                             ; preds = %_ZN4ofbxL5splatINS_4Vec2EEEvPSt6vectorIT_SaIS3_EENS_12GeometryImpl17VertexDataMappingERKS5_RKS2_IiSaIiEESE_.exit.i
-  %1007 = getelementptr i8, ptr %538, i64 240
+  %1007 = getelementptr i8, ptr %539, i64 240
   %1008 = ptrtoint ptr %1004 to i64
   %1009 = ptrtoint ptr %1003 to i64
   %1010 = sub i64 %1008, %1009

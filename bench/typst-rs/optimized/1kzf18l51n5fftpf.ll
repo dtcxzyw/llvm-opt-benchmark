@@ -1358,7 +1358,7 @@ define hidden void @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u20$as$u2
   %43 = load ptr, ptr %16, align 8, !nonnull !5, !noundef !5
   store ptr inttoptr (i64 167503724547 to ptr), ptr %16, align 8
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h1118e0a81f2ca334E"(ptr noalias noundef align 8 dereferenceable(104) %1)
-          to label %140 unwind label %138
+          to label %140 unwind label %137
 
 44:                                               ; preds = %.backedge
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -1399,11 +1399,11 @@ define hidden void @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u20$as$u2
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.5)
   br label %.backedge.backedge
 
-common.resume:                                    ; preds = %48, %67, %103, %115, %118, %121, %138, %113
-  %common.resume.op = phi { ptr, i32 } [ %114, %113 ], [ %49, %48 ], [ %68, %67 ], [ %122, %121 ], [ %119, %118 ], [ %116, %115 ], [ %104, %103 ], [ %139, %138 ]
+common.resume:                                    ; preds = %48, %67, %103, %115, %118, %121, %137, %113
+  %common.resume.op = phi { ptr, i32 } [ %114, %113 ], [ %49, %48 ], [ %68, %67 ], [ %122, %121 ], [ %119, %118 ], [ %116, %115 ], [ %104, %103 ], [ %138, %138 ]
   resume { ptr, i32 } %common.resume.op
 
-51:                                               ; preds = %135, %123, %108, %140, %70, %52, %46, %44
+51:                                               ; preds = %134, %123, %108, %139, %70, %52, %46, %44
   ret void
 
 52:                                               ; preds = %38
@@ -1675,33 +1675,33 @@ _ZN6flate27deflate7bufread18reset_decoder_data17h73bf25eb570d17a9E.exit: ; preds
   %trunc160 = trunc nuw i64 %130 to i1
   %131 = load i64, ptr %26, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br i1 %trunc160, label %135, label %132
+  br i1 %trunc160, label %134, label %131
 
-132:                                              ; preds = %126
-  %133 = load i64, ptr %10, align 8, !noundef !5
-  %134 = add i64 %133, %131
-  store i64 %134, ptr %10, align 8
+131:                                              ; preds = %126
+  %132 = load i64, ptr %10, align 8, !noundef !5
+  %133 = add i64 %132, %131
+  store i64 %133, ptr %10, align 8
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %132, %120, %117, %105, %50, %69
+.backedge.backedge:                               ; preds = %131, %120, %117, %105, %50, %69
   br label %.backedge
 
-135:                                              ; preds = %126
-  %136 = inttoptr i64 %131 to ptr
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %136, ptr %137, align 8
+134:                                              ; preds = %126
+  %135 = inttoptr i64 %131 to ptr
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %135, ptr %136, align 8
   store i64 1, ptr %0, align 8
   br label %51
 
-138:                                              ; preds = %42
-  %139 = landingpad { ptr, i32 }
+137:                                              ; preds = %42
+  %138 = landingpad { ptr, i32 }
           cleanup
   store i64 -9223372036854775804, ptr %1, align 8
   store i64 -9223372036854775807, ptr %16, align 8
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h1246648dbc0a1d51E"(i64 1, ptr nonnull %43) #13
-          to label %common.resume unwind label %141
+          to label %common.resume unwind label %140
 
-140:                                              ; preds = %42
+139:                                              ; preds = %42
   store i64 -9223372036854775804, ptr %1, align 8
   store i64 -9223372036854775807, ptr %16, align 8
   store i64 1, ptr %0, align 8
@@ -1709,8 +1709,8 @@ _ZN6flate27deflate7bufread18reset_decoder_data17h73bf25eb570d17a9E.exit: ; preds
   store ptr %43, ptr %.sroa.5186.0..sroa_idx, align 8
   br label %51
 
-141:                                              ; preds = %138
-  %142 = landingpad { ptr, i32 }
+140:                                              ; preds = %137
+  %141 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #14
   unreachable

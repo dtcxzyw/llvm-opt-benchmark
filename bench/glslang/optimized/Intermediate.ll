@@ -17127,11 +17127,11 @@ define weak_odr noundef ptr @_ZN7glslang13TIntermediate10addSwizzleIiEEPNS_12TIn
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  br label %61
+  br label %64
 
-61:                                               ; preds = %.lr.ph, %_ZN7glslang13TIntermediate12pushSelectorERNS_7TVectorIP11TIntermNodeEERKiRKNS_10TSourceLocE.exit
+62:                                               ; preds = %.lr.ph, %_ZN7glslang13TIntermediate12pushSelectorERNS_7TVectorIP11TIntermNodeEERKiRKNS_10TSourceLocE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN7glslang13TIntermediate12pushSelectorERNS_7TVectorIP11TIntermNodeEERKiRKNS_10TSourceLocE.exit ]
-  %62 = getelementptr [4 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %63 = getelementptr [4 x i32], ptr %1, i64 0, i64 %indvars.iv
   %63 = getelementptr i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = tail call noundef ptr @_ZNK7glslang13TIntermediate16addConstantUnionEiRKNS_10TSourceLocEb(ptr nonnull readnone align 8 poison, i32 noundef %64, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext false)
@@ -17140,14 +17140,14 @@ define weak_odr noundef ptr @_ZN7glslang13TIntermediate10addSwizzleIiEEPNS_12TIn
   %.not.i.i.i = icmp eq ptr %66, %67
   br i1 %.not.i.i.i, label %71, label %68
 
-68:                                               ; preds = %61
+68:                                               ; preds = %62
   store ptr %65, ptr %66, align 8
   %69 = load ptr, ptr %58, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %70, ptr %58, align 8
   br label %_ZN7glslang13TIntermediate12pushSelectorERNS_7TVectorIP11TIntermNodeEERKiRKNS_10TSourceLocE.exit
 
-71:                                               ; preds = %61
+71:                                               ; preds = %62
   %72 = load ptr, ptr %60, align 8
   %73 = ptrtoint ptr %66 to i64
   %74 = ptrtoint ptr %72 to i64
@@ -17200,7 +17200,7 @@ _ZN7glslang13TIntermediate12pushSelectorERNS_7TVectorIP11TIntermNodeEERKiRKNS_10
   %92 = load i32, ptr %1, align 4
   %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %indvars.iv.next, %93
-  br i1 %94, label %61, label %._crit_edge, !llvm.loop !74
+  br i1 %94, label %62, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %_ZN7glslang13TIntermediate12pushSelectorERNS_7TVectorIP11TIntermNodeEERKiRKNS_10TSourceLocE.exit, %3
   ret ptr %5
@@ -17310,10 +17310,10 @@ define weak_odr noundef ptr @_ZN7glslang13TIntermediate10addSwizzleINS_15TMatrix
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   call void @_ZN7glslang13TIntermediate12pushSelectorERNS_7TVectorIP11TIntermNodeEERKNS_15TMatrixSelectorERKNS_10TSourceLocE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = load i32, ptr %1, align 4
-  %61 = sext i32 %60 to i64
-  %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !75
+  %62 = load i32, ptr %1, align 4
+  %63 = sext i32 %62 to i64
+  %64 = icmp slt i64 %indvars.iv.next, %63
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %6

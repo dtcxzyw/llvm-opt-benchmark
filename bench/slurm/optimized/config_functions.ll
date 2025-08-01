@@ -252,17 +252,17 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %45, i64 noundef %48)
   %puts54 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %puts55 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %50
+  br label %51
 
-50:                                               ; preds = %37, %58
+51:                                               ; preds = %37, %58
   %indvars.iv = phi i64 [ 0, %37 ], [ %indvars.iv.next, %58 ]
-  %51 = getelementptr [3 x i64], ptr %39, i64 0, i64 %indvars.iv
+  %52 = getelementptr [3 x i64], ptr %39, i64 0, i64 %indvars.iv
   %52 = getelementptr i8, ptr %51, i64 88
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %58, label %55
 
-55:                                               ; preds = %50
+55:                                               ; preds = %51
   %56 = trunc nuw nsw i64 %indvars.iv to i32
   %switch.selectcmp = icmp eq i64 %indvars.iv, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.5, ptr @.str.6
@@ -272,10 +272,10 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   call fastcc void @_print_rollup_stats(ptr noundef nonnull %39, i32 noundef %56)
   br label %58
 
-58:                                               ; preds = %50, %55
+58:                                               ; preds = %51, %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %59, label %50, !llvm.loop !13
+  br i1 %exitcond.not, label %59, label %51, !llvm.loop !13
 
 59:                                               ; preds = %58
   %60 = load ptr, ptr %3, align 8
@@ -305,18 +305,18 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
 
 .preheader:                                       ; preds = %65, %.loopexit
   %72 = phi ptr [ %71, %.loopexit ], [ %70, %65 ]
-  br label %73
+  br label %74
 
-73:                                               ; preds = %.preheader, %86
+74:                                               ; preds = %.preheader, %86
   %indvars.iv76 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next77, %86 ]
   %.073 = phi i1 [ true, %.preheader ], [ %.1, %86 ]
-  %74 = getelementptr [3 x i64], ptr %72, i64 0, i64 %indvars.iv76
+  %75 = getelementptr [3 x i64], ptr %72, i64 0, i64 %indvars.iv76
   %75 = getelementptr i8, ptr %74, i64 88
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %86, label %78
 
-78:                                               ; preds = %73
+78:                                               ; preds = %74
   br i1 %.073, label %79, label %82
 
 79:                                               ; preds = %78
@@ -331,11 +331,11 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   call fastcc void @_print_rollup_stats(ptr noundef nonnull %72, i32 noundef %83)
   br label %86
 
-86:                                               ; preds = %73, %82
+86:                                               ; preds = %74, %82
   %.1 = phi i1 [ %.073, %73 ], [ false, %82 ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next77, 3
-  br i1 %exitcond78.not, label %.loopexit, label %73, !llvm.loop !15
+  br i1 %exitcond78.not, label %.loopexit, label %74, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit, %65
   call void @list_iterator_destroy(ptr noundef %69) #8
@@ -435,7 +435,7 @@ declare ptr @slurm_ctime2(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_print_rollup_stats(ptr noundef %0, i32 noundef range(i32 -2147483648, 3) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %32, label %3
+  br i1 %.not, label %35, label %3
 
 3:                                                ; preds = %2
   %4 = sext i32 %1 to i64
@@ -473,7 +473,7 @@ define internal fastcc void @_print_rollup_stats(ptr noundef %0, i32 noundef ran
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i64 noundef %.0)
   br label %32
 
-32:                                               ; preds = %2, %19
+35:                                               ; preds = %2, %19
   ret void
 }
 

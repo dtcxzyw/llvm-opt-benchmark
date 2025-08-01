@@ -20,45 +20,45 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_MVarId_revertAll___spec__1(pt
   %.not127 = icmp eq i64 %13, 0
   br label %24
 
-._crit_edge:                                      ; preds = %lean_dec.exit75, %11
+._crit_edge:; preds = %lean_dec.exit75, %11
   %.065.lcssa = phi ptr [ %10, %11 ], [ %70, %lean_dec.exit75 ]
   %.061.lcssa = phi ptr [ %5, %11 ], [ %.162, %lean_dec.exit75 ]
   %.not136 = icmp eq i64 %13, 0
   br i1 %.not136, label %14, label %lean_dec.exit
 
-14:                                               ; preds = %._crit_edge
+14:; preds = %._crit_edge
   %15 = load i32, ptr %6, align 4, !tbaa !4
   %16 = icmp sgt i32 %15, 1
   br i1 %16, label %17, label %19, !prof !9
 
-17:                                               ; preds = %14
+17:; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %6, align 4, !tbaa !4
   br label %lean_dec.exit
 
-19:                                               ; preds = %14
+20:                                               ; preds = %14
   %.not.i97 = icmp eq i32 %15, 0
-  br i1 %.not.i97, label %lean_dec.exit, label %20
+  br i1 %.not.i97, label %lean_dec.exit, label %21
 
-20:                                               ; preds = %19
+21:                                               ; preds = %20
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %20, %19, %17, %._crit_edge
+lean_dec.exit:                                    ; preds = %21, %20, %17, %._crit_edge
   tail call void @lean_inc_heartbeat() #3
-  %21 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %.sink.split
+  %22 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %.sink.split
 
-23:                                               ; preds = %lean_dec.exit
+24:                                               ; preds = %lean_dec.exit
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-24:                                               ; preds = %.lr.ph, %lean_dec.exit75
+25:                                               ; preds = %.lr.ph, %lean_dec.exit75
   %.057144 = phi i64 [ %4, %.lr.ph ], [ %.158, %lean_dec.exit75 ]
   %.061143 = phi ptr [ %5, %.lr.ph ], [ %.162, %lean_dec.exit75 ]
   %.065142 = phi ptr [ %10, %.lr.ph ], [ %70, %lean_dec.exit75 ]
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr %2, i64 0, i64 %.057144
+  %26 = getelementptr inbounds nuw [0 x ptr], ptr %2, i64 0, i64 %.057144
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !10
   %28 = ptrtoint ptr %27 to i64
@@ -66,7 +66,7 @@ lean_dec.exit:                                    ; preds = %20, %19, %17, %._cr
   %.not.i99 = icmp eq i64 %29, 0
   br i1 %.not.i99, label %30, label %lean_array_uget.exit
 
-30:                                               ; preds = %24
+30:                                               ; preds = %25
   %.val.i.i = load i32, ptr %27, align 4, !tbaa !4
   %31 = icmp sgt i32 %.val.i.i, 0
   br i1 %31, label %32, label %34, !prof !9
@@ -84,7 +84,7 @@ lean_dec.exit:                                    ; preds = %20, %19, %17, %._cr
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %27) #3
   br label %lean_array_uget.exit
 
-lean_array_uget.exit:                             ; preds = %24, %32, %34, %35
+lean_array_uget.exit:                             ; preds = %25, %32, %34, %35
   br i1 %.not127, label %36, label %lean_inc.exit
 
 36:                                               ; preds = %lean_array_uget.exit
@@ -431,10 +431,10 @@ lean_dec.exit75:                                  ; preds = %97, %101, %103, %10
   %.162 = phi ptr [ %96, %95 ], [ %.061143, %104 ], [ %.061143, %103 ], [ %.061143, %101 ], [ %.061143, %97 ]
   %.158 = add nuw i64 %.057144, 1
   %exitcond.not = icmp eq i64 %.158, %3
-  br i1 %exitcond.not, label %._crit_edge, label %24
+  br i1 %exitcond.not, label %._crit_edge, label %25
 
 .sink.split:                                      ; preds = %lean_dec.exit79, %lean_dec.exit
-  %.sink167 = phi ptr [ %21, %lean_dec.exit ], [ %158, %lean_dec.exit79 ]
+  %.sink167 = phi ptr [ %22, %lean_dec.exit ], [ %158, %lean_dec.exit79 ]
   %.sink = phi i32 [ 131096, %lean_dec.exit ], [ 16908312, %lean_dec.exit79 ]
   %.061.lcssa.sink = phi ptr [ %.061.lcssa, %lean_dec.exit ], [ %132, %lean_dec.exit79 ]
   %.065.lcssa.sink = phi ptr [ %.065.lcssa, %lean_dec.exit ], [ %134, %lean_dec.exit79 ]

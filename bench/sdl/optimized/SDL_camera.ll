@@ -1005,7 +1005,7 @@ define hidden void @SDL_CloseCamera_REAL(ptr noundef %0) local_unnamed_addr #1 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ClosePhysicalCamera(ptr noundef %0) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %49, label %2
+  br i1 %.not, label %48, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -1088,7 +1088,7 @@ define internal fastcc void @ClosePhysicalCamera(ptr noundef %0) unnamed_addr #1
   store ptr null, ptr %33, align 8
   br label %45
 
-35:                                               ; preds = %45
+36:                                               ; preds = %45
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %36, i8 0, i64 192, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -1106,7 +1106,7 @@ define internal fastcc void @ClosePhysicalCamera(ptr noundef %0) unnamed_addr #1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %44, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
-  br label %49
+  br label %48
 
 45:                                               ; preds = %.loopexit, %45
   %indvars.iv = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next, %45 ]
@@ -1116,9 +1116,9 @@ define internal fastcc void @ClosePhysicalCamera(ptr noundef %0) unnamed_addr #1
   tail call void @SDL_DestroySurface_REAL(ptr noundef %48) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %35, label %45, !llvm.loop !11
+  br i1 %exitcond.not, label %36, label %45, !llvm.loop !11
 
-49:                                               ; preds = %1, %35
+48:                                               ; preds = %1, %36
   ret void
 }
 
@@ -2003,22 +2003,22 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %117, i8 0, i64 192, i1 false)
   br label %.loopexit
 
-118:                                              ; preds = %.preheader, %123
+119:                                              ; preds = %.preheader, %123
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %123 ], [ 0, %.preheader ]
-  %119 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %0, i64 0, i64 %indvars.iv135
+  %120 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %0, i64 0, i64 %indvars.iv135
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 160
   %121 = load ptr, ptr %120, align 8
   %.not116 = icmp eq ptr %121, null
   br i1 %.not116, label %123, label %122
 
-122:                                              ; preds = %118
+122:                                              ; preds = %119
   tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %121) #11
   br label %123
 
-123:                                              ; preds = %122, %118
+123:                                              ; preds = %122, %119
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next136, 8
-  br i1 %exitcond138.not, label %116, label %118, !llvm.loop !15
+  br i1 %exitcond138.not, label %116, label %119, !llvm.loop !15
 
 .loopexit:                                        ; preds = %108, %116
   %.0 = phi i1 [ false, %116 ], [ true, %108 ]

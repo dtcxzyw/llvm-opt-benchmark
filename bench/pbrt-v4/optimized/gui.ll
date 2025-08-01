@@ -1379,7 +1379,7 @@ _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i215: ; preds = %_ZNSt3setIcS
 230:                                              ; preds = %231
   %indvars.iv.next13.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv12.i.i.i.i.i.i, 1
   %exitcond15.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next13.i.i.i.i.i.i, 4
-  br i1 %exitcond15.not.i.i.i.i.i.i, label %.preheader.i1.i.i.i.i.i, label %.preheader.i.i.i.i.i.i, !llvm.loop !172
+  br i1 %exitcond15.not.i.i.i.i.i.i, label %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i.i.i.i, label %.preheader.i.i.i.i.i.i, !llvm.loop !172
 
 231:                                              ; preds = %231, %.preheader.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i, %231 ]
@@ -1391,26 +1391,26 @@ _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i215: ; preds = %_ZNSt3setIcS
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
   br i1 %exitcond.not.i.i.i.i.i.i, label %230, label %231, !llvm.loop !174
 
-.preheader.i1.i.i.i.i.i:                          ; preds = %230, %236
+_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i.i.i.i:  ; preds = %230, %236
   %indvars.iv12.i2.i.i.i.i.i = phi i64 [ %indvars.iv.next13.i6.i.i.i.i.i, %236 ], [ 0, %230 ]
   %235 = getelementptr inbounds nuw [4 x [4 x float]], ptr %22, i64 0, i64 %indvars.iv12.i2.i.i.i.i.i
   br label %237
 
-236:                                              ; preds = %237
+.preheader.i1.i.i.i.i.i:                          ; preds = %237
   %indvars.iv.next13.i6.i.i.i.i.i = add nuw nsw i64 %indvars.iv12.i2.i.i.i.i.i, 1
   %exitcond15.not.i7.i.i.i.i.i = icmp eq i64 %indvars.iv.next13.i6.i.i.i.i.i, 4
   br i1 %exitcond15.not.i7.i.i.i.i.i, label %"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE4$_10E9_M_invokeERKSt9_Any_dataOS1_.exit", label %.preheader.i1.i.i.i.i.i, !llvm.loop !172
 
-237:                                              ; preds = %237, %.preheader.i1.i.i.i.i.i
+238:                                              ; preds = %238, %.preheader.i1.i.i.i.i.i
   %indvars.iv.i3.i.i.i.i.i = phi i64 [ 0, %.preheader.i1.i.i.i.i.i ], [ %indvars.iv.next.i4.i.i.i.i.i, %237 ]
-  %238 = icmp eq i64 %indvars.iv12.i2.i.i.i.i.i, %indvars.iv.i3.i.i.i.i.i
-  %239 = uitofp i1 %238 to float
-  %240 = getelementptr inbounds nuw [4 x float], ptr %235, i64 0, i64 %indvars.iv.i3.i.i.i.i.i
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 64
+  %239 = icmp eq i64 %indvars.iv12.i2.i.i.i.i.i, %indvars.iv.i3.i.i.i.i.i
+  %240 = uitofp i1 %239 to float
+  %241 = getelementptr inbounds nuw [4 x float], ptr %235, i64 0, i64 %indvars.iv.i3.i.i.i.i.i
+  %241 = getelementptr inbounds nuw i8, ptr %241, i64 64
   store float %239, ptr %241, align 4, !tbaa !173, !alias.scope !163
   %indvars.iv.next.i4.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i3.i.i.i.i.i, 1
   %exitcond.not.i5.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i4.i.i.i.i.i, 4
-  br i1 %exitcond.not.i5.i.i.i.i.i, label %236, label %237, !llvm.loop !174
+  br i1 %exitcond.not.i5.i.i.i.i.i, label %236, label %238, !llvm.loop !174
 
 "_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE4$_10E9_M_invokeERKSt9_Any_dataOS1_.exit": ; preds = %236
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -2047,7 +2047,7 @@ define dso_local void @_ZN4pbrt3GUIC2ENSt7__cxx1112basic_stringIcSt11char_traits
 14:                                               ; preds = %15
   %indvars.iv.next13.i.i = add nuw nsw i64 %indvars.iv12.i.i, 1
   %exitcond15.not.i.i = icmp eq i64 %indvars.iv.next13.i.i, 4
-  br i1 %exitcond15.not.i.i, label %.preheader.i1.i, label %.preheader.i.i, !llvm.loop !172
+  br i1 %exitcond15.not.i.i, label %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i, label %.preheader.i.i, !llvm.loop !172
 
 15:                                               ; preds = %15, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %15 ]
@@ -2059,28 +2059,28 @@ define dso_local void @_ZN4pbrt3GUIC2ENSt7__cxx1112basic_stringIcSt11char_traits
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %14, label %15, !llvm.loop !174
 
-.preheader.i1.i:                                  ; preds = %14, %20
+_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %14, %20
   %indvars.iv12.i2.i = phi i64 [ %indvars.iv.next13.i6.i, %20 ], [ 0, %14 ]
   %19 = getelementptr inbounds nuw [4 x [4 x float]], ptr %12, i64 0, i64 %indvars.iv12.i2.i
   br label %21
 
-20:                                               ; preds = %21
+21:                                               ; preds = %22
   %indvars.iv.next13.i6.i = add nuw nsw i64 %indvars.iv12.i2.i, 1
   %exitcond15.not.i7.i = icmp eq i64 %indvars.iv.next13.i6.i, 4
   br i1 %exitcond15.not.i7.i, label %26, label %.preheader.i1.i, !llvm.loop !172
 
-21:                                               ; preds = %21, %.preheader.i1.i
+22:                                               ; preds = %22, %.preheader.i1.i
   %indvars.iv.i3.i = phi i64 [ 0, %.preheader.i1.i ], [ %indvars.iv.next.i4.i, %21 ]
-  %22 = icmp eq i64 %indvars.iv12.i2.i, %indvars.iv.i3.i
-  %23 = uitofp i1 %22 to float
-  %24 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %indvars.iv.i3.i
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %23 = icmp eq i64 %indvars.iv12.i2.i, %indvars.iv.i3.i
+  %24 = uitofp i1 %23 to float
+  %25 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %indvars.iv.i3.i
+  %25 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store float %23, ptr %25, align 4, !tbaa !173
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
-  br i1 %exitcond.not.i5.i, label %20, label %21, !llvm.loop !174
+  br i1 %exitcond.not.i5.i, label %21, label %22, !llvm.loop !174
 
-26:                                               ; preds = %20
+26:                                               ; preds = %21
   %.sroa.06.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.5.0.extract.shift = lshr i64 %2, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32

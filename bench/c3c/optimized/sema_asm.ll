@@ -103,11 +103,11 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
 21:                                               ; preds = %13, %18
   %.0 = phi i32 [ %20, %18 ], [ 0, %13 ]
   %.not39 = icmp eq i32 %17, %.0
-  br i1 %.not39, label %.preheader41.preheader, label %23
+  br i1 %.not39, label %.preheader, label %23
 
-.preheader41.preheader:                           ; preds = %21
+.preheader:                                       ; preds = %21
   %22 = zext i32 %17 to i64
-  br label %.preheader41
+  br label %31
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %17, %.0
@@ -117,23 +117,23 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
   tail call void (i64, ptr, ...) @sema_error_at(i64 %27, ptr noundef nonnull @.str.2, ptr noundef nonnull %25, ptr noundef %26, i32 noundef %17) #4
   br label %sema_add_clobbers.exit
 
-.preheader41:                                     ; preds = %.preheader41.preheader, %28
-  %indvars.iv = phi i64 [ %22, %.preheader41.preheader ], [ %29, %28 ]
+29:                                               ; preds = %.preheader, %30
+  %indvars.iv = phi i64 [ %22, %.preheader41.preheader ], [ %31, %28 ]
   %.not40 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not40, label %.preheader, label %28
+  br i1 %.not40, label %36, label %30
 
-28:                                               ; preds = %.preheader41
-  %29 = add nsw i64 %indvars.iv, -1
-  %30 = getelementptr inbounds nuw [6 x %struct.AsmArgType], ptr %10, i64 0, i64 %29, i32 1
-  %31 = getelementptr inbounds nuw ptr, ptr %15, i64 %29
-  %32 = load ptr, ptr %31, align 8
-  %.sroa.0.0.copyload = load i64, ptr %30, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
+30:                                               ; preds = %29
+  %31 = add nsw i64 %indvars.iv, -1
+  %32 = getelementptr inbounds nuw [6 x %struct.AsmArgType], ptr %10, i64 0, i64 %29, i32 1
+  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %31
+  %34 = load ptr, ptr %33, align 8
+  %.sroa.0.0.copyload = load i64, ptr %32, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %33 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef %10, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %32)
-  br i1 %33, label %.preheader41, label %sema_add_clobbers.exit, !llvm.loop !7
+  %35 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef %10, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %34)
+  br i1 %35, label %29, label %sema_add_clobbers.exit, !llvm.loop !7
 
-.preheader:                                       ; preds = %.preheader41, %.preheader
+36:                                               ; preds = %29, %36
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %.preheader41 ]
   %34 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %indvars.iv.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 88
@@ -144,9 +144,9 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
   store i64 %39, ptr %37, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %sema_add_clobbers.exit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not.i, label %sema_add_clobbers.exit, label %36, !llvm.loop !9
 
-sema_add_clobbers.exit:                           ; preds = %28, %.preheader, %23, %11, %5
+sema_add_clobbers.exit:                           ; preds = %30, %36, %23, %11, %5
   %.030 = phi i1 [ false, %5 ], [ false, %23 ], [ false, %11 ], [ true, %.preheader ], [ false, %28 ]
   ret i1 %.030
 }

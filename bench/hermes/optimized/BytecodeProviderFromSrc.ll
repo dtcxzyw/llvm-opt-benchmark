@@ -1672,8 +1672,8 @@ if.end8.sink.split.i.i.i.i189:                    ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN6hermes7ContextEED2Ev.exit:    ; preds = %_ZNSt10shared_ptrIN6hermes7ContextEEC2ERKS2_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i176, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i186, %if.end8.sink.split.i.i.i.i189
   %call106 = call noundef zeroext i1 @_ZN6hermes20generateIRFromESTreeEPNS_6ESTree4NodeEPNS_6ModuleERKSt6vectorIPNS0_11ProgramNodeESaIS7_EERKNS_10ScopeChainE(ptr noundef %94, ptr noundef nonnull %M, ptr noundef nonnull align 8 dereferenceable(24) %declFileList, ptr noundef nonnull align 8 dereferenceable(24) %scopeChain) #13
   %111 = load ptr, ptr %sm_.i63, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %111, i64 296
-  %112 = load i32, ptr %arrayidx.i.i, align 4
+  %messageCount_.i.i = getelementptr inbounds nuw i8, ptr %111, i64 296
+  %112 = load i32, ptr %messageCount_.i.i, align 4
   %cmp110.not = icmp eq i32 %112, 0
   br i1 %cmp110.not, label %if.end114, label %if.then111
 
@@ -1768,8 +1768,8 @@ _ZNKSt14default_deleteIN6hermes3hbc14BCProviderBaseEEclEPS2_.exit.i: ; preds = %
 _ZNSt10unique_ptrIN6hermes3hbc14BCProviderBaseESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.end117, %_ZNKSt14default_deleteIN6hermes3hbc14BCProviderBaseEEclEPS2_.exit.i
   store ptr null, ptr %agg.tmp131, align 8
   %124 = load ptr, ptr %sm_.i63, align 8
-  %arrayidx.i.i217 = getelementptr inbounds nuw i8, ptr %124, i64 296
-  %125 = load i32, ptr %arrayidx.i.i217, align 4
+  %messageCount_.i.i217 = getelementptr inbounds nuw i8, ptr %124, i64 296
+  %125 = load i32, ptr %messageCount_.i.i217, align 4
   %cmp135.not = icmp eq i32 %125, 0
   br i1 %cmp135.not, label %if.end139, label %if.then136
 
@@ -4337,11 +4337,11 @@ entry:
   br i1 %tobool.not, label %land.lhs.true62, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  br i1 %tobool65.not, label %if.end73, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
+  br i1 %tobool65.not, label %if.end73, label %for.cond.preheader
 
-_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit: ; preds = %land.lhs.true, %for.inc
+for.cond.preheader:                               ; preds = %land.lhs.true, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %land.lhs.true ]
-  %arrayidx = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %this, i64 %indvars.iv, i32 0, i32 1
+  %storage.i.i45 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %this, i64 %indvars.iv, i32 0, i32 1
   %arrayidx20 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %RHS, i64 %indvars.iv, i32 0, i32 1
   %agg.tmp28.sroa.0.0.copyload = load ptr, ptr %arrayidx20, align 8
   %agg.tmp28.sroa.0.0.copyload.fr = freeze ptr %agg.tmp28.sroa.0.0.copyload

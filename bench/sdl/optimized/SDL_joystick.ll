@@ -2731,25 +2731,25 @@ SDL_PrivateJoystickAddSensor.exit39:              ; preds = %41, %33, %30, %SDL_
 59:                                               ; preds = %56, %53
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store float 1.000000e+00, ptr %60, align 4
-  br i1 %1, label %.preheader, label %.loopexit
+  br i1 %1, label %.preheader40, label %.loopexit
 
-.preheader:                                       ; preds = %59, %67
+.preheader40:                                     ; preds = %59, %67
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %67 ], [ 0, %59 ]
   %61 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv47
   br label %62
 
-62:                                               ; preds = %.preheader, %62
+63:                                               ; preds = %.preheader, %63
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 272
   %65 = load float, ptr %64, align 4
   %66 = fneg float %65
   store float %66, ptr %64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %67, label %62, !llvm.loop !24
+  br i1 %exitcond.not, label %67, label %63, !llvm.loop !24
 
-67:                                               ; preds = %62
+67:                                               ; preds = %63
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 3
   br i1 %exitcond50.not, label %.loopexit, label %.preheader, !llvm.loop !25

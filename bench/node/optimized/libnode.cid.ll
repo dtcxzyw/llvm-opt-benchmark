@@ -343,13 +343,13 @@ entry:
   %0 = load ptr, ptr %ptr_.i, align 8
   %1 = load i64, ptr %0, align 8
   %cmp7.not = icmp eq i64 %1, 0
-  br i1 %cmp7.not, label %for.end, label %for.body
+  br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %entry, %for.body
+for.body.lr.ph:                                   ; preds = %entry, %for.body
   %n.09 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %hash.08 = phi i64 [ %xor, %for.body ], [ 0, %entry ]
   %2 = getelementptr [20 x i8], ptr %0, i64 0, i64 %n.09
-  %arrayidx = getelementptr i8, ptr %2, i64 8
+  %arrayidx = getelementptr i8, ptr %add.ptr, i64 8
   %3 = load i8, ptr %arrayidx, align 1
   %shl = shl nuw nsw i64 %hash.08, 6
   %shr = lshr i64 %hash.08, 2
@@ -502,7 +502,7 @@ do.body7.i:                                       ; preds = %do.body.i
 _ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit: ; preds = %do.body.i, %entry
   %1 = phi i32 [ %0, %entry ], [ 0, %do.body.i ]
   %idx.ext = sext i32 %1 to i64
-  %2 = getelementptr i8, ptr %this, i64 %idx.ext
+  %add.ptr = getelementptr i8, ptr %this, i64 %idx.ext
   %add.ptr = getelementptr i8, ptr %2, i64 12
   %3 = trunc i64 %length_hint to i32
   %conv3 = add i32 %1, %3
@@ -543,7 +543,7 @@ do.body7.i:                                       ; preds = %do.body.i
 _ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit: ; preds = %do.body.i, %entry
   %1 = phi i32 [ %0, %entry ], [ 0, %do.body.i ]
   %idx.ext = sext i32 %1 to i64
-  %2 = getelementptr i8, ptr %this, i64 %idx.ext
+  %add.ptr = getelementptr i8, ptr %this, i64 %idx.ext
   %add.ptr = getelementptr i8, ptr %2, i64 12
   %3 = trunc i64 %length_hint to i32
   %conv3 = add i32 %1, %3

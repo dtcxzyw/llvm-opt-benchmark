@@ -538,7 +538,7 @@ forcingStep_AccessStepMem.exit:                   ; preds = %3
     i32 1, label %.preheader24
   ]
 
-.preheader:                                       ; preds = %7
+.preheader24:                                     ; preds = %7
   %8 = getelementptr i8, ptr %5, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !53
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.22, i32 noundef 0, i64 noundef %9) #8
@@ -547,7 +547,7 @@ forcingStep_AccessStepMem.exit:                   ; preds = %3
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.22, i32 noundef 1, i64 noundef %12) #8
   br label %.loopexit
 
-.preheader24:                                     ; preds = %7
+.preheader:                                       ; preds = %7
   %14 = getelementptr i8, ptr %5, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !53
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.23, i32 noundef 0, i64 noundef %15) #8
@@ -588,7 +588,7 @@ define internal void @forcingStep_PrintMem(ptr noundef %0, ptr noundef captures(
   %5 = icmp eq ptr %4, null
   br i1 %5, label %forcingStep_AccessStepMem.exit.thread, label %forcingStep_AccessStepMem.exit
 
-forcingStep_AccessStepMem.exit.thread:            ; preds = %2
+forcingStep_AccessStepMem.exit.preheader:         ; preds = %2
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 32, ptr noundef nonnull @__func__.forcingStep_PrintMem, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #8
   br label %.loopexit
 
@@ -601,7 +601,7 @@ forcingStep_AccessStepMem.exit:                   ; preds = %2
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.25, i32 noundef 1, i64 noundef %10) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %forcingStep_AccessStepMem.exit, %forcingStep_AccessStepMem.exit.thread
+forcingStep_AccessStepMem.exit.thread:            ; preds = %forcingStep_AccessStepMem.exit, %forcingStep_AccessStepMem.exit.thread
   ret void
 }
 
@@ -694,15 +694,15 @@ forcingStep_AccessARKODEStepMem.exit:             ; preds = %6
 
 13:                                               ; preds = %forcingStep_AccessARKODEStepMem.exit
   %14 = icmp slt i32 %1, 0
-  br i1 %14, label %15, label %21
+  br i1 %14, label %16, label %21
 
-15:                                               ; preds = %13
+16:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !53
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !53
   %20 = add nsw i64 %19, %17
-  br label %26
+  br label %25
 
 21:                                               ; preds = %13
   %22 = zext nneg i32 %1 to i64
@@ -711,12 +711,12 @@ forcingStep_AccessARKODEStepMem.exit:             ; preds = %6
   %25 = load i64, ptr %24, align 8, !tbaa !53
   br label %26
 
-26:                                               ; preds = %21, %15
+25:                                               ; preds = %21, %16
   %storemerge = phi i64 [ %25, %21 ], [ %20, %15 ]
   store i64 %storemerge, ptr %2, align 8, !tbaa !53
   br label %forcingStep_AccessARKODEStepMem.exit.thread
 
-forcingStep_AccessARKODEStepMem.exit.thread:      ; preds = %10, %5, %26, %12
+forcingStep_AccessARKODEStepMem.exit.thread:      ; preds = %10, %5, %25, %12
   %.0 = phi i32 [ -22, %12 ], [ 0, %26 ], [ -21, %5 ], [ -21, %10 ]
   ret i32 %.0
 }

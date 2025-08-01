@@ -78277,28 +78277,28 @@ _ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit.
   %80 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i1.i
   %.ptr.i2.i = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i64 0, ptr %.ptr.i2.i, align 8, !tbaa !1631
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
-  store i64 1, ptr %81, align 8, !tbaa !1633
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 40
+  store i64 1, ptr %82, align 8, !tbaa !1633
   %.add.i3.i = add nuw nsw i64 %.idx.i1.i, 16
-  %82 = icmp eq i64 %.add.i3.i, 32
-  br i1 %82, label %_ZN5boost8geometry5model3boxINS1_5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEEEC2Ev.exit, label %_ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit.i
+  %83 = icmp eq i64 %.add.i3.i, 32
+  br i1 %83, label %_ZN5boost8geometry5model3boxINS1_5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEEEC2Ev.exit, label %_ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit.i
 
 _ZN5boost8geometry5model3boxINS1_5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEEEC2Ev.exit: ; preds = %_ZN5boost8geometry5model5pointINS_8rationalIlEELm2ENS0_2cs9cartesianEEC2Ev.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
   store i64 9223372036854775807, ptr %28, align 8, !tbaa !1631
-  %83 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 1, ptr %83, align 8, !tbaa !1633
+  %84 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i64 1, ptr %84, align 8, !tbaa !1633
   call void @_ZN5boost8rationalIlE9normalizeEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
   %.fca.0.load.i.i.i = load i64, ptr %28, align 8
-  %.fca.1.load.i.i.i = load i64, ptr %83, align 8
+  %.fca.1.load.i.i.i = load i64, ptr %84, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
   store i64 -9223372036854775808, ptr %27, align 8, !tbaa !1631
-  %84 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i64 1, ptr %84, align 8, !tbaa !1633
+  %85 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i64 1, ptr %85, align 8, !tbaa !1633
   call void @_ZN5boost8rationalIlE9normalizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
   %.fca.0.load.i1.i.i = load i64, ptr %27, align 8
-  %.fca.1.load.i3.i.i = load i64, ptr %84, align 8
+  %.fca.1.load.i3.i.i = load i64, ptr %85, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   store i64 %.fca.0.load.i.i.i, ptr %29, align 8, !tbaa !93, !noalias !1649
   %.sroa.513.0..sroa_idx14.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8

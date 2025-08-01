@@ -265,8 +265,8 @@ _Py_NewRef.exit.us.i:                             ; preds = %77, %.lr.ph.us.i
   br i1 %exitcond68.not.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !30
 
 .preheader.us.i:                                  ; preds = %58
-  %82 = icmp slt i64 %.02658.us.i, %.sink.i
-  br i1 %82, label %.lr.ph.us.i, label %.loopexit.us.i
+  %81 = icmp slt i64 %.02658.us.i, %.sink.i
+  br i1 %81, label %.lr.ph.us.i, label %.loopexit.us.i
 
 .loopexit49.us.i:                                 ; preds = %56
   %83 = icmp eq ptr %41, null
@@ -309,9 +309,9 @@ _Py_NewRef.exit.us.i:                             ; preds = %77, %.lr.ph.us.i
 
 .preheader.i:                                     ; preds = %94
   %98 = icmp slt i64 %.02658.i, %.sink.i
-  br i1 %98, label %.lr.ph.i, label %.loopexit.i
+  br i1 %98, label %.lr.ph.preheader.i, label %.loopexit.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %_Py_NewRef.exit.i
+.lr.ph.preheader.i:                               ; preds = %.preheader.i, %_Py_NewRef.exit.i
   %.454.i = phi i64 [ %107, %_Py_NewRef.exit.i ], [ %.02658.i, %.preheader.i ]
   %99 = getelementptr ptr, ptr %.0.i25, i64 %.454.i
   %100 = load ptr, ptr %99, align 8, !tbaa !4
@@ -319,14 +319,14 @@ _Py_NewRef.exit.us.i:                             ; preds = %77, %.lr.ph.us.i
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %_Py_NewRef.exit.i, label %103
 
-103:                                              ; preds = %.lr.ph.i
+103:; preds = %.lr.ph.preheader.i
   %104 = add nuw i32 %101, 1
   store i32 %104, ptr %100, align 8, !tbaa !27
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %103, %.lr.ph.i
-  %105 = getelementptr [1 x ptr], ptr %96, i64 0, i64 %.454.i
-  %106 = getelementptr i8, ptr %105, i64 24
+  %106 = getelementptr [1 x ptr], ptr %96, i64 0, i64 %.454.i
+  %106 = getelementptr i8, ptr %106, i64 24
   store ptr %100, ptr %106, align 8, !tbaa !4
   %107 = add nsw i64 %.454.i, 1
   %exitcond.not.i = icmp eq i64 %107, %.sink.i

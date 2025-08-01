@@ -3218,7 +3218,7 @@ copy_advance.exit207.i:                           ; preds = %.lr.ph.i203.i, %cop
   ]
 
 .preheader233.preheader.i:                        ; preds = %159
-  %scevgep254.i = getelementptr i8, ptr %spec.select.i, i64 3
+  %scevgep253.i = getelementptr i8, ptr %spec.select.i, i64 3
   br label %.preheader233.i
 
 160:                                              ; preds = %159

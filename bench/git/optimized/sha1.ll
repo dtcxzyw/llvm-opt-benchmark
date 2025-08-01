@@ -1560,8 +1560,8 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load i32, ptr %124, align 4, !tbaa !4
   %126 = xor i32 %125, %122
-  %127 = getelementptr inbounds nuw [80 x i32], ptr %0, i64 0, i64 %indvars.iv
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 480
+  %125 = getelementptr inbounds nuw [80 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 480
   store i32 %126, ptr %128, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 80

@@ -59,19 +59,19 @@ gv_calloc.exit.i:                                 ; preds = %21
   br i1 %exitcond38.not.i, label %diag_precon_new.exit, label %.lr.ph32.i, !llvm.loop !20
 
 .lr.ph32.i:                                       ; preds = %.loopexit.i, %.lr.ph32.preheader.i
-  %31 = phi i32 [ %.pre.i, %.lr.ph32.preheader.i ], [ %35, %.loopexit.i ]
+  %32 = phi i32 [ %.pre.i, %.lr.ph32.preheader.i ], [ %35, %.loopexit.i ]
   %indvars.iv34.i = phi i64 [ 0, %.lr.ph32.preheader.i ], [ %indvars.iv.next35.i, %.loopexit.i ]
-  %32 = getelementptr double, ptr %23, i64 %indvars.iv34.i
+  %33 = getelementptr double, ptr %23, i64 %indvars.iv34.i
   %33 = getelementptr i8, ptr %32, i64 8
   store double 1.000000e+00, ptr %33, align 8, !tbaa !17
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %34 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next35.i
   %35 = load i32, ptr %34, align 4, !tbaa !19
-  %36 = icmp slt i32 %31, %35
+  %36 = icmp slt i32 %32, %35
   br i1 %36, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph32.i
-  %37 = sext i32 %31 to i64
+  %37 = sext i32 %32 to i64
   %wide.trip.count.i = sext i32 %35 to i64
   br label %.lr.ph.i
 
@@ -152,7 +152,7 @@ gv_calloc.exit45.preheader.i:                     ; preds = %gv_calloc.exit.i13
 
 .preheader.i:                                     ; preds = %gv_calloc.exit45.i, %.preheader.lr.ph.i
   %indvars.iv64.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next65.i, %gv_calloc.exit45.i ]
-  %.055.i = phi double [ 0.000000e+00, %.preheader.lr.ph.i ], [ %149, %gv_calloc.exit45.i ]
+  %.055.i = phi double [ 0.000000e+00, %.preheader.lr.ph.i ], [ %148, %gv_calloc.exit45.i ]
   br i1 %.not.i, label %.thread.i, label %.lr.ph.i15
 
 .thread.i:                                        ; preds = %.preheader.i
@@ -242,12 +242,12 @@ gv_calloc.exit59.i.i:                             ; preds = %101
   %or.cond60.i.i = select i1 %65, i1 %113, i1 false
   br i1 %or.cond60.i.i, label %.lr.ph.i.i, label %conjugate_gradient.exit.i
 
-.lr.ph.i.i:                                       ; preds = %gv_calloc.exit59.i.i, %131
-  %114 = phi i32 [ %143, %131 ], [ 1, %gv_calloc.exit59.i.i ]
+.lr.ph.i.i:                                       ; preds = %gv_calloc.exit59.i.i, %130
+  %114 = phi i32 [ %142, %131 ], [ 1, %gv_calloc.exit59.i.i ]
   %.064.i.i = phi ptr [ %.1.i.i, %131 ], [ %96, %gv_calloc.exit59.i.i ]
   %.not.i.i = phi i1 [ false, %131 ], [ true, %gv_calloc.exit59.i.i ]
-  %.04762.i.i = phi ptr [ %135, %131 ], [ %55, %gv_calloc.exit59.i.i ]
-  %.04961.i.i = phi double [ %126, %131 ], [ 1.000000e+00, %gv_calloc.exit59.i.i ]
+  %.04762.i.i = phi ptr [ %134, %131 ], [ %55, %gv_calloc.exit59.i.i ]
+  %.04961.i.i = phi double [ %125, %131 ], [ 1.000000e+00, %gv_calloc.exit59.i.i ]
   %115 = load ptr, ptr %7, align 8, !tbaa !24
   %116 = load double, ptr %23, align 8, !tbaa !17
   %117 = fptosi double %116 to i32
@@ -273,52 +273,52 @@ gv_calloc.exit59.i.i:                             ; preds = %101
   br i1 %exitcond.not.i.i.i, label %diag_precon.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !26
 
 diag_precon.exit.i.i:                             ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i
-  %126 = call double @vector_product(i32 noundef %9, ptr noundef %115, ptr noundef %95) #13
-  br i1 %.not.i.i, label %130, label %127
+  %125 = call double @vector_product(i32 noundef %9, ptr noundef %115, ptr noundef %95) #13
+  br i1 %.not.i.i, label %129, label %126
 
-127:                                              ; preds = %diag_precon.exit.i.i
-  %128 = fdiv double %126, %.04961.i.i
-  %129 = call ptr @vector_saxpy(i32 noundef %9, ptr noundef %95, ptr noundef %.064.i.i, double noundef %128) #13
-  br label %131
+126:                                              ; preds = %diag_precon.exit.i.i
+  %127 = fdiv double %125, %.04961.i.i
+  %128 = call ptr @vector_saxpy(i32 noundef %9, ptr noundef %95, ptr noundef %.064.i.i, double noundef %127) #13
+  br label %130
 
-130:                                              ; preds = %diag_precon.exit.i.i
+129:                                              ; preds = %diag_precon.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.064.i.i, ptr align 8 %95, i64 %66, i1 false)
-  br label %131
+  br label %130
 
-131:                                              ; preds = %130, %127
-  %.1.i.i = phi ptr [ %129, %127 ], [ %.064.i.i, %130 ]
+130:                                              ; preds = %129, %126
+  %.1.i.i = phi ptr [ %128, %127 ], [ %.064.i.i, %130 ]
   call void @SparseMatrix_multiply_vector(ptr noundef nonnull %0, ptr noundef %.1.i.i, ptr noundef nonnull %8) #13
-  %132 = load ptr, ptr %8, align 8, !tbaa !24
-  %133 = call double @vector_product(i32 noundef %9, ptr noundef %.1.i.i, ptr noundef %132) #13
-  %134 = fdiv double %126, %133
-  %135 = call ptr @vector_saxpy2(i32 noundef %9, ptr noundef %.04762.i.i, ptr noundef %.1.i.i, double noundef %134) #13
-  %136 = load ptr, ptr %7, align 8, !tbaa !24
-  %137 = load ptr, ptr %8, align 8, !tbaa !24
-  %138 = fneg double %134
-  %139 = call ptr @vector_saxpy2(i32 noundef %9, ptr noundef %136, ptr noundef %137, double noundef %138) #13
-  store ptr %139, ptr %7, align 8, !tbaa !24
-  %140 = call double @vector_product(i32 noundef %9, ptr noundef %139, ptr noundef %139) #13
-  %141 = call double @sqrt(double noundef %140) #13, !tbaa !19
-  %142 = fdiv double %141, %64
-  %143 = add nuw nsw i32 %114, 1
-  %144 = uitofp nneg i32 %114 to double
-  %145 = fcmp ogt double %5, %144
-  %146 = fcmp ogt double %142, %112
-  %or.cond.i.i = select i1 %145, i1 %146, i1 false
+  %131 = load ptr, ptr %8, align 8, !tbaa !24
+  %132 = call double @vector_product(i32 noundef %9, ptr noundef %.1.i.i, ptr noundef %131) #13
+  %133 = fdiv double %125, %132
+  %134 = call ptr @vector_saxpy2(i32 noundef %9, ptr noundef %.04762.i.i, ptr noundef %.1.i.i, double noundef %133) #13
+  %135 = load ptr, ptr %7, align 8, !tbaa !24
+  %136 = load ptr, ptr %8, align 8, !tbaa !24
+  %137 = fneg double %133
+  %138 = call ptr @vector_saxpy2(i32 noundef %9, ptr noundef %135, ptr noundef %136, double noundef %137) #13
+  store ptr %138, ptr %7, align 8, !tbaa !24
+  %139 = call double @vector_product(i32 noundef %9, ptr noundef %138, ptr noundef %138) #13
+  %140 = call double @sqrt(double noundef %139) #13, !tbaa !19
+  %141 = fdiv double %140, %64
+  %142 = add nuw nsw i32 %114, 1
+  %143 = uitofp nneg i32 %114 to double
+  %144 = fcmp ogt double %5, %143
+  %145 = fcmp ogt double %141, %112
+  %or.cond.i.i = select i1 %144, i1 %145, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %conjugate_gradient.exit.i, !llvm.loop !27
 
-conjugate_gradient.exit.i:                        ; preds = %131, %gv_calloc.exit59.i.i
-  %.048.lcssa.i.i = phi double [ %111, %gv_calloc.exit59.i.i ], [ %142, %131 ]
+conjugate_gradient.exit.i:                        ; preds = %130, %gv_calloc.exit59.i.i
+  %.048.lcssa.i.i = phi double [ %111, %gv_calloc.exit59.i.i ], [ %141, %131 ]
   %.0.lcssa.i.i = phi ptr [ %96, %gv_calloc.exit59.i.i ], [ %.1.i.i, %131 ]
   call void @free(ptr noundef %95) #13
-  %147 = load ptr, ptr %7, align 8, !tbaa !24
+  %146 = load ptr, ptr %7, align 8, !tbaa !24
   call void @free(ptr noundef %147) #13
   call void @free(ptr noundef %.0.lcssa.i.i) #13
   %148 = load ptr, ptr %8, align 8, !tbaa !24
   call void @free(ptr noundef %148) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  %149 = fadd double %.055.i, %.048.lcssa.i.i
+  %148 = fadd double %.055.i, %.048.lcssa.i.i
   br i1 %.not.i, label %gv_calloc.exit45.i, label %.lr.ph52.preheader.i
 
 .lr.ph52.preheader.i:                             ; preds = %conjugate_gradient.exit.i
@@ -327,11 +327,11 @@ conjugate_gradient.exit.i:                        ; preds = %131, %gv_calloc.exi
 
 .lr.ph52.i:                                       ; preds = %.lr.ph52.i, %.lr.ph52.preheader.i
   %indvars.iv59.i = phi i64 [ 0, %.lr.ph52.preheader.i ], [ %indvars.iv.next60.i, %.lr.ph52.i ]
-  %150 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv59.i
-  %151 = load double, ptr %150, align 8, !tbaa !17
-  %152 = mul nuw nsw i64 %indvars.iv59.i, %67
-  %gep.i = getelementptr inbounds nuw double, ptr %invariant.gep.i, i64 %152
-  store double %151, ptr %gep.i, align 8, !tbaa !17
+  %149 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv59.i
+  %150 = load double, ptr %149, align 8, !tbaa !17
+  %151 = mul nuw nsw i64 %indvars.iv59.i, %67
+  %gep.i = getelementptr inbounds nuw double, ptr %invariant.gep.i, i64 %151
+  store double %150, ptr %gep.i, align 8, !tbaa !17
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count.i14
   br i1 %exitcond63.not.i, label %gv_calloc.exit45.i, label %.lr.ph52.i, !llvm.loop !28
@@ -342,7 +342,7 @@ gv_calloc.exit45.i:                               ; preds = %.lr.ph52.i, %conjug
   br i1 %exitcond68.not.i, label %cg.exit, label %.preheader.i, !llvm.loop !29
 
 cg.exit:                                          ; preds = %gv_calloc.exit45.i, %gv_calloc.exit45.preheader.i
-  %.0.lcssa.i = phi double [ 0.000000e+00, %gv_calloc.exit45.preheader.i ], [ %149, %gv_calloc.exit45.i ]
+  %.0.lcssa.i = phi double [ 0.000000e+00, %gv_calloc.exit45.preheader.i ], [ %148, %gv_calloc.exit45.i ]
   call void @free(ptr noundef %55) #13
   call void @free(ptr noundef %61) #13
   call void @free(ptr noundef %23) #13

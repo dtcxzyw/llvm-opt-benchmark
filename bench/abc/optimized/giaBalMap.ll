@@ -1570,24 +1570,24 @@ define noalias noundef ptr @Gia_ManFindLatest(ptr noundef %0, i32 noundef %1, i3
 
 .lr.ph:                                           ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %20 to i64
-  br label %23
+  br label %24
 
-23:                                               ; preds = %.lr.ph, %23
+24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = phi i32 [ %.promoted, %.lr.ph ], [ %31, %23 ]
-  %25 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %25 = phi i32 [ %.promoted, %.lr.ph ], [ %31, %23 ]
+  %26 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !29
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i32, ptr %12, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !29
-  %31 = tail call noundef i32 @llvm.smax.i32(i32 %24, i32 %30)
+  %31 = tail call noundef i32 @llvm.smax.i32(i32 %25, i32 %30)
   store i32 %31, ptr %22, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %23, !llvm.loop !61
+  br i1 %exitcond.not, label %.critedge, label %24, !llvm.loop !61
 
-.critedge:                                        ; preds = %23, %.preheader
+.critedge:                                        ; preds = %24, %.preheader
   %32 = phi i32 [ %.promoted, %.preheader ], [ %31, %23 ]
   %33 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv124
   %34 = add nsw i32 %32, 1

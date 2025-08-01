@@ -159,8 +159,8 @@ define noundef i64 @_Z15fast_rv64i_clzwP11processor_t6insn_tm(ptr noundef captur
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.loopexit, %25
-  %28 = add i64 %2, 4
-  ret i64 %28
+  %27 = add i64 %2, 4
+  ret i64 %27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -249,8 +249,8 @@ define noundef i64 @_Z17logged_rv64i_clzwP11processor_t6insn_tm(ptr noundef %0, 
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.loopexit, %29
-  %32 = add i64 %2, 4
-  ret i64 %32
+  %31 = add i64 %2, 4
+  ret i64 %31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -444,8 +444,8 @@ define noundef i64 @_Z15fast_rv64e_clzwP11processor_t6insn_tm(ptr noundef captur
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %37, %38
-  %41 = add i64 %2, 4
-  ret i64 %41
+  %40 = add i64 %2, 4
+  ret i64 %40
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
@@ -563,8 +563,8 @@ define noundef i64 @_Z17logged_rv64e_clzwP11processor_t6insn_tm(ptr noundef %0, 
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %38, %42
-  %45 = add i64 %2, 4
-  ret i64 %45
+  %44 = add i64 %2, 4
+  ret i64 %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

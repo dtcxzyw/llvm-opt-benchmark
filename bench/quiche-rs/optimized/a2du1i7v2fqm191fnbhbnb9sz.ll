@@ -15003,13 +15003,13 @@ define internal fastcc void @"_ZN4core3ptr86drop_in_place$LT$buffer_pool..QueueS
   %.not14.i.i = icmp eq i64 %7, %8
   br i1 %.not14.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-._crit_edge.i.i:                                  ; preds = %17, %1
+._crit_edge.i.i:                                  ; preds = %18, %1
   %.sroa.06.0.lcssa.i.i = phi ptr [ %6, %1 ], [ %.sroa.06.1.i.i, %17 ]
   %9 = icmp eq ptr %.sroa.06.0.lcssa.i.i, null
   br i1 %9, label %"_ZN4core3ptr99drop_in_place$LT$crossbeam_queue..seg_queue..SegQueue$LT$buffer_pool..buffer..ConsumeBuffer$GT$$GT$17h092b19b710479513E.exit", label %12
 
-.lr.ph.i.i:                                       ; preds = %1, %17
-  %.sroa.02.016.i.i = phi i64 [ %18, %17 ], [ %7, %1 ]
+.lr.ph.i.i:                                       ; preds = %1, %18
+  %.sroa.02.016.i.i = phi i64 [ %19, %17 ], [ %7, %1 ]
   %.sroa.06.015.i.i = phi ptr [ %.sroa.06.1.i.i, %17 ], [ %6, %1 ]
   %10 = lshr exact i64 %.sroa.02.016.i.i, 1
   %11 = and i64 %10, 31
@@ -15023,17 +15023,17 @@ define internal fastcc void @"_ZN4core3ptr86drop_in_place$LT$buffer_pool..QueueS
 13:                                               ; preds = %.lr.ph.i.i
   %14 = load ptr, ptr %.sroa.06.015.i.i, align 8, !noalias !3003, !noundef !4
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.06.015.i.i, i64 noundef 1248, i64 noundef 8) #20, !noalias !3003
-  br label %17
+  br label %18
 
 15:                                               ; preds = %.lr.ph.i.i
   %16 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %.sroa.06.015.i.i, i64 %11, i32 0, i32 0, i32 0, i64 1
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h70c6bd340eadbabcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16, i64 noundef 1, i64 noundef 1), !noalias !3003
   br label %17
 
-17:                                               ; preds = %15, %13
+18:                                               ; preds = %15, %13
   %.sroa.06.1.i.i = phi ptr [ %.sroa.06.015.i.i, %15 ], [ %14, %13 ]
-  %18 = add i64 %.sroa.02.016.i.i, 2
-  %.not.i.i = icmp eq i64 %18, %8
+  %19 = add i64 %.sroa.02.016.i.i, 2
+  %.not.i.i = icmp eq i64 %19, %8
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 "_ZN4core3ptr99drop_in_place$LT$crossbeam_queue..seg_queue..SegQueue$LT$buffer_pool..buffer..ConsumeBuffer$GT$$GT$17h092b19b710479513E.exit": ; preds = %._crit_edge.i.i, %12
@@ -15231,7 +15231,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$buffer_pool..Pool$LT$8_usize
   br i1 %12, label %"_ZN4core3ptr86drop_in_place$LT$buffer_pool..QueueShard$LT$buffer_pool..buffer..ConsumeBuffer$GT$$GT$17h1893399a341e493cE.exit.i", label %15
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.noexc.i
-  %.sroa.02.016.i.i.i.i = phi i64 [ %20, %.noexc.i ], [ %10, %2 ]
+  %.sroa.02.016.i.i.i.i = phi i64 [ %21, %.noexc.i ], [ %10, %2 ]
   %.sroa.06.015.i.i.i.i = phi ptr [ %.sroa.06.1.i.i.i.i, %.noexc.i ], [ %9, %2 ]
   %13 = lshr exact i64 %.sroa.02.016.i.i.i.i, 1
   %14 = and i64 %13, 31
@@ -15254,35 +15254,35 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$buffer_pool..Pool$LT$8_usize
 
 .noexc.i:                                         ; preds = %18, %16
   %.sroa.06.1.i.i.i.i = phi ptr [ %17, %16 ], [ %.sroa.06.015.i.i.i.i, %18 ]
-  %20 = add i64 %.sroa.02.016.i.i.i.i, 2
-  %.not.i.i.i.i = icmp eq i64 %20, %11
+  %21 = add i64 %.sroa.02.016.i.i.i.i, 2
+  %.not.i.i.i.i = icmp eq i64 %21, %11
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 "_ZN4core3ptr86drop_in_place$LT$buffer_pool..QueueShard$LT$buffer_pool..buffer..ConsumeBuffer$GT$$GT$17h1893399a341e493cE.exit.i": ; preds = %15, %._crit_edge.i.i.i.i
-  %21 = icmp eq i64 %4, 8
-  br i1 %21, label %"_ZN4core3ptr107drop_in_place$LT$$u5b$buffer_pool..QueueShard$LT$buffer_pool..buffer..ConsumeBuffer$GT$$u3b$$u20$8$u5d$$GT$17h82f13b172a66d972E.exit", label %2
+  %22 = icmp eq i64 %4, 8
+  br i1 %22, label %"_ZN4core3ptr107drop_in_place$LT$$u5b$buffer_pool..QueueShard$LT$buffer_pool..buffer..ConsumeBuffer$GT$$u3b$$u20$8$u5d$$GT$17h82f13b172a66d972E.exit", label %2
 
-22:                                               ; preds = %26, %24
-  %.sroa.0.1.i = phi i64 [ %4, %24 ], [ %28, %26 ]
-  %23 = icmp eq i64 %.sroa.0.1.i, 8
-  br i1 %23, label %29, label %26
+23:                                               ; preds = %27, %25
+  %.sroa.0.1.i = phi i64 [ %4, %24 ], [ %29, %26 ]
+  %24 = icmp eq i64 %.sroa.0.1.i, 8
+  br i1 %24, label %30, label %27
 
-24:                                               ; preds = %18
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %18
+  %26 = landingpad { ptr, i32 }
           cleanup
-  br label %22
+  br label %23
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw { { { { { i64 }, { ptr } }, [14 x i64] }, { { { i64 }, { ptr } }, [14 x i64] }, {} }, { i64 }, i64, i64, [13 x i64] }, ptr %0, i64 %.sroa.0.1.i
-  %28 = add nuw nsw i64 %.sroa.0.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr86drop_in_place$LT$buffer_pool..QueueShard$LT$buffer_pool..buffer..ConsumeBuffer$GT$$GT$17h1893399a341e493cE"(ptr noalias noundef readonly align 128 dereferenceable(384) %27) #18
-          to label %22 unwind label %30
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw { { { { { i64 }, { ptr } }, [14 x i64] }, { { { i64 }, { ptr } }, [14 x i64] }, {} }, { i64 }, i64, i64, [13 x i64] }, ptr %0, i64 %.sroa.0.1.i
+  %29 = add nuw nsw i64 %.sroa.0.1.i, 1
+  invoke fastcc void @"_ZN4core3ptr86drop_in_place$LT$buffer_pool..QueueShard$LT$buffer_pool..buffer..ConsumeBuffer$GT$$GT$17h1893399a341e493cE"(ptr noalias noundef readonly align 128 dereferenceable(384) %28) #18
+          to label %22 unwind label %31
 
-29:                                               ; preds = %22
-  resume { ptr, i32 } %25
+30:                                               ; preds = %23
+  resume { ptr, i32 } %26
 
-30:                                               ; preds = %26
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %27
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19, !noalias !3034
   unreachable

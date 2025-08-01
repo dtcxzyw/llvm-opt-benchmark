@@ -92,7 +92,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 define hidden void @je_rtree_ctx_data_init(ptr noundef writeonly captures(none) %0) local_unnamed_addr #3 {
   br label %2
 
-2:                                                ; preds = %1, %2
+.preheader:                                       ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %3 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %0, i64 0, i64 %indvars.iv
   store i64 1, ptr %3, align 8, !tbaa !12
@@ -102,19 +102,19 @@ define hidden void @je_rtree_ctx_data_init(ptr noundef writeonly captures(none) 
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.preheader, label %2, !llvm.loop !17
 
-5:                                                ; preds = %.preheader
+6:                                                ; preds = %7
   ret void
 
-.preheader:                                       ; preds = %2, %.preheader
+7:                                                ; preds = %2, %.preheader
   %indvars.iv15 = phi i64 [ %indvars.iv.next16, %.preheader ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %0, i64 0, i64 %indvars.iv15
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 256
+  %8 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %0, i64 0, i64 %indvars.iv15
+  %7 = getelementptr inbounds nuw i8, ptr %8, i64 256
   store i64 1, ptr %7, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 264
   store ptr null, ptr %8, align 8, !tbaa !16
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 8
-  br i1 %exitcond18.not, label %5, label %.preheader, !llvm.loop !19
+  br i1 %exitcond18.not, label %6, label %7, !llvm.loop !19
 }
 
 ; Function Attrs: nounwind uwtable

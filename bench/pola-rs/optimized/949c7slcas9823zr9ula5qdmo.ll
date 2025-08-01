@@ -2097,29 +2097,29 @@ define hidden void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc
   store i64 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %12, align 8
-  br label %15
+  br label %16
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw ptr, ptr %5, i64 %9
   br label %16
 
-15:                                               ; preds = %18, %10
+16:                                               ; preds = %20, %10
   ret void
 
-16:                                               ; preds = %16, %13
-  %.pn31 = phi ptr [ %14, %13 ], [ %.pn30, %16 ]
+17:                                               ; preds = %17, %13
+  %.pn30.in = phi ptr [ %14, %13 ], [ %.pn30, %16 ]
   %.pn28.in = phi i64 [ %4, %13 ], [ %.pn28, %16 ]
   %.pn28 = add i64 %.pn28.in, -1
   %.pn30.in = getelementptr inbounds nuw i8, ptr %.pn31, i64 544
   %.pn30 = load ptr, ptr %.pn30.in, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %17 = icmp eq i64 %.pn28, 0
-  br i1 %17, label %18, label %16
+  %18 = icmp eq i64 %.pn28, 0
+  br i1 %18, label %20, label %16
 
-18:                                               ; preds = %16
+20:                                               ; preds = %17
   store ptr %.pn30, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  br label %15
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  br label %16
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -704,11 +704,11 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
 ._crit_edge142.loopexit:                          ; preds = %113
   %.pre = load float, ptr %9, align 16, !tbaa !11
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.pre148 = load float, ptr %.phi.trans.insert, align 4, !tbaa !11
-  %.phi.trans.insert149 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.pre150 = load float, ptr %.phi.trans.insert149, align 8, !tbaa !11
-  %14 = fadd reassoc nsz arcp contract afn float %.pre148, %.pre
-  %15 = fadd reassoc nsz arcp contract afn float %14, %.pre150
+  %.pre147 = load float, ptr %.phi.trans.insert, align 4, !tbaa !11
+  %.phi.trans.insert148 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.pre149 = load float, ptr %.phi.trans.insert148, align 8, !tbaa !11
+  %14 = fadd reassoc nsz arcp contract afn float %.pre147, %.pre
+  %15 = fadd reassoc nsz arcp contract afn float %14, %.pre149
   br label %._crit_edge142
 
 ._crit_edge142:                                   ; preds = %._crit_edge142.loopexit, %8
@@ -817,8 +817,8 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
   %73 = fadd reassoc nsz arcp contract afn float %70, %72
   store float %73, ptr %71, align 4, !tbaa !11
   %74 = add nuw nsw i64 %.0112138, 1
-  %exitcond146.not = icmp eq i64 %74, 4
-  br i1 %exitcond146.not, label %51, label %52
+  %exitcond145.not = icmp eq i64 %74, 4
+  br i1 %exitcond145.not, label %51, label %52
 
 75:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #10
@@ -883,8 +883,8 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
 
 113:                                              ; preds = %._crit_edge, %51
   %114 = add nuw i64 %.0110139, 1
-  %exitcond147.not = icmp eq i64 %114, %5
-  br i1 %exitcond147.not, label %._crit_edge142.loopexit, label %17
+  %exitcond146.not = icmp eq i64 %114, %5
+  br i1 %exitcond146.not, label %._crit_edge142.loopexit, label %17
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)

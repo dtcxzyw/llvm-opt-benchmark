@@ -238,7 +238,7 @@ define dso_local noundef zeroext i1 @helpscan(ptr noundef readonly captures(none
   store i8 %44, ptr %60, align 1, !tbaa !17
   br label %61
 
-61:                                               ; preds = %53, %57, %28, %35, %18, %25
+61:; preds = %53, %57, %28, %35, %18, %25
   %62 = add nuw i64 %.059, 1
   %exitcond.not = icmp eq i64 %62, %1
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !21

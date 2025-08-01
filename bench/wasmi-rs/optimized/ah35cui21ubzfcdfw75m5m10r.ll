@@ -1313,17 +1313,17 @@ define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$wasmparser..collec
   br label %9
 
 9:                                                ; preds = %.noexc1.i, %.lr.ph.i.i.i.i.i
-  %10 = phi ptr [ %8, %.lr.ph.i.i.i.i.i ], [ %14, %.noexc1.i ]
+  %10 = phi ptr [ %8, %.lr.ph.i.i.i.i.i ], [ %15, %.noexc1.i ]
   %.sroa.23.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i.i.i, align 8, !noalias !323
   %11 = getelementptr inbounds nuw { [3 x i64] }, ptr %10, i64 %.sroa.23.0.copyload.i.i.i.i.i, i32 0, i64 1
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hb933bd6c138ea878E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef 1, i64 noundef 1)
           to label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h5acfd59f9f26f369E.exit.i.i.i.i.i" unwind label %12, !noalias !317
 
-12:                                               ; preds = %9
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %9
+  %14 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr244drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$alloc..string..String$C$wasmparser..collections..index_map..detail..SlotIndex$C$alloc..alloc..Global$GT$$GT$17h58d9e10439edd7ddE"(ptr nonnull align 8 dereferenceable(72) %3) #16
-          to label %.body.i unwind label %15, !noalias !317
+          to label %.body.i unwind label %16, !noalias !317
 
 "_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h5acfd59f9f26f369E.exit.i.i.i.i.i": ; preds = %9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !323
@@ -1332,12 +1332,12 @@ define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$wasmparser..collec
           to label %.noexc1.i unwind label %.loopexit.i, !noalias !308
 
 .noexc1.i:                                        ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h5acfd59f9f26f369E.exit.i.i.i.i.i"
-  %14 = load ptr, ptr %2, align 8, !noalias !323, !noundef !3
-  %.not.i.i.i.i.i = icmp eq ptr %14, null
+  %15 = load ptr, ptr %2, align 8, !noalias !323, !noundef !3
+  %.not.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr145drop_in_place$LT$wasmparser..collections..index_map..detail..IndexMap$LT$alloc..string..String$C$wasmparser..validator..types..EntityType$GT$$GT$17h3d7fa178718f1447E.exit", label %9
 
-15:                                               ; preds = %12
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %13
+  %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #14, !noalias !317
   unreachable
@@ -1352,18 +1352,18 @@ define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$wasmparser..collec
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit.i, %12
-  %eh.lpad-body.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+.body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit.i, %13
+  %eh.lpad-body.i = phi { ptr, i32 } [ %14, %12 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke fastcc void @"_ZN4core3ptr164drop_in_place$LT$alloc..vec..Vec$LT$wasmparser..collections..index_map..detail..Slot$LT$alloc..string..String$C$wasmparser..validator..types..EntityType$GT$$GT$$GT$17h36024442b06c5af8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #16
-          to label %19 unwind label %17
+          to label %19 unwind label %18
 
-17:                                               ; preds = %.body.i
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %.body.i
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #14
   unreachable
 
-19:                                               ; preds = %.body.i
+20:                                               ; preds = %.body.i
   resume { ptr, i32 } %eh.lpad-body.i
 
 "_ZN4core3ptr145drop_in_place$LT$wasmparser..collections..index_map..detail..IndexMap$LT$alloc..string..String$C$wasmparser..validator..types..EntityType$GT$$GT$17h3d7fa178718f1447E.exit": ; preds = %.noexc1.i, %.noexc.i
@@ -2561,15 +2561,15 @@ define internal fastcc void @"_ZN4core3ptr244drop_in_place$LT$$LT$alloc..collect
   br label %3
 
 3:                                                ; preds = %3, %.lr.ph.i
-  %4 = phi ptr [ %2, %.lr.ph.i ], [ %6, %3 ]
+  %4 = phi ptr [ %2, %.lr.ph.i ], [ %7, %3 ]
   %.sroa.21.0.copyload.i = load i64, ptr %.sroa.21.0..sroa_idx.i, align 8
   %5 = getelementptr inbounds nuw { [3 x i64] }, ptr %4, i64 %.sroa.21.0.copyload.i, i32 0, i64 1
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hb933bd6c138ea878E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 1, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h6f6c67ba5e7ef1c6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %.0.val)
-  %6 = load ptr, ptr %1, align 8, !noundef !3
-  %.not.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %1, align 8, !noundef !3
+  %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h437b3841b8f8adc0E.exit", label %3
 
 "_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h437b3841b8f8adc0E.exit": ; preds = %3, %0

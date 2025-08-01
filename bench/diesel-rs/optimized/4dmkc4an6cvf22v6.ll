@@ -6543,8 +6543,8 @@ _ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E
   %33 = icmp eq ptr %32, null
   br i1 %33, label %_ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E.exit, label %34
 
-34:                                               ; preds = %29
-  %35 = load i64, ptr %32, align 8, !range !56, !alias.scope !1327, !noundef !4
+34: ; preds = %29
+  %37 = load i64, ptr %32, align 8, !range !56, !alias.scope !1327, !noundef !4
   %36 = icmp eq i64 %35, -9223372036854775808
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %38 = load ptr, ptr %37, align 8, !alias.scope !1327, !nonnull !4

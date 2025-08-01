@@ -657,14 +657,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %139
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.0133140 = phi ptr [ %156, %.lr.ph.preheader ], [ %161, %.lr.ph ]
-  %.0134139 = phi ptr [ %157, %.lr.ph.preheader ], [ %160, %.lr.ph ]
-  %158 = load ptr, ptr %.0134139, align 8, !tbaa !7
-  %159 = load ptr, ptr %.0133140, align 8, !tbaa !7
-  %.not137 = icmp eq ptr %158, %159
-  %160 = getelementptr inbounds nuw i8, ptr %.0134139, i64 8
-  %161 = getelementptr inbounds nuw i8, ptr %.0133140, i64 8
-  %.not136 = icmp ne ptr %160, %155
+  %.0133140 = phi ptr [ %156, %.lr.ph.preheader ], [ %160, %.lr.ph ]
+  %.0134139 = phi ptr [ %157, %.lr.ph.preheader ], [ %159, %.lr.ph ]
+  %157 = load ptr, ptr %.0134139, align 8, !tbaa !7
+  %158 = load ptr, ptr %.0133140, align 8, !tbaa !7
+  %.not137 = icmp eq ptr %157, %158
+  %159 = getelementptr inbounds nuw i8, ptr %.0134139, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %.0133140, i64 8
+  %.not136 = icmp ne ptr %159, %155
   %or.cond.not = select i1 %.not137, i1 %.not136, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
@@ -5154,14 +5154,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %391
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.0133140 = phi ptr [ %408, %.lr.ph.preheader ], [ %413, %.lr.ph ]
-  %.0134139 = phi ptr [ %409, %.lr.ph.preheader ], [ %412, %.lr.ph ]
-  %410 = load ptr, ptr %.0134139, align 8, !tbaa !7
-  %411 = load ptr, ptr %.0133140, align 8, !tbaa !7
-  %.not137 = icmp eq ptr %410, %411
-  %412 = getelementptr inbounds nuw i8, ptr %.0134139, i64 8
-  %413 = getelementptr inbounds nuw i8, ptr %.0133140, i64 8
-  %.not136 = icmp ne ptr %412, %407
+  %.0133140 = phi ptr [ %408, %.lr.ph.preheader ], [ %412, %.lr.ph ]
+  %.0134139 = phi ptr [ %409, %.lr.ph.preheader ], [ %411, %.lr.ph ]
+  %409 = load ptr, ptr %.0134139, align 8, !tbaa !7
+  %410 = load ptr, ptr %.0133140, align 8, !tbaa !7
+  %.not137 = icmp eq ptr %409, %410
+  %411 = getelementptr inbounds nuw i8, ptr %.0134139, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %.0133140, i64 8
+  %.not136 = icmp ne ptr %411, %407
   %or.cond.not = select i1 %.not137, i1 %.not136, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !48
 

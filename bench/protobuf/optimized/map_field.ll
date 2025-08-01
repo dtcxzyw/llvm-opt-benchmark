@@ -3709,8 +3709,8 @@ if.end:                                           ; preds = %_ZNK6google8protobu
   %cmp.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   %sub.i.i.i.i.i = add i64 %6, -1
   %7 = inttoptr i64 %sub.i.i.i.i.i to ptr
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %7, i64 8
-  %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %cond-lvalue.i, ptr %arrayidx.i.i.i.i
+  %elements.i.i.i.i = getelementptr i8, ptr %7, i64 8
+  %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %cond-lvalue.i, ptr %elements.i.i.i.i
   %8 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 80
@@ -7479,35 +7479,35 @@ if.end.i.i:                                       ; preds = %if.then6
   %sub.i.i = add i64 %7, -1
   %11 = inttoptr i64 %sub.i.i to ptr
   %idxprom.i = sext i32 %0 to i64
-  %12 = getelementptr [268435454 x ptr], ptr %11, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr [268435454 x ptr], ptr %11, i64 0, i64 %idxprom.i
   %arrayidx.i = getelementptr i8, ptr %12, i64 8
   %retval.0.i = select i1 %cmp.i.i, ptr %this, ptr %arrayidx.i
-  %13 = load ptr, ptr %retval.0.i, align 8
-  tail call void @_ZN6google8protobuf8internal34InternalOutOfLineDeleteMessageLiteEPNS0_11MessageLiteE(ptr noundef %13)
+  %12 = load ptr, ptr %retval.0.i, align 8
+  tail call void @_ZN6google8protobuf8internal34InternalOutOfLineDeleteMessageLiteEPNS0_11MessageLiteE(ptr noundef %12)
   br label %if.end27
 
 _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit: ; preds = %cond.true.i
   %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25, label %if.end27
+  br i1 %cmp, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26, label %if.end27
 
 _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit
-  %cmp43 = icmp slt i32 %0, %9
-  br i1 %cmp43, label %cond.false.i19, label %if.then21
+  %cmp46 = icmp slt i32 %0, %9
+  br i1 %cmp46, label %cond.false.i20, label %if.then21
 
-cond.false.i19:                                   ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
+cond.false.i20:                                   ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
   %idxprom.i1445 = sext i32 %0 to i64
   %14 = getelementptr [268435454 x ptr], ptr %8, i64 0, i64 %idxprom.i1445
-  %arrayidx.i1546 = getelementptr i8, ptr %14, i64 8
-  %15 = sext i32 %9 to i64
-  %.pre = load ptr, ptr %arrayidx.i1546, align 8
-  br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25
+  %arrayidx.i1650 = getelementptr i8, ptr %14, i64 8
+  %13 = sext i32 %9 to i64
+  %.pre = load ptr, ptr %arrayidx.i1650, align 8
+  br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26
 
-_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %cond.false.i19
-  %16 = phi ptr [ %.pre, %cond.false.i19 ], [ null, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %17 = phi ptr [ %8, %cond.false.i19 ], [ inttoptr (i64 -1 to ptr), %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %cond3.i21 = phi i64 [ %15, %cond.false.i19 ], [ 0, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %18 = getelementptr [268435454 x ptr], ptr %17, i64 0, i64 %cond3.i21
-  %arrayidx.i30 = getelementptr i8, ptr %18, i64 8
+_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %cond.false.i20
+  %14 = phi ptr [ %.pre, %cond.false.i19 ], [ null, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
+  %elements.i1452 = phi ptr [ %8, %cond.false.i19 ], [ inttoptr (i64 -1 to ptr), %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
+  %cond3.i22 = phi i64 [ %13, %cond.false.i19 ], [ 0, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
+  %arrayidx.i32 = getelementptr [268435454 x ptr], ptr %elements.i1452, i64 0, i64 %cond3.i22
+  %arrayidx.i30 = getelementptr i8, ptr %arrayidx.i32, i64 8
   %retval.0.i31 = select i1 %cmp.i.i, ptr %this, ptr %arrayidx.i30
   store ptr %16, ptr %retval.0.i31, align 8
   %19 = load ptr, ptr %this, align 8
@@ -7524,21 +7524,21 @@ if.then21:                                        ; preds = %_ZNK6google8protobu
   store i32 %inc24, ptr %8, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %if.end.i.i, %if.then6, %if.then21, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25, %if.then
-  %23 = load i32, ptr %current_size_.i, align 8
-  %add = add nsw i32 %23, 1
+if.end27:                                         ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %if.end.i.i, %if.then6, %if.then21, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26, %if.then
+  %19 = load i32, ptr %current_size_.i, align 8
+  %add = add nsw i32 %19, 1
   store i32 %add, ptr %current_size_.i, align 8
-  %24 = load ptr, ptr %this, align 8
-  %25 = ptrtoint ptr %24 to i64
-  %and.i.i36 = and i64 %25, 1
-  %cmp.i.i37 = icmp eq i64 %and.i.i36, 0
-  %sub.i.i38 = add i64 %25, -1
-  %26 = inttoptr i64 %sub.i.i38 to ptr
+  %20 = load ptr, ptr %this, align 8
+  %21 = ptrtoint ptr %20 to i64
+  %and.i.i38 = and i64 %21, 1
+  %cmp.i.i39 = icmp eq i64 %and.i.i38, 0
+  %sub.i.i40 = add i64 %21, -1
+  %22 = inttoptr i64 %sub.i.i40 to ptr
   %idxprom.i39 = sext i32 %23 to i64
   %27 = getelementptr [268435454 x ptr], ptr %26, i64 0, i64 %idxprom.i39
-  %arrayidx.i40 = getelementptr i8, ptr %27, i64 8
-  %retval.0.i41 = select i1 %cmp.i.i37, ptr %this, ptr %arrayidx.i40
-  store ptr %value, ptr %retval.0.i41, align 8
+  %arrayidx.i43 = getelementptr i8, ptr %27, i64 8
+  %retval.0.i44 = select i1 %cmp.i.i39, ptr %this, ptr %arrayidx.i43
+  store ptr %value, ptr %retval.0.i44, align 8
   ret void
 }
 

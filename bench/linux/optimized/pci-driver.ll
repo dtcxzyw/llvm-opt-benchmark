@@ -327,12 +327,12 @@ define dso_local ptr @pci_dev_driver(ptr noundef readonly captures(none) %0) #3 
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.preheader, label %.loopexit
 
-5:                                                ; preds = %.preheader
+.preheader:                                       ; preds = %.preheader
   %6 = add nuw nsw i64 %8, 1
   %7 = icmp eq i64 %6, 7
   br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !9
 
-.preheader:                                       ; preds = %1, %5
+.preheader:; preds = %1, %5
   %8 = phi i64 [ %6, %5 ], [ 0, %1 ]
   %.idx = shl i64 %8, 6
   %9 = getelementptr i8, ptr %0, i64 %.idx
@@ -342,7 +342,7 @@ define dso_local ptr @pci_dev_driver(ptr noundef readonly captures(none) %0) #3 
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %5, label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %5, %1
+.loopexit:; preds = %.preheader, %5, %1
   %14 = phi ptr [ %3, %1 ], [ null, %5 ], [ @pci_compat_driver, %.preheader ]
   ret ptr %14
 }

@@ -473,7 +473,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK21btConvexInternalShape9serialize
   %4 = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2)
   br label %5
 
-5:                                                ; preds = %5, %3
+5:; preds = %5, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw [4 x float], ptr %0, i64 0, i64 %indvars.iv.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -485,25 +485,25 @@ define linkonce_odr dso_local noundef ptr @_ZNK21btConvexInternalShape9serialize
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %5, !llvm.loop !22
 
-_ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %5, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit
+13:                                               ; preds = %5, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit
   %indvars.iv.i8 = phi i64 [ %indvars.iv.next.i9, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit ], [ 0, %5 ]
-  %11 = getelementptr inbounds nuw [4 x float], ptr %0, i64 0, i64 %indvars.iv.i8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %14 = getelementptr inbounds nuw [4 x float], ptr %0, i64 0, i64 %indvars.iv.i8
+  %12 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %13 = load float, ptr %12, align 4, !tbaa !17
   %14 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store float %13, ptr %15, align 4, !tbaa !17
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 4
-  br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, !llvm.loop !22
+  br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %13, !llvm.loop !22
 
-_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11: ; preds = %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = load float, ptr %16, align 8, !tbaa !12
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store float %17, ptr %18, align 8, !tbaa !24
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 0, ptr %19, align 4, !tbaa !29
+_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11: ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %18 = load float, ptr %17, align 8, !tbaa !12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store float %18, ptr %19, align 8, !tbaa !24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  store i32 0, ptr %20, align 4, !tbaa !29
   ret ptr @.str.1
 }
 

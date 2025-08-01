@@ -681,8 +681,8 @@ _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i.i: ; preds = %.n
 
 _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.i: ; preds = %.noexc, %.noexc7
   %indvars.iv.i4.i.i = phi i64 [ %indvars.iv.next.i5.i.i, %.noexc7 ], [ 0, %.noexc ]
-  %16 = getelementptr inbounds nuw [3 x double], ptr %0, i64 0, i64 %indvars.iv.i4.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 224
+  %15 = getelementptr inbounds nuw [3 x double], ptr %0, i64 0, i64 %indvars.iv.i4.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 224
   %18 = load double, ptr %17, align 8, !tbaa !35
   invoke void @_ZN19OpenColorIO_v2_5dev19validateGreaterThanEPKcdd(ptr noundef nonnull @.str.11, double noundef %18, double noundef 0.000000e+00)
           to label %.noexc7 unwind label %.loopexit
@@ -717,8 +717,8 @@ _ZNK19OpenColorIO_v2_5dev9CDLOpData8validateEv.exit: ; preds = %_ZN19OpenColorIO
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit9, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp10, %.loopexit.split-lp.loopexit.split-lp ]
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev6OpDataE, i64 16), ptr %0, align 8, !tbaa !13
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @_ZN19OpenColorIO_v2_5dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %19) #23
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @_ZN19OpenColorIO_v2_5dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %17) #23
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -2551,7 +2551,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev9CDLOpData8validateEv(ptr noundef n
 
 _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i: ; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i, %1
   %indvars.iv.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i ]
-  %4 = getelementptr inbounds nuw [3 x double], ptr %0, i64 0, i64 %indvars.iv.i.i
+  %5 = getelementptr inbounds nuw [3 x double], ptr %0, i64 0, i64 %indvars.iv.i.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load double, ptr %5, align 8, !tbaa !35
   tail call void @_ZN19OpenColorIO_v2_5dev20validateGreaterEqualEPKcdd(ptr noundef nonnull @.str.10, double noundef %6, double noundef 0.000000e+00)
@@ -2561,7 +2561,7 @@ _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i: ; preds = %_ZNK
 
 _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i: ; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i
   %indvars.iv.i4.i = phi i64 [ %indvars.iv.next.i5.i, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i ], [ 0, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i ]
-  %7 = getelementptr inbounds nuw [3 x double], ptr %0, i64 0, i64 %indvars.iv.i4.i
+  %8 = getelementptr inbounds nuw [3 x double], ptr %0, i64 0, i64 %indvars.iv.i4.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %9 = load double, ptr %8, align 8, !tbaa !35
   tail call void @_ZN19OpenColorIO_v2_5dev19validateGreaterThanEPKcdd(ptr noundef nonnull @.str.11, double noundef %9, double noundef 0.000000e+00)

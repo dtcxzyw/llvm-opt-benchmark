@@ -3856,34 +3856,34 @@ declare void @lv_obj_report_style_change(ptr noundef) local_unnamed_addr #2
 define void @lv_theme_default_deinit() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %9, label %2
+  br i1 %.not, label %11, label %2
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %4 = load i8, ptr %3, align 4, !tbaa !8, !range !22, !noundef !23
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %.preheader, label %.loopexit
+  br i1 %5, label %6, label %.loopexit
 
-.preheader:                                       ; preds = %2, %.preheader
+6:                                                ; preds = %2, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw %struct.lv_style_t, ptr %1, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   tail call void @lv_style_reset(ptr noundef nonnull %7) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 67
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %6, !llvm.loop !32
 
-.loopexit.loopexit:                               ; preds = %.preheader
+.loopexit.loopexit:                               ; preds = %6
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2
-  %8 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %1, %2 ]
-  tail call void @lv_free(ptr noundef %8) #3
+  %10 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %1, %2 ]
+  tail call void @lv_free(ptr noundef %10) #3
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
-  br label %9
+  br label %11
 
-9:                                                ; preds = %.loopexit, %0
+11:                                               ; preds = %.loopexit, %0
   ret void
 }
 

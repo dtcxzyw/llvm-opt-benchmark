@@ -1244,7 +1244,7 @@ define dso_local ptr @zend_get_recursion_guard(ptr noundef readonly captures(ret
   %9 = load i32, ptr %8, align 8, !tbaa !15
   %10 = sext i32 %9 to i64
   %11 = getelementptr %struct._zval_struct, ptr %0, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 52
+  %11 = getelementptr i8, ptr %11, i64 52
   br label %13
 
 13:                                               ; preds = %1, %7

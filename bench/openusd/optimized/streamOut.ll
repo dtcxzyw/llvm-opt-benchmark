@@ -212,47 +212,47 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit: ; preds = %
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader22
-  %25 = add i64 %5, 1
-  br label %30
+  %24 = add i64 %5, 1
+  br label %29
 
 .preheader:                                       ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit
   %.not28 = icmp eq i64 %4, 0
   br i1 %.not28, label %.loopexit, label %.lr.ph26
 
-.lr.ph26:                                         ; preds = %.preheader, %28
-  %.025 = phi i64 [ %29, %28 ], [ 0, %.preheader ]
+.lr.ph26:                                         ; preds = %.preheader, %27
+  %.025 = phi i64 [ %28, %28 ], [ 0, %.preheader ]
   %.not21 = icmp eq i64 %.025, 0
-  br i1 %.not21, label %28, label %26
+  br i1 %.not21, label %27, label %25
 
-26:                                               ; preds = %.lr.ph26
-  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1)
-  br label %28
+25:                                               ; preds = %.lr.ph26
+  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1)
+  br label %27
 
-28:                                               ; preds = %26, %.lr.ph26
+27:                                               ; preds = %25, %.lr.ph26
   tail call void %3(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %29 = add nuw i64 %.025, 1
-  %exitcond.not = icmp eq i64 %29, %4
+  %28 = add nuw i64 %.025, 1
+  %exitcond.not = icmp eq i64 %28, %4
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph26, !llvm.loop !9
 
-30:                                               ; preds = %.lr.ph, %33
-  %.01924 = phi i64 [ 0, %.lr.ph ], [ %34, %33 ]
+29:                                               ; preds = %.lr.ph, %32
+  %.01924 = phi i64 [ 0, %.lr.ph ], [ %33, %33 ]
   %.not = icmp eq i64 %.01924, 0
-  br i1 %.not, label %33, label %31
+  br i1 %.not, label %32, label %30
 
-31:                                               ; preds = %30
-  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1)
-  br label %33
+30:                                               ; preds = %29
+  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1)
+  br label %32
 
-33:                                               ; preds = %31, %30
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_StreamArrayRecursiveERSoRKNS_12Vt_ShapeDataENS_13TfFunctionRefIFvS1_EEEmm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, ptr %3, i64 noundef %4, i64 noundef %25)
-  %34 = add nuw nsw i64 %.01924, 1
-  %35 = load i32, ptr %23, align 4
-  %36 = zext i32 %35 to i64
-  %37 = icmp samesign ult i64 %34, %36
-  br i1 %37, label %30, label %.loopexit, !llvm.loop !10
+32:                                               ; preds = %30, %29
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_StreamArrayRecursiveERSoRKNS_12Vt_ShapeDataENS_13TfFunctionRefIFvS1_EEEmm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, ptr %3, i64 noundef %4, i64 noundef %24)
+  %33 = add nuw nsw i64 %.01924, 1
+  %34 = load i32, ptr %23, align 4
+  %35 = zext i32 %34 to i64
+  %36 = icmp samesign ult i64 %33, %35
+  br i1 %36, label %29, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %33, %28, %.preheader22, %.preheader
-  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 93)
+.loopexit:                                        ; preds = %32, %27, %.preheader22, %.preheader
+  %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 93)
   ret void
 }
 

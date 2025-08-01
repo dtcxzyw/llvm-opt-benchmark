@@ -1179,18 +1179,18 @@ sub_0286:                                         ; preds = %255
   %421 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %422 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %wide.trip.count = zext i32 %.1179 to i64
-  br label %423
+  br label %424
 
-423:                                              ; preds = %.lr.ph309, %476
+424:                                              ; preds = %.lr.ph309, %476
   %indvars.iv338 = phi i64 [ 0, %.lr.ph309 ], [ %indvars.iv.next339, %476 ]
-  %424 = getelementptr inbounds nuw ptr, ptr %418, i64 %indvars.iv338
+  %425 = getelementptr inbounds nuw ptr, ptr %418, i64 %indvars.iv338
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 8
   %426 = load ptr, ptr %425, align 8, !tbaa !4
   %427 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %426, ptr noundef nonnull dereferenceable(9) @.str.74, i64 noundef 8) #30
   %.not239 = icmp eq i32 %427, 0
   br i1 %.not239, label %428, label %449
 
-428:                                              ; preds = %423
+428:                                              ; preds = %424
   %429 = load ptr, ptr @infoname, align 8, !tbaa !4
   %430 = icmp ne ptr %429, null
   %.b190 = load i1, ptr @clearinfos, align 4
@@ -1229,7 +1229,7 @@ sub_0286:                                         ; preds = %255
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #29
   br label %476
 
-449:                                              ; preds = %428, %423
+449:                                              ; preds = %428, %424
   %450 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %426, ptr noundef nonnull dereferenceable(9) @.str.77) #30
   %.not240 = icmp eq i32 %450, 0
   br i1 %.not240, label %451, label %457
@@ -1301,7 +1301,7 @@ sub_0286:                                         ; preds = %255
 476:                                              ; preds = %447, %467, %472, %469, %454, %464, %459
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next339, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %423, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %424, !llvm.loop !43
 
 .thread267:                                       ; preds = %393, %475, %413
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #29
@@ -2278,15 +2278,15 @@ hwloc_calc_parse_level_size.exit:                 ; preds = %4, %12
   %27 = getelementptr i8, ptr %18, i64 %26
   %28 = getelementptr i8, ptr %27, i64 1
   %29 = load i8, ptr %28, align 1, !tbaa !11
-  %switch.selectcmp.case1 = icmp eq i8 %29, 45
+  %switch.selectcmp.case2 = icmp eq i8 %29, 45
   %switch.selectcmp.case2 = icmp eq i8 %29, 58
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %30 = zext i1 %switch.selectcmp to i32
-  store i32 %30, ptr %3, align 4, !tbaa !21
-  %31 = call fastcc i32 @hwloc_calc_process_location(ptr noundef %5, ptr noundef nonnull %2, i64 noundef %.0.i, ptr noundef nonnull @hwloc_calc_get_unique_obj_cb, ptr noundef nonnull %6)
-  %32 = icmp slt i32 %31, 0
-  %33 = load ptr, ptr %6, align 8
-  %spec.select = select i1 %32, ptr null, ptr %33
+  %29 = zext i1 %switch.selectcmp to i32
+  store i32 %29, ptr %3, align 4, !tbaa !21
+  %30 = call fastcc i32 @hwloc_calc_process_location(ptr noundef %5, ptr noundef nonnull %2, i64 noundef %.0.i, ptr noundef nonnull @hwloc_calc_get_unique_obj_cb, ptr noundef nonnull %6)
+  %31 = icmp slt i32 %30, 0
+  %32 = load ptr, ptr %6, align 8
+  %spec.select = select i1 %31, ptr null, ptr %32
   br label %hwloc_calc_parse_level_size.exit.thread
 
 hwloc_calc_parse_level_size.exit.thread:          ; preds = %10, %20, %hwloc_calc_parse_level_size.exit, %17

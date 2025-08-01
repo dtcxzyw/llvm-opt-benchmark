@@ -1457,18 +1457,18 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE12Decode
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.010.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %9, %.lr.ph.i ]
-  %5 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %0, i64 0, i64 %indvars.iv.i, i32 1
-  %6 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %5)
-  %7 = shl i32 %.010.i, 1
-  %8 = zext i1 %6 to i32
-  %9 = or disjoint i32 %7, %8
+  %.010.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
+  %6 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %0, i64 0, i64 %indvars.iv.i, i32 1
+  %7 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %6)
+  %8 = shl i32 %.010.i, 1
+  %9 = zext i1 %7 to i32
+  %10 = or disjoint i32 %8, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE28DecodeLeastSignificantBits32EiPj.exit, label %.lr.ph.i, !llvm.loop !59
 
 _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE28DecodeLeastSignificantBits32EiPj.exit: ; preds = %.lr.ph.i, %3
-  %.0.lcssa.i = phi i32 [ 0, %3 ], [ %9, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ 0, %3 ], [ %10, %.lr.ph.i ]
   store i32 %.0.lcssa.i, ptr %2, align 4, !tbaa !26
   ret void
 }
@@ -1998,18 +1998,18 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE12Decode
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.010.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %9, %.lr.ph.i ]
-  %5 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %0, i64 0, i64 %indvars.iv.i, i32 1
-  %6 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %5)
-  %7 = shl i32 %.010.i, 1
-  %8 = zext i1 %6 to i32
-  %9 = or disjoint i32 %7, %8
+  %.010.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
+  %6 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %0, i64 0, i64 %indvars.iv.i, i32 1
+  %7 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %6)
+  %8 = shl i32 %.010.i, 1
+  %9 = zext i1 %7 to i32
+  %10 = or disjoint i32 %8, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE28DecodeLeastSignificantBits32EiPj.exit, label %.lr.ph.i, !llvm.loop !59
 
 _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE28DecodeLeastSignificantBits32EiPj.exit: ; preds = %.lr.ph.i, %3
-  %.0.lcssa.i = phi i32 [ 0, %3 ], [ %9, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ 0, %3 ], [ %10, %.lr.ph.i ]
   store i32 %.0.lcssa.i, ptr %2, align 4, !tbaa !26
   ret void
 }

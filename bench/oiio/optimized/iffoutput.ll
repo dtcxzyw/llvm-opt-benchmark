@@ -2538,7 +2538,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit427:            ; preds = %_ZNSt12_Vector_base
 .lr.ph850.preheader:                              ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit427
   %umax = zext nneg i32 %477 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %511, i8 0, i64 %umax, i1 false), !tbaa !14
-  %512 = getelementptr i8, ptr %.sroa.0569.9, i64 %474
+  %scevgep = getelementptr i8, ptr %.sroa.0569.9, i64 %474
   %513 = zext nneg i32 %477 to i64
   %514 = getelementptr i8, ptr %512, i64 %513
   %515 = add i32 %.0219.lcssa, %477
@@ -20808,8 +20808,8 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail11parse_alignIcRNS1_13s
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %19)
           to label %.thread unwind label %20
 
-common.resume:                                    ; preds = %30, %20
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %31, %30 ]
+common.resume:                                    ; preds = %31, %20
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %32, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %18
@@ -20832,38 +20832,38 @@ common.resume:                                    ; preds = %30, %20
   %27 = icmp ugt i64 %25, 4
   br i1 %27, label %28, label %.lr.ph.i.i
 
-28:                                               ; preds = %22
+29:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #27
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.61)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !3
-  %29 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
-  invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %29)
-          to label %_ZN3fmt2v86detail18throw_format_errorEPKc.exit.i.i unwind label %30
+  %30 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %30)
+          to label %_ZN3fmt2v86detail18throw_format_errorEPKc.exit.i.i unwind label %31
 
-30:                                               ; preds = %28
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
   br label %common.resume
 
-_ZN3fmt2v86detail18throw_format_errorEPKc.exit.i.i: ; preds = %28
+_ZN3fmt2v86detail18throw_format_errorEPKc.exit.i.i: ; preds = %29
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
   br label %39
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %32 = trunc nuw nsw i64 %25 to i8
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 15
-  store i8 %32, ptr %33, align 1, !tbaa !180
+  %33 = trunc nuw nsw i64 %25 to i8
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 15
+  store i8 %33, ptr %34, align 1, !tbaa !180
   br label %39
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.i.i
   %.08.i.i = phi i64 [ %38, %.lr.ph.i.i ], [ 0, %22 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %.08.i.i
-  %35 = load i8, ptr %34, align 1, !tbaa !14
-  %36 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 0, i64 %.08.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 11
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %.08.i.i
+  %36 = load i8, ptr %35, align 1, !tbaa !14
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 0, i64 %.08.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %37, i64 11
   store i8 %35, ptr %37, align 1, !tbaa !14
   %38 = add nuw nsw i64 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %38, %25

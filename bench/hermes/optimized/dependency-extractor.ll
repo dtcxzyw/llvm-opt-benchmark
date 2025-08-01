@@ -1309,11 +1309,11 @@ entry:
   br i1 %tobool.not, label %land.lhs.true62, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  br i1 %tobool65.not, label %if.end73, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
+  br i1 %tobool65.not, label %if.end73, label %for.cond.preheader
 
-_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit: ; preds = %land.lhs.true, %for.inc
+for.cond.preheader:                               ; preds = %land.lhs.true, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %land.lhs.true ]
-  %arrayidx = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %this, i64 %indvars.iv, i32 0, i32 1
+  %storage.i.i45 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %this, i64 %indvars.iv, i32 0, i32 1
   %arrayidx20 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %RHS, i64 %indvars.iv, i32 0, i32 1
   %agg.tmp28.sroa.0.0.copyload = load ptr, ptr %arrayidx20, align 8
   %agg.tmp28.sroa.0.0.copyload.fr = freeze ptr %agg.tmp28.sroa.0.0.copyload

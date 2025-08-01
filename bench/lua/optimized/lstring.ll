@@ -312,13 +312,13 @@ define hidden void @luaS_clearcache(ptr noundef captures(none) %0) local_unnamed
 
 .preheader:                                       ; preds = %1, %15
   %indvars.iv14 = phi i64 [ 0, %1 ], [ %indvars.iv.next15, %15 ]
-  %3 = getelementptr [53 x [2 x ptr]], ptr %0, i64 0, i64 %indvars.iv14
-  br label %4
+  %4 = getelementptr [53 x [2 x ptr]], ptr %0, i64 0, i64 %indvars.iv14
+  br label %5
 
-4:                                                ; preds = %.preheader, %14
-  %5 = phi i1 [ true, %.preheader ], [ false, %14 ]
+5:                                                ; preds = %.preheader, %14
+  %6 = phi i1 [ true, %.preheader ], [ false, %14 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %14 ]
-  %6 = getelementptr [2 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %7 = getelementptr [2 x ptr], ptr %4, i64 0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 552
   %8 = load ptr, ptr %7, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 9
@@ -327,13 +327,13 @@ define hidden void @luaS_clearcache(ptr noundef captures(none) %0) local_unnamed
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %14, label %12
 
-12:                                               ; preds = %4
+12:                                               ; preds = %5
   %13 = load ptr, ptr %2, align 8, !tbaa !34
   store ptr %13, ptr %7, align 8, !tbaa !30
   br label %14
 
-14:                                               ; preds = %4, %12
-  br i1 %5, label %4, label %15
+14:                                               ; preds = %5, %12
+  br i1 %6, label %5, label %15
 
 15:                                               ; preds = %14
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
@@ -363,10 +363,10 @@ define hidden void @luaS_init(ptr noundef %0) local_unnamed_addr #4 {
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv21 = phi i64 [ 0, %1 ], [ %indvars.iv.next22, %.preheader ]
-  %10 = getelementptr [53 x [2 x ptr]], ptr %3, i64 0, i64 %indvars.iv21
+  %11 = getelementptr [53 x [2 x ptr]], ptr %3, i64 0, i64 %indvars.iv21
   %11 = getelementptr i8, ptr %10, i64 552
   store ptr %9, ptr %11, align 8, !tbaa !30
-  %12 = getelementptr i8, ptr %10, i64 560
+  %12 = getelementptr i8, ptr %11, i64 560
   store ptr %9, ptr %12, align 8, !tbaa !30
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next22, 53
@@ -774,22 +774,22 @@ define hidden ptr @luaS_newudata(ptr noundef %0, i64 noundef %1, i16 noundef zer
   store i16 %2, ptr %16, align 2, !tbaa !45
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr null, ptr %17, align 8, !tbaa !46
-  br i1 %4, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %4, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %12
+.lr.ph:                                           ; preds = %12
   %wide.trip.count = zext i16 %2 to i64
-  br label %.lr.ph
+  br label %19
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %18 = getelementptr [1 x %union.UValue], ptr %14, i64 0, i64 %indvars.iv
-  %19 = getelementptr i8, ptr %18, i64 48
-  store i8 0, ptr %19, align 8, !tbaa !4
+  %20 = getelementptr i8, ptr %18, i64 48
+  store i8 0, ptr %20, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %19
 
-._crit_edge:                                      ; preds = %.lr.ph, %12
+._crit_edge:                                      ; preds = %19, %12
   ret ptr %14
 }
 

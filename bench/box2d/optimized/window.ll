@@ -90,13 +90,13 @@ define hidden void @_glfwInputWindowFocus(ptr noundef %0, i32 noundef %1) local_
   %.not20 = icmp eq i32 %1, 0
   br i1 %.not20, label %.preheader21, label %.loopexit
 
-.preheader21:                                     ; preds = %6, %15
+.preheader21:                                     ; preds = %6, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %6 ]
   %7 = getelementptr [349 x i8], ptr %0, i64 0, i64 %indvars.iv
   %8 = getelementptr i8, ptr %7, i64 152
   %9 = load i8, ptr %8, align 1, !tbaa !50
   %10 = icmp eq i8 %9, 1
-  br i1 %10, label %11, label %15
+  br i1 %10, label %11, label %9
 
 11:                                               ; preds = %.preheader21
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 144), align 8, !tbaa !51
@@ -105,20 +105,20 @@ define hidden void @_glfwInputWindowFocus(ptr noundef %0, i32 noundef %1) local_
   tail call void @_glfwInputKey(ptr noundef nonnull %0, i32 noundef %13, i32 noundef %14, i32 noundef 0, i32 noundef 0) #7
   br label %15
 
-15:                                               ; preds = %.preheader21, %11
+9:                                                ; preds = %.preheader21, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 349
   br i1 %exitcond.not, label %.preheader, label %.preheader21
 
-.preheader:                                       ; preds = %15, %22
+18:                                               ; preds = %9, %22
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %22 ], [ 0, %15 ]
-  %16 = getelementptr [8 x i8], ptr %0, i64 0, i64 %indvars.iv25
-  %17 = getelementptr i8, ptr %16, i64 144
+  %19 = getelementptr [8 x i8], ptr %0, i64 0, i64 %indvars.iv25
+  %17 = getelementptr i8, ptr %19, i64 144
   %18 = load i8, ptr %17, align 1, !tbaa !50
   %19 = icmp eq i8 %18, 1
   br i1 %19, label %20, label %22
 
-20:                                               ; preds = %.preheader
+20:; preds = %.preheader
   %21 = trunc nuw nsw i64 %indvars.iv25 to i32
   tail call void @_glfwInputMouseClick(ptr noundef nonnull %0, i32 noundef %21, i32 noundef 0, i32 noundef 0) #7
   br label %22
@@ -126,7 +126,7 @@ define hidden void @_glfwInputWindowFocus(ptr noundef %0, i32 noundef %1) local_
 22:                                               ; preds = %.preheader, %20
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 8
-  br i1 %exitcond28.not, label %.loopexit, label %.preheader
+  br i1 %exitcond28.not, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %22, %6
   ret void

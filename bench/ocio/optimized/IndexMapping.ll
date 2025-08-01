@@ -510,48 +510,48 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12IndexMappingeqERKS0
 
 .preheader:                                       ; preds = %4, %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit ], [ 0, %4 ]
-  %9 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %0, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 2
+  %10 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %0, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 2
   %10 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %1, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 2
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !15
-  %13 = load ptr, ptr %9, align 8, !tbaa !10
+  %13 = load ptr, ptr %10, align 8, !tbaa !10
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !15
+  %16 = load ptr, ptr %17, align 8, !tbaa !15
   %19 = load ptr, ptr %10, align 8, !tbaa !10
-  %20 = ptrtoint ptr %18 to i64
+  %18 = ptrtoint ptr %16 to i64
   %21 = ptrtoint ptr %19 to i64
-  %22 = sub i64 %20, %21
+  %22 = sub i64 %18, %21
   %23 = icmp eq i64 %16, %22
   br i1 %23, label %24, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread
 
-24:                                               ; preds = %.preheader
+27:                                               ; preds = %.preheader
   %.not9.i.i.i.i.i.i = icmp eq ptr %13, %12
   br i1 %.not9.i.i.i.i.i.i, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %24, %33
-  %.011.i.i.i.i.i.i = phi ptr [ %35, %33 ], [ %19, %24 ]
-  %.0810.i.i.i.i.i.i = phi ptr [ %34, %33 ], [ %13, %24 ]
-  %25 = load float, ptr %.0810.i.i.i.i.i.i, align 4, !tbaa !31
-  %26 = load float, ptr %.011.i.i.i.i.i.i, align 4, !tbaa !31
-  %27 = fcmp une float %25, %26
-  %28 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 4
-  %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 4
-  %31 = load float, ptr %30, align 4
-  %32 = fcmp une float %29, %31
-  %.not3.i = select i1 %27, i1 true, i1 %32
-  br i1 %.not3.i, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread, label %33
+.lr.ph.i.i.i.i.i.i:                               ; preds = %27, %36
+  %.011.i.i.i.i.i.i = phi ptr [ %38, %33 ], [ %19, %24 ]
+  %.0810.i.i.i.i.i.i = phi ptr [ %37, %33 ], [ %13, %24 ]
+  %28 = load float, ptr %.0810.i.i.i.i.i.i, align 4, !tbaa !31
+  %29 = load float, ptr %.011.i.i.i.i.i.i, align 4, !tbaa !31
+  %30 = fcmp une float %28, %29
+  %31 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 4
+  %32 = load float, ptr %31, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 4
+  %34 = load float, ptr %33, align 4
+  %35 = fcmp une float %32, %34
+  %.not3.i = select i1 %30, i1 true, i1 %35
+  br i1 %.not3.i, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread, label %36
 
-33:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %34, %12
+36:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %37, %12
   br i1 %.not.i.i.i.i.i.i, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !35
 
-_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %33, %24
+_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %36, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread, label %.preheader, !llvm.loop !36

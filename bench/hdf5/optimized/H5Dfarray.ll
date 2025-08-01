@@ -2171,19 +2171,19 @@ define internal i32 @H5D__farray_idx_iterate_cb(i64 %0, ptr noundef readonly cap
   %44 = load i64, ptr %43, align 8, !tbaa !39
   %45 = add i64 %44, 1
   store i64 %45, ptr %43, align 8, !tbaa !39
-  %46 = getelementptr [33 x i64], ptr %37, i64 0, i64 %42
-  %47 = getelementptr i8, ptr %46, i64 432
+  %45 = getelementptr [33 x i64], ptr %37, i64 0, i64 %42
+  %47 = getelementptr i8, ptr %45, i64 432
   %48 = load i64, ptr %47, align 8, !tbaa !39
   %.not30 = icmp ult i64 %45, %48
   br i1 %.not30, label %.loopexit, label %49
 
-49:                                               ; preds = %.lr.ph
+49:; preds = %.lr.ph
   store i64 0, ptr %43, align 8, !tbaa !39
   %50 = add nsw i32 %.031, -1
   %51 = icmp sgt i32 %.031, 0
   br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !89
 
-.loopexit:                                        ; preds = %.lr.ph, %49, %36, %3
+.loopexit:; preds = %.lr.ph, %49, %36, %3
   %.027 = phi i32 [ 0, %3 ], [ %.1, %36 ], [ %.1, %49 ], [ %.1, %.lr.ph ]
   ret i32 %.027
 }

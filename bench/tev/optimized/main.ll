@@ -74106,16 +74106,16 @@ thread-pre-split:                                 ; preds = %15, %23, %.thread-p
   %43 = icmp ugt i64 %42, 4
   br i1 %43, label %44, label %.lr.ph.i.i.i
 
-44:                                               ; preds = %40
+45:                                               ; preds = %40
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.160) #33
   unreachable
 
 .lr.ph.i.i.i:                                     ; preds = %40, %.lr.ph.i.i.i
   %.08.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i ], [ 0, %40 ]
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %.08.i.i.i
-  %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 0, i64 %.08.i.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 11
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %.08.i.i.i
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 0, i64 %.08.i.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %48, i64 11
   store i8 %46, ptr %48, align 1
   %49 = add nuw nsw i64 %.08.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %49, %42

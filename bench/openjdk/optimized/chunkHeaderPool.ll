@@ -59,9 +59,9 @@ define hidden void @_ZN9metaspace15ChunkHeaderPool17allocate_new_slabEv(ptr noun
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 72
   %6 = icmp eq i64 %.add.i, 9232
-  br i1 %6, label %.preheader.i, label %4
+  br i1 %6, label %.preheader.preheader.i, label %4
 
-.preheader.i:                                     ; preds = %4, %.preheader.i
+.preheader.preheader.i:                           ; preds = %4, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %4 ]
   %7 = getelementptr [128 x %"class.metaspace::Metachunk"], ptr %2, i64 0, i64 %indvars.iv.i, i32 2
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32

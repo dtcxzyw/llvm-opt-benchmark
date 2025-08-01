@@ -193,45 +193,45 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit:   ; preds = %2, %5
 _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16: ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit, %11
   %.sroa.03.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
   %.sroa.5.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8, !tbaa !20
-  %12 = icmp slt i32 %0, %9
-  br i1 %12, label %13, label %15
+  %11 = icmp slt i32 %0, %9
+  br i1 %11, label %12, label %14
 
-13:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16
-  %14 = add nsw i32 %0, 1
-  br label %23
+12:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16
+  %13 = add nsw i32 %0, 1
+  br label %22
 
-15:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16
+14:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
   store i32 0, ptr %3, align 4, !tbaa !22
-  %16 = icmp eq i32 %0, %9
-  br i1 %16, label %17, label %22
+  %15 = icmp eq i32 %0, %9
+  br i1 %15, label %16, label %21
 
-17:                                               ; preds = %15
+16:                                               ; preds = %14
   invoke void @AbslInternalMutexYield()
-          to label %18 unwind label %20
+          to label %18 unwind label %19
 
-18:                                               ; preds = %17
-  %19 = add nsw i32 %0, 1
+17:                                               ; preds = %16
+  %18 = add nsw i32 %0, 1
   br label %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit
 
-20:                                               ; preds = %22, %17
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %21, %16
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %20
 
-22:                                               ; preds = %15
+21:                                               ; preds = %14
   invoke void @AbslInternalSleepFor(i64 %.sroa.03.0.copyload, i32 %.sroa.5.0.copyload)
-          to label %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit unwind label %20
+          to label %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit unwind label %19
 
-_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit: ; preds = %18, %22
-  %.1 = phi i32 [ %19, %18 ], [ 0, %22 ]
+_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit: ; preds = %17, %21
+  %.1 = phi i32 [ %18, %18 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
-  br label %23
+  br label %22
 
-23:                                               ; preds = %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit, %13
-  %.0 = phi i32 [ %14, %13 ], [ %.1, %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit ]
+22:                                               ; preds = %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit, %12
+  %.0 = phi i32 [ %13, %13 ], [ %.1, %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit ]
   ret i32 %.0
 }
 

@@ -659,7 +659,7 @@ define void @Ifd_ObjPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
   br label %79
 
 79:                                               ; preds = %77, %59
-  br i1 %.not35, label %89, label %80
+  br i1 %.not35, label %88, label %80
 
 80:                                               ; preds = %79
   %81 = load i32, ptr %17, align 4
@@ -675,9 +675,9 @@ define void @Ifd_ObjPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
 .sink.split:                                      ; preds = %10, %80
   %.sink = phi i32 [ %88, %80 ], [ %13, %10 ]
   %putchar41 = tail call i32 @putchar(i32 %.sink)
-  br label %89
+  br label %88
 
-89:                                               ; preds = %.sink.split, %79
+88:                                               ; preds = %.sink.split, %79
   ret void
 }
 

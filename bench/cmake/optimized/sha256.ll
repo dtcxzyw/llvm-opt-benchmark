@@ -1231,14 +1231,14 @@ define dso_local void @lzma_sha256_finish(ptr noundef captures(none) %0) local_u
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %11, ptr %12, align 8, !tbaa !4
   tail call fastcc void @process(ptr noundef nonnull %0)
-  br label %14
+  br label %15
 
-13:                                               ; preds = %14
+14:                                               ; preds = %15
   ret void
 
-14:                                               ; preds = %8, %14
+15:                                               ; preds = %8, %15
   %.018 = phi i64 [ 0, %8 ], [ %19, %14 ]
-  %15 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %.018
+  %16 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %.018
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = tail call noundef i32 @llvm.bswap.i32(i32 %17)

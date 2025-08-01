@@ -7665,7 +7665,7 @@ define internal void @trace_event_raw_event_nfs4_idmap_event(ptr noundef %0, ptr
 
 14:                                               ; preds = %11
   %15 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
-  br i1 %15, label %35, label %16
+  br i1 %15, label %34, label %16
 
 16:                                               ; preds = %14, %11, %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !65
@@ -7675,7 +7675,7 @@ define internal void @trace_event_raw_event_nfs4_idmap_event(ptr noundef %0, ptr
   %20 = add nsw i64 %19, 24
   %21 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %20) #11
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %35, label %23
+  br i1 %22, label %34, label %23
 
 23:                                               ; preds = %16
   %24 = shl i32 %18, 16
@@ -7695,9 +7695,9 @@ define internal void @trace_event_raw_event_nfs4_idmap_event(ptr noundef %0, ptr
   %34 = getelementptr i8, ptr %33, i64 24
   store i8 0, ptr %34, align 1
   call void @trace_event_buffer_commit(ptr noundef nonnull %6) #11
-  br label %35
+  br label %34
 
-35:                                               ; preds = %23, %16, %14
+34:                                               ; preds = %23, %16, %14
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #11
   ret void
 }
@@ -7724,7 +7724,7 @@ define internal void @perf_trace_nfs4_idmap_event(ptr noundef %0, ptr noundef re
 18:                                               ; preds = %5
   %19 = load volatile ptr, ptr %14, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %48, label %21
+  br i1 %20, label %47, label %21
 
 21:                                               ; preds = %18, %5
   store i32 0, ptr %7, align 4, !annotation !65
@@ -7733,7 +7733,7 @@ define internal void @perf_trace_nfs4_idmap_event(ptr noundef %0, ptr noundef re
   %24 = add i32 %23, -4
   %25 = call ptr @perf_trace_buf_alloc(i32 noundef %24, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %48, label %27
+  br i1 %26, label %47, label %27
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %6, align 8
@@ -7768,7 +7768,7 @@ define internal void @perf_trace_nfs4_idmap_event(ptr noundef %0, ptr noundef re
   call void @perf_trace_run_bpf_submit(ptr noundef nonnull %25, i32 noundef %24, i32 noundef %46, ptr noundef %0, i64 noundef 1, ptr noundef %47, ptr noundef %14, ptr noundef null) #11
   br label %48
 
-48:                                               ; preds = %27, %21, %18
+47:                                               ; preds = %27, %21, %18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   ret void

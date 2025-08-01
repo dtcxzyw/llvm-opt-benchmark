@@ -236,10 +236,10 @@ define hidden noundef i32 @_sodium_blake2b_update(ptr noundef %0, ptr noundef re
   %.pre = load i64, ptr %4, align 1
   br label %9
 
-9:                                                ; preds = %.lr.ph, %17
-  %10 = phi i64 [ %.pre, %.lr.ph ], [ %34, %17 ]
+9:                                                ; preds = %.lr.ph, %16
+  %10 = phi i64 [ %.pre, %.lr.ph ], [ %32, %17 ]
   %.035 = phi ptr [ %1, %.lr.ph ], [ %.1, %17 ]
-  %.03034 = phi i64 [ %2, %.lr.ph ], [ %35, %17 ]
+  %.03034 = phi i64 [ %2, %.lr.ph ], [ %33, %17 ]
   %11 = sub i64 256, %10
   %12 = icmp ugt i64 %.03034, %11
   br i1 %12, label %17, label %.thread
@@ -253,7 +253,7 @@ define hidden noundef i32 @_sodium_blake2b_update(ptr noundef %0, ptr noundef re
   store i64 %16, ptr %4, align 1
   br label %._crit_edge
 
-17:                                               ; preds = %9
+16:                                               ; preds = %9
   %18 = getelementptr i8, ptr %5, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %18, ptr noundef nonnull align 1 %.035, i64 noundef %11, i1 noundef false) #8
   %19 = load i64, ptr %4, align 1
@@ -274,15 +274,15 @@ define hidden noundef i32 @_sodium_blake2b_update(ptr noundef %0, ptr noundef re
   %31 = load ptr, ptr @blake2b_compress, align 8
   %32 = tail call i32 %31(ptr noundef nonnull %0, ptr noundef nonnull %5) #8, !callees !10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %5, ptr noundef nonnull align 1 dereferenceable(128) %8, i64 noundef 128, i1 noundef false) #8
-  %33 = load i64, ptr %4, align 1
-  %34 = add i64 %33, -128
-  %35 = sub nuw i64 %.03034, %11
-  store i64 %34, ptr %4, align 1
+  %31 = load i64, ptr %4, align 1
+  %32 = add i64 %31, -128
+  %33 = sub nuw i64 %.03034, %11
+  store i64 %32, ptr %4, align 1
   %.1 = getelementptr i8, ptr %.035, i64 %11
-  %.not = icmp eq i64 %35, 0
+  %.not = icmp eq i64 %33, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %17, %.thread, %3
+._crit_edge:                                      ; preds = %16, %.thread, %3
   ret i32 0
 }
 

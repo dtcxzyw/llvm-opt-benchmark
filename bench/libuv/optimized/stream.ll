@@ -2114,7 +2114,7 @@ uv_read_stop.exit:                                ; preds = %1, %22
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %52 = load ptr, ptr %51, align 8
   %.not28 = icmp eq ptr %52, null
-  br i1 %.not28, label %63, label %.preheader
+  br i1 %.not28, label %64, label %.preheader
 
 .preheader:                                       ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -2129,22 +2129,22 @@ uv_read_stop.exit:                                ; preds = %1, %22
   %57 = load i32, ptr %56, align 4
   %58 = tail call i32 @uv__close(i32 noundef %57) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = load i32, ptr %53, align 4
-  %60 = zext i32 %59 to i64
-  %61 = icmp samesign ult i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph, label %._crit_edge.loopexit
+  %60 = load i32, ptr %53, align 4
+  %61 = zext i32 %60 to i64
+  %62 = icmp samesign ult i64 %indvars.iv.next, %61
+  br i1 %62, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre33 = load ptr, ptr %51, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %62 = phi ptr [ %.pre33, %._crit_edge.loopexit ], [ %52, %.preheader ]
-  tail call void @uv__free(ptr noundef %62) #12
+  %63 = phi ptr [ %.pre33, %._crit_edge.loopexit ], [ %52, %.preheader ]
+  tail call void @uv__free(ptr noundef %63) #12
   store ptr null, ptr %51, align 8
-  br label %63
+  br label %64
 
-63:                                               ; preds = %._crit_edge, %50
+64:                                               ; preds = %._crit_edge, %50
   ret void
 }
 

@@ -1128,13 +1128,13 @@ define dso_local void @SHA1Final(ptr noundef writeonly captures(none) %0, ptr no
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #8
-  br label %5
+  br label %6
 
-5:                                                ; preds = %2, %5
+6:                                                ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = icmp samesign ult i64 %indvars.iv, 4
-  %7 = zext i1 %6 to i64
-  %8 = getelementptr [2 x i32], ptr %1, i64 0, i64 %7
+  %7 = icmp samesign ult i64 %indvars.iv, 4
+  %8 = zext i1 %7 to i64
+  %9 = getelementptr [2 x i32], ptr %1, i64 0, i64 %8
   %9 = getelementptr i8, ptr %8, i64 20
   %10 = load i32, ptr %9, align 4, !tbaa !5
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
@@ -1147,9 +1147,9 @@ define dso_local void @SHA1Final(ptr noundef writeonly captures(none) %0, ptr no
   store i8 %15, ptr %16, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %17, label %5, !llvm.loop !12
+  br i1 %exitcond.not, label %17, label %6, !llvm.loop !12
 
-17:                                               ; preds = %5
+17:                                               ; preds = %6
   store i8 -128, ptr %4, align 1, !tbaa !11
   call void @SHA1Update(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -1161,34 +1161,34 @@ define dso_local void @SHA1Final(ptr noundef writeonly captures(none) %0, ptr no
 .lr.ph:                                           ; preds = %17, %.lr.ph
   store i8 0, ptr %4, align 1, !tbaa !11
   call void @SHA1Update(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1)
-  %21 = load i32, ptr %18, align 4, !tbaa !5
-  %22 = and i32 %21, 504
-  %.not = icmp eq i32 %22, 448
+  %20 = load i32, ptr %18, align 4, !tbaa !5
+  %21 = and i32 %20, 504
+  %.not = icmp eq i32 %21, 448
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   call void @SHA1Update(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 8)
-  br label %23
+  br label %22
 
-23:                                               ; preds = %._crit_edge, %23
+22:                                               ; preds = %._crit_edge, %22
   %indvars.iv21 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next22, %23 ]
-  %24 = lshr i64 %indvars.iv21, 2
-  %25 = and i64 %24, 1073741823
-  %26 = getelementptr inbounds nuw [5 x i32], ptr %1, i64 0, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !5
+  %23 = lshr i64 %indvars.iv21, 2
+  %24 = and i64 %23, 1073741823
+  %25 = getelementptr inbounds nuw [5 x i32], ptr %1, i64 0, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !5
   %indvars.iv21.tr = trunc i64 %indvars.iv21 to i32
-  %28 = shl i32 %indvars.iv21.tr, 3
-  %29 = and i32 %28, 24
-  %30 = xor i32 %29, 24
-  %31 = lshr i32 %27, %30
-  %32 = trunc i32 %31 to i8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv21
-  store i8 %32, ptr %33, align 1, !tbaa !11
+  %27 = shl i32 %indvars.iv21.tr, 3
+  %28 = and i32 %27, 24
+  %29 = xor i32 %28, 24
+  %30 = lshr i32 %26, %29
+  %31 = trunc i32 %30 to i8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv21
+  store i8 %31, ptr %32, align 1, !tbaa !11
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 20
-  br i1 %exitcond24.not, label %34, label %23, !llvm.loop !14
+  br i1 %exitcond24.not, label %33, label %22, !llvm.loop !14
 
-34:                                               ; preds = %23
+33:                                               ; preds = %22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1, i8 0, i64 92, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
